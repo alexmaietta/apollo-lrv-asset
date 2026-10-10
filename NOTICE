@@ -1,0 +1,9 @@
+Apollo LRV asset
+Copyright 2026 Alex Maietta
+
+The code in this repository is licensed under the Apache License, Version 2.0 (LICENSE).
+The model assets (assets/, textures/gen/) and renders (docs/images/) are licensed under
+Creative Commons Attribution 4.0 International (assets/LICENSE).
+
+examples/newton/newton_viewer_materials.patch and examples/newton/example_robot_lrv.py derive from
+Newton (https://github.com/newton-physics/newton), Copyright The Newton Developers, Apache License 2.0.

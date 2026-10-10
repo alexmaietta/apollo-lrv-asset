@@ -1,0 +1,47 @@
+# Blender 5.2.2 LTS MTL File: 'lrv.blend'
+# www.blender.org
+
+newmtl brass
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 3
+map_Kd -s 3.3333333 3.3333333 1 brass_basecolor.png
+map_Ns -s 3.3333333 3.3333333 1 brass_roughness.png
+map_Bump -s 3.3333333 3.3333333 1 -bm 0.600000 brass_normal.png
+
+newmtl fender
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd -s 3.3333333 3.3333333 1 fiberglass_fender_basecolor.png
+map_Ns -s 3.3333333 3.3333333 1 fiberglass_fender_roughness.png
+map_refl -s 3.3333333 3.3333333 1 fiberglass_fender_metallic.png
+map_Bump -s 3.3333333 3.3333333 1 -bm 0.600000 fiberglass_fender_normal.png
+
+newmtl fender_ext
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd -s 3.3333333 3.3333333 1 fiberglass_fender_ext_basecolor.png
+map_Ns -s 3.3333333 3.3333333 1 fiberglass_fender_ext_roughness.png
+map_refl -s 3.3333333 3.3333333 1 fiberglass_fender_ext_metallic.png
+map_Bump -s 3.3333333 3.3333333 1 -bm 0.600000 fiberglass_fender_ext_normal.png
+
+newmtl flag_decal
+Ns 360.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd flag_us.png

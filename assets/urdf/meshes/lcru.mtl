@@ -1,0 +1,218 @@
+# Blender 5.2.2 LTS MTL File: 'lrv.blend'
+# www.blender.org
+
+newmtl aluminium
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 3
+map_Kd -s 2.5 2.5 1 aluminium_basecolor.png
+map_Ns -s 2.5 2.5 1 aluminium_roughness.png
+map_Bump -s 2.5 2.5 1 -bm 0.400000 aluminium_normal.png
+
+newmtl aluminium_spun
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 3
+map_Kd -s 6.6666665 6.6666665 1 aluminium_spun_basecolor.png
+map_Ns -s 6.6666665 6.6666665 1 aluminium_spun_roughness.png
+map_Bump -s 6.6666665 6.6666665 1 -bm 0.300000 aluminium_spun_normal.png
+
+newmtl black_paint
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd -s 3.3333333 3.3333333 1 black_paint_basecolor.png
+map_Ns -s 3.3333333 3.3333333 1 black_paint_roughness.png
+map_Bump -s 3.3333333 3.3333333 1 -bm 0.300000 black_paint_normal.png
+
+newmtl chrome
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 3
+map_Kd -s 3.3333333 3.3333333 1 chrome_basecolor.png
+map_Ns -s 3.3333333 3.3333333 1 chrome_roughness.png
+map_Bump -s 3.3333333 3.3333333 1 -bm 0.600000 chrome_normal.png
+
+newmtl eq_beta_cloth
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd -s 2.5 2.5 1 eq_beta_cloth_basecolor.png
+map_Ns -s 2.5 2.5 1 eq_beta_cloth_roughness.png
+map_Bump -s 2.5 2.5 1 -bm 0.600000 eq_beta_cloth_normal.png
+
+newmtl eq_black_anodized
+Ka 0.400000 0.400000 0.400000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 3
+map_Kd -s 10 10 1 eq_black_anodized_basecolor.png
+map_Ns -s 10 10 1 eq_black_anodized_roughness.png
+map_Bump -s 10 10 1 -bm 0.600000 eq_black_anodized_normal.png
+
+newmtl eq_blue_anodized
+Ka 0.300000 0.300000 0.300000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 3
+map_Kd -s 10 10 1 eq_blue_anodized_basecolor.png
+map_Ns -s 10 10 1 eq_blue_anodized_roughness.png
+map_Bump -s 10 10 1 -bm 0.600000 eq_blue_anodized_normal.png
+
+newmtl eq_gold_kapton
+Ka 0.900000 0.900000 0.900000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 3
+map_Kd -s 2 2 1 eq_gold_kapton_basecolor.png
+map_Ns -s 2 2 1 eq_gold_kapton_roughness.png
+map_Bump -s 2 2 1 -bm 0.600000 eq_gold_kapton_normal.png
+
+newmtl eq_knob_bronze
+Ka 0.400000 0.400000 0.400000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 3
+map_Kd -s 10 10 1 eq_knob_bronze_basecolor.png
+map_Ns -s 10 10 1 eq_knob_bronze_roughness.png
+map_Bump -s 10 10 1 -bm 0.600000 eq_knob_bronze_normal.png
+
+newmtl eq_label_hga
+Ns 39.999996
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd eq_label_hga.png
+
+newmtl eq_label_lga
+Ns 39.999996
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd eq_label_lga.png
+
+newmtl eq_lcru_panel_face
+Ns 250.000000
+Ka 0.300000 0.300000 0.300000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 3
+map_Kd eq_lcru_panel.png
+
+newmtl eq_lcru_panel_plate
+Ka 0.300000 0.300000 0.300000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 3
+map_Kd -s 3.3333333 3.3333333 1 eq_lcru_panel_plate_basecolor.png
+map_Ns -s 3.3333333 3.3333333 1 eq_lcru_panel_plate_roughness.png
+map_Bump -s 3.3333333 3.3333333 1 -bm 0.600000 eq_lcru_panel_plate_normal.png
+
+newmtl eq_osr_mirror
+Ns 940.900024
+Ka 1.000000 1.000000 1.000000
+Kd 0.930000 0.940000 0.960000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 3
+
+newmtl eq_red_anodized
+Ka 0.300000 0.300000 0.300000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 3
+map_Kd -s 10 10 1 eq_red_anodized_basecolor.png
+map_Ns -s 10 10 1 eq_red_anodized_roughness.png
+map_Bump -s 10 10 1 -bm 0.600000 eq_red_anodized_normal.png
+
+newmtl eq_teflon_white
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd -s 10 10 1 eq_teflon_white_basecolor.png
+map_Ns -s 10 10 1 eq_teflon_white_roughness.png
+map_Bump -s 10 10 1 -bm 0.600000 eq_teflon_white_normal.png
+
+newmtl eq_velcro
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd -s 12.5 12.5 1 eq_velcro_basecolor.png
+map_Ns -s 12.5 12.5 1 eq_velcro_roughness.png
+map_Bump -s 12.5 12.5 1 -bm 0.600000 eq_velcro_normal.png
+
+newmtl eq_white_tape
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd -s 12.5 12.5 1 eq_white_tape_basecolor.png
+map_Ns -s 12.5 12.5 1 eq_white_tape_roughness.png
+map_Bump -s 12.5 12.5 1 -bm 0.600000 eq_white_tape_normal.png
+
+newmtl steel
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 3
+map_Kd -s 5 5 1 steel_basecolor.png
+map_Ns -s 5 5 1 steel_roughness.png
+map_Bump -s 5 5 1 -bm 0.400000 steel_normal.png
+
+newmtl white_paint
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd -s 3.3333333 3.3333333 1 white_paint_basecolor.png
+map_Ns -s 3.3333333 3.3333333 1 white_paint_roughness.png
+map_Bump -s 3.3333333 3.3333333 1 -bm 0.300000 white_paint_normal.png

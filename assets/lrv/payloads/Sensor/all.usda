@@ -1,0 +1,58 @@
+#usda 1.0
+(
+    customLayerData = {
+        string creator = "lrv pipeline (scripts/package_usd.py)"
+    }
+    defaultPrim = "lrv"
+    kilogramsPerUnit = 1
+    metersPerUnit = 1
+    upAxis = "Z"
+)
+
+def "lrv"
+{
+    def "Geometry"
+    {
+        def "chassis"
+        {
+            def "chassis_fwd"
+            {
+                def "tcu"
+                {
+                    def "tv_pan"
+                    {
+                        def "tv_camera"
+                        {
+                            def Camera "tv_camera_optics" (
+                                prepend apiSchemas = ["SemanticsLabelsAPI:class"]
+                                doc = "RCA silicon intensifier target (SIT) tube, field-sequential colour. Optics: Apollo 17 press kit (NTRS 20090012049); GCTA final report Table 1-2 (NTRS 19730010465)."
+                            )
+                            {
+                                float2 clippingRange = (0.05, 5000)
+                                float focalLength = 0.125
+                                float focusDistance = 10
+                                float fStop = 2.2
+                                float horizontalAperture = 0.127
+                                custom float2 lrv:focalLengthRange = (0.125, 0.75) (
+                                    doc = "Zoom range, same units as focalLength (tenths of a scene unit)"
+                                )
+                                custom float lrv:frameRate = 29.97
+                                custom float2 lrv:fStopRange = (2.2, 22)
+                                custom float lrv:panTiltRate = 3
+                                custom int2 lrv:resolution = (640, 480)
+                                token projection = "perspective"
+                                token[] semantics:labels:class = ["camera_sensor"]
+                                float verticalAperture = 0.09525
+                                quatd xformOp:orient = (-0.5000000000000002, -0.5, 0.5, 0.5)
+                                double3 xformOp:scale = (1, 1, 1)
+                                double3 xformOp:translate = (0.2844799757003784, 0, 0.08381998538970947)
+                                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+

@@ -1,0 +1,1340 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="lrv">
+  <link name="aft_steer_sector">
+    <inertial>
+      <mass value="1.2000" />
+      <inertia ixx="0.001200" iyy="0.001200" izz="0.001200" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="aft_steer_sector_visual">
+      <geometry>
+        <mesh filename="meshes/aft_steer_sector.obj" />
+      </geometry>
+    </visual>
+  </link>
+  <link name="bat1_cover">
+    <inertial>
+      <mass value="0.9000" />
+      <inertia ixx="0.000900" iyy="0.000900" izz="0.000900" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="bat1_cover_visual">
+      <geometry>
+        <mesh filename="meshes/bat1_cover.obj" />
+      </geometry>
+    </visual>
+  </link>
+  <link name="bat2_cover">
+    <inertial>
+      <mass value="0.4500" />
+      <inertia ixx="0.000450" iyy="0.000450" izz="0.000450" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="bat2_cover_visual">
+      <geometry>
+        <mesh filename="meshes/bat2_cover.obj" />
+      </geometry>
+    </visual>
+  </link>
+  <link name="chassis">
+    <inertial>
+      <mass value="42.5900" />
+      <inertia ixx="0.383310" iyy="0.383310" izz="0.383310" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="chassis_visual">
+      <geometry>
+        <mesh filename="meshes/chassis.obj" />
+      </geometry>
+    </visual>
+    <collision name="chassis_collision">
+      <origin xyz="0.01778 0.00000 0.43376" rpy="0 0 0" />
+      <geometry>
+        <box size="1.34620 1.40843 0.07493" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="chassis_aft">
+    <inertial>
+      <mass value="12.0000" />
+      <inertia ixx="0.108000" iyy="0.108000" izz="0.108000" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="chassis_aft_visual">
+      <geometry>
+        <mesh filename="meshes/chassis_aft.obj" />
+      </geometry>
+    </visual>
+    <collision name="chassis_aft_collision">
+      <origin xyz="-0.35179 0.00000 -0.03747" rpy="0 0 0" />
+      <geometry>
+        <box size="0.70358 0.94869 0.07493" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="chassis_fwd">
+    <inertial>
+      <mass value="75.0000" />
+      <inertia ixx="0.675000" iyy="0.675000" izz="0.675000" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="chassis_fwd_visual">
+      <geometry>
+        <mesh filename="meshes/chassis_fwd.obj" />
+      </geometry>
+    </visual>
+    <collision name="chassis_fwd_collision">
+      <origin xyz="0.36576 0.00000 -0.03747" rpy="0 0 0" />
+      <geometry>
+        <box size="0.73152 0.94869 0.07493" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="extension_handle">
+    <inertial>
+      <mass value="0.7000" />
+      <inertia ixx="0.000700" iyy="0.000700" izz="0.000700" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="extension_handle_visual">
+      <geometry>
+        <mesh filename="meshes/extension_handle.obj" />
+      </geometry>
+    </visual>
+  </link>
+  <link name="fwd_steer_sector">
+    <inertial>
+      <mass value="1.2000" />
+      <inertia ixx="0.001200" iyy="0.001200" izz="0.001200" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="fwd_steer_sector_visual">
+      <geometry>
+        <mesh filename="meshes/fwd_steer_sector.obj" />
+      </geometry>
+    </visual>
+  </link>
+  <link name="gnomon">
+    <inertial>
+      <mass value="0.3500" />
+      <inertia ixx="0.000350" iyy="0.000350" izz="0.000350" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="gnomon_visual">
+      <geometry>
+        <mesh filename="meshes/gnomon.obj" />
+      </geometry>
+    </visual>
+  </link>
+  <link name="hammer">
+    <inertial>
+      <mass value="0.6500" />
+      <inertia ixx="0.000650" iyy="0.000650" izz="0.000650" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="hammer_visual">
+      <geometry>
+        <mesh filename="meshes/hammer.obj" />
+      </geometry>
+    </visual>
+  </link>
+  <link name="hc_brake">
+    <inertial>
+      <mass value="0.3500" />
+      <inertia ixx="0.000350" iyy="0.000350" izz="0.000350" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="hc_brake_visual">
+      <geometry>
+        <mesh filename="meshes/hc_brake.obj" />
+      </geometry>
+    </visual>
+  </link>
+  <link name="hc_reverse_switch">
+    <inertial>
+      <mass value="0.0100" />
+      <inertia ixx="0.000010" iyy="0.000010" izz="0.000010" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="hc_reverse_switch_visual">
+      <geometry>
+        <mesh filename="meshes/hc_reverse_switch.obj" />
+      </geometry>
+    </visual>
+  </link>
+  <link name="hc_steer">
+    <inertial>
+      <mass value="0.2500" />
+      <inertia ixx="0.000250" iyy="0.000250" izz="0.000250" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="hc_steer_visual">
+      <geometry>
+        <mesh filename="meshes/hc_steer.obj" />
+      </geometry>
+    </visual>
+  </link>
+  <link name="hc_throttle">
+    <inertial>
+      <mass value="0.3000" />
+      <inertia ixx="0.000300" iyy="0.000300" izz="0.000300" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="hc_throttle_visual">
+      <geometry>
+        <mesh filename="meshes/hc_throttle.obj" />
+      </geometry>
+    </visual>
+  </link>
+  <link name="hga_az">
+    <inertial>
+      <mass value="0.3500" />
+      <inertia ixx="0.000350" iyy="0.000350" izz="0.000350" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="hga_az_visual">
+      <geometry>
+        <mesh filename="meshes/hga_az.obj" />
+      </geometry>
+    </visual>
+  </link>
+  <link name="hga_dish">
+    <inertial>
+      <mass value="1.9000" />
+      <inertia ixx="0.001900" iyy="0.001900" izz="0.001900" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="hga_dish_visual">
+      <geometry>
+        <mesh filename="meshes/hga_dish.obj" />
+      </geometry>
+    </visual>
+  </link>
+  <link name="hga_el">
+    <inertial>
+      <mass value="0.5000" />
+      <inertia ixx="0.000500" iyy="0.000500" izz="0.000500" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="hga_el_visual">
+      <geometry>
+        <mesh filename="meshes/hga_el.obj" />
+      </geometry>
+    </visual>
+  </link>
+  <link name="hga_mast">
+    <inertial>
+      <mass value="1.2000" />
+      <inertia ixx="0.001200" iyy="0.001200" izz="0.001200" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="hga_mast_visual">
+      <geometry>
+        <mesh filename="meshes/hga_mast.obj" />
+      </geometry>
+    </visual>
+  </link>
+  <link name="hga_mast_ext">
+    <inertial>
+      <mass value="0.6000" />
+      <inertia ixx="0.000600" iyy="0.000600" izz="0.000600" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="hga_mast_ext_visual">
+      <geometry>
+        <mesh filename="meshes/hga_mast_ext.obj" />
+      </geometry>
+    </visual>
+  </link>
+  <link name="lcru">
+    <inertial>
+      <mass value="24.9480" />
+      <inertia ixx="0.024948" iyy="0.024948" izz="0.024948" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="lcru_visual">
+      <geometry>
+        <mesh filename="meshes/lcru.obj" />
+      </geometry>
+    </visual>
+  </link>
+  <link name="lf_damper_cyl">
+    <inertial>
+      <mass value="0.3000" />
+      <inertia ixx="0.000300" iyy="0.000300" izz="0.000300" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="lf_damper_cyl_visual">
+      <geometry>
+        <mesh filename="meshes/lf_damper_cyl.obj" />
+      </geometry>
+    </visual>
+  </link>
+  <link name="lf_damper_rod">
+    <inertial>
+      <mass value="0.2000" />
+      <inertia ixx="0.000200" iyy="0.000200" izz="0.000200" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="lf_damper_rod_visual">
+      <geometry>
+        <mesh filename="meshes/lf_damper_rod.obj" />
+      </geometry>
+    </visual>
+  </link>
+  <link name="lf_fender_ext">
+    <inertial>
+      <mass value="0.3000" />
+      <inertia ixx="0.000300" iyy="0.000300" izz="0.000300" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="lf_fender_ext_visual">
+      <geometry>
+        <mesh filename="meshes/lf_fender_ext.obj" />
+      </geometry>
+    </visual>
+  </link>
+  <link name="lf_lower_arm">
+    <inertial>
+      <mass value="1.5000" />
+      <inertia ixx="0.001500" iyy="0.001500" izz="0.001500" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="lf_lower_arm_visual">
+      <geometry>
+        <mesh filename="meshes/lf_lower_arm.obj" />
+      </geometry>
+    </visual>
+  </link>
+  <link name="lf_steer">
+    <inertial>
+      <mass value="8.0000" />
+      <inertia ixx="0.008000" iyy="0.008000" izz="0.008000" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="lf_steer_visual">
+      <geometry>
+        <mesh filename="meshes/lf_steer.obj" />
+      </geometry>
+    </visual>
+  </link>
+  <link name="lf_tie_rod">
+    <inertial>
+      <mass value="0.3500" />
+      <inertia ixx="0.000350" iyy="0.000350" izz="0.000350" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="lf_tie_rod_visual">
+      <geometry>
+        <mesh filename="meshes/lf_tie_rod.obj" />
+      </geometry>
+    </visual>
+  </link>
+  <link name="lf_upper_arm">
+    <inertial>
+      <mass value="1.0000" />
+      <inertia ixx="0.001000" iyy="0.001000" izz="0.001000" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="lf_upper_arm_visual">
+      <geometry>
+        <mesh filename="meshes/lf_upper_arm.obj" />
+      </geometry>
+    </visual>
+  </link>
+  <link name="lf_upright">
+    <inertial>
+      <mass value="1.0000" />
+      <inertia ixx="0.001000" iyy="0.001000" izz="0.001000" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="lf_upright_visual">
+      <geometry>
+        <mesh filename="meshes/lf_upright.obj" />
+      </geometry>
+    </visual>
+  </link>
+  <link name="lf_wheel">
+    <inertial>
+      <mass value="5.4000" />
+      <inertia ixx="0.005400" iyy="0.005400" izz="0.005400" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="lf_wheel_visual">
+      <geometry>
+        <mesh filename="meshes/lf_wheel.obj" />
+      </geometry>
+    </visual>
+    <collision name="lf_wheel_collision">
+      <origin xyz="0 0 0" rpy="1.570796 0 0" />
+      <geometry>
+        <cylinder radius="0.409" length="0.23" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="lga_antenna">
+    <inertial>
+      <mass value="0.5000" />
+      <inertia ixx="0.000500" iyy="0.000500" izz="0.000500" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="lga_antenna_visual">
+      <geometry>
+        <mesh filename="meshes/lga_antenna.obj" />
+      </geometry>
+    </visual>
+  </link>
+  <link name="lga_staff">
+    <inertial>
+      <mass value="0.6000" />
+      <inertia ixx="0.000600" iyy="0.000600" izz="0.000600" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="lga_staff_visual">
+      <geometry>
+        <mesh filename="meshes/lga_staff.obj" />
+      </geometry>
+    </visual>
+  </link>
+  <link name="lr_damper_cyl">
+    <inertial>
+      <mass value="0.3000" />
+      <inertia ixx="0.000300" iyy="0.000300" izz="0.000300" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="lr_damper_cyl_visual">
+      <geometry>
+        <mesh filename="meshes/lr_damper_cyl.obj" />
+      </geometry>
+    </visual>
+  </link>
+  <link name="lr_damper_rod">
+    <inertial>
+      <mass value="0.2000" />
+      <inertia ixx="0.000200" iyy="0.000200" izz="0.000200" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="lr_damper_rod_visual">
+      <geometry>
+        <mesh filename="meshes/lr_damper_rod.obj" />
+      </geometry>
+    </visual>
+  </link>
+  <link name="lr_fender_ext">
+    <inertial>
+      <mass value="0.3000" />
+      <inertia ixx="0.000300" iyy="0.000300" izz="0.000300" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="lr_fender_ext_visual">
+      <geometry>
+        <mesh filename="meshes/lr_fender_ext.obj" />
+      </geometry>
+    </visual>
+  </link>
+  <link name="lr_lower_arm">
+    <inertial>
+      <mass value="1.5000" />
+      <inertia ixx="0.001500" iyy="0.001500" izz="0.001500" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="lr_lower_arm_visual">
+      <geometry>
+        <mesh filename="meshes/lr_lower_arm.obj" />
+      </geometry>
+    </visual>
+  </link>
+  <link name="lr_steer">
+    <inertial>
+      <mass value="8.0000" />
+      <inertia ixx="0.008000" iyy="0.008000" izz="0.008000" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="lr_steer_visual">
+      <geometry>
+        <mesh filename="meshes/lr_steer.obj" />
+      </geometry>
+    </visual>
+  </link>
+  <link name="lr_tie_rod">
+    <inertial>
+      <mass value="0.3500" />
+      <inertia ixx="0.000350" iyy="0.000350" izz="0.000350" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="lr_tie_rod_visual">
+      <geometry>
+        <mesh filename="meshes/lr_tie_rod.obj" />
+      </geometry>
+    </visual>
+  </link>
+  <link name="lr_upper_arm">
+    <inertial>
+      <mass value="1.0000" />
+      <inertia ixx="0.001000" iyy="0.001000" izz="0.001000" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="lr_upper_arm_visual">
+      <geometry>
+        <mesh filename="meshes/lr_upper_arm.obj" />
+      </geometry>
+    </visual>
+  </link>
+  <link name="lr_upright">
+    <inertial>
+      <mass value="1.0000" />
+      <inertia ixx="0.001000" iyy="0.001000" izz="0.001000" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="lr_upright_visual">
+      <geometry>
+        <mesh filename="meshes/lr_upright.obj" />
+      </geometry>
+    </visual>
+  </link>
+  <link name="lr_wheel">
+    <inertial>
+      <mass value="5.4000" />
+      <inertia ixx="0.005400" iyy="0.005400" izz="0.005400" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="lr_wheel_visual">
+      <geometry>
+        <mesh filename="meshes/lr_wheel.obj" />
+      </geometry>
+    </visual>
+    <collision name="lr_wheel_collision">
+      <origin xyz="0 0 0" rpy="1.570796 0 0" />
+      <geometry>
+        <cylinder radius="0.409" length="0.23" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="pallet">
+    <inertial>
+      <mass value="11.0000" />
+      <inertia ixx="0.011000" iyy="0.011000" izz="0.011000" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="pallet_visual">
+      <geometry>
+        <mesh filename="meshes/pallet.obj" />
+      </geometry>
+    </visual>
+  </link>
+  <link name="rake">
+    <inertial>
+      <mass value="0.9000" />
+      <inertia ixx="0.000900" iyy="0.000900" izz="0.000900" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="rake_visual">
+      <geometry>
+        <mesh filename="meshes/rake.obj" />
+      </geometry>
+    </visual>
+  </link>
+  <link name="rf_damper_cyl">
+    <inertial>
+      <mass value="0.3000" />
+      <inertia ixx="0.000300" iyy="0.000300" izz="0.000300" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="rf_damper_cyl_visual">
+      <geometry>
+        <mesh filename="meshes/rf_damper_cyl.obj" />
+      </geometry>
+    </visual>
+  </link>
+  <link name="rf_damper_rod">
+    <inertial>
+      <mass value="0.2000" />
+      <inertia ixx="0.000200" iyy="0.000200" izz="0.000200" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="rf_damper_rod_visual">
+      <geometry>
+        <mesh filename="meshes/rf_damper_rod.obj" />
+      </geometry>
+    </visual>
+  </link>
+  <link name="rf_fender_ext">
+    <inertial>
+      <mass value="0.3000" />
+      <inertia ixx="0.000300" iyy="0.000300" izz="0.000300" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="rf_fender_ext_visual">
+      <geometry>
+        <mesh filename="meshes/rf_fender_ext.obj" />
+      </geometry>
+    </visual>
+  </link>
+  <link name="rf_lower_arm">
+    <inertial>
+      <mass value="1.5000" />
+      <inertia ixx="0.001500" iyy="0.001500" izz="0.001500" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="rf_lower_arm_visual">
+      <geometry>
+        <mesh filename="meshes/rf_lower_arm.obj" />
+      </geometry>
+    </visual>
+  </link>
+  <link name="rf_steer">
+    <inertial>
+      <mass value="8.0000" />
+      <inertia ixx="0.008000" iyy="0.008000" izz="0.008000" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="rf_steer_visual">
+      <geometry>
+        <mesh filename="meshes/rf_steer.obj" />
+      </geometry>
+    </visual>
+  </link>
+  <link name="rf_tie_rod">
+    <inertial>
+      <mass value="0.3500" />
+      <inertia ixx="0.000350" iyy="0.000350" izz="0.000350" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="rf_tie_rod_visual">
+      <geometry>
+        <mesh filename="meshes/rf_tie_rod.obj" />
+      </geometry>
+    </visual>
+  </link>
+  <link name="rf_upper_arm">
+    <inertial>
+      <mass value="1.0000" />
+      <inertia ixx="0.001000" iyy="0.001000" izz="0.001000" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="rf_upper_arm_visual">
+      <geometry>
+        <mesh filename="meshes/rf_upper_arm.obj" />
+      </geometry>
+    </visual>
+  </link>
+  <link name="rf_upright">
+    <inertial>
+      <mass value="1.0000" />
+      <inertia ixx="0.001000" iyy="0.001000" izz="0.001000" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="rf_upright_visual">
+      <geometry>
+        <mesh filename="meshes/rf_upright.obj" />
+      </geometry>
+    </visual>
+  </link>
+  <link name="rf_wheel">
+    <inertial>
+      <mass value="5.4000" />
+      <inertia ixx="0.005400" iyy="0.005400" izz="0.005400" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="rf_wheel_visual">
+      <geometry>
+        <mesh filename="meshes/rf_wheel.obj" />
+      </geometry>
+    </visual>
+    <collision name="rf_wheel_collision">
+      <origin xyz="0 0 0" rpy="1.570796 0 0" />
+      <geometry>
+        <cylinder radius="0.409" length="0.23" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="rr_damper_cyl">
+    <inertial>
+      <mass value="0.3000" />
+      <inertia ixx="0.000300" iyy="0.000300" izz="0.000300" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="rr_damper_cyl_visual">
+      <geometry>
+        <mesh filename="meshes/rr_damper_cyl.obj" />
+      </geometry>
+    </visual>
+  </link>
+  <link name="rr_damper_rod">
+    <inertial>
+      <mass value="0.2000" />
+      <inertia ixx="0.000200" iyy="0.000200" izz="0.000200" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="rr_damper_rod_visual">
+      <geometry>
+        <mesh filename="meshes/rr_damper_rod.obj" />
+      </geometry>
+    </visual>
+  </link>
+  <link name="rr_fender_ext">
+    <inertial>
+      <mass value="0.3000" />
+      <inertia ixx="0.000300" iyy="0.000300" izz="0.000300" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="rr_fender_ext_visual">
+      <geometry>
+        <mesh filename="meshes/rr_fender_ext.obj" />
+      </geometry>
+    </visual>
+  </link>
+  <link name="rr_lower_arm">
+    <inertial>
+      <mass value="1.5000" />
+      <inertia ixx="0.001500" iyy="0.001500" izz="0.001500" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="rr_lower_arm_visual">
+      <geometry>
+        <mesh filename="meshes/rr_lower_arm.obj" />
+      </geometry>
+    </visual>
+  </link>
+  <link name="rr_steer">
+    <inertial>
+      <mass value="8.0000" />
+      <inertia ixx="0.008000" iyy="0.008000" izz="0.008000" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="rr_steer_visual">
+      <geometry>
+        <mesh filename="meshes/rr_steer.obj" />
+      </geometry>
+    </visual>
+  </link>
+  <link name="rr_tie_rod">
+    <inertial>
+      <mass value="0.3500" />
+      <inertia ixx="0.000350" iyy="0.000350" izz="0.000350" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="rr_tie_rod_visual">
+      <geometry>
+        <mesh filename="meshes/rr_tie_rod.obj" />
+      </geometry>
+    </visual>
+  </link>
+  <link name="rr_upper_arm">
+    <inertial>
+      <mass value="1.0000" />
+      <inertia ixx="0.001000" iyy="0.001000" izz="0.001000" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="rr_upper_arm_visual">
+      <geometry>
+        <mesh filename="meshes/rr_upper_arm.obj" />
+      </geometry>
+    </visual>
+  </link>
+  <link name="rr_upright">
+    <inertial>
+      <mass value="1.0000" />
+      <inertia ixx="0.001000" iyy="0.001000" izz="0.001000" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="rr_upright_visual">
+      <geometry>
+        <mesh filename="meshes/rr_upright.obj" />
+      </geometry>
+    </visual>
+  </link>
+  <link name="rr_wheel">
+    <inertial>
+      <mass value="5.4000" />
+      <inertia ixx="0.005400" iyy="0.005400" izz="0.005400" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="rr_wheel_visual">
+      <geometry>
+        <mesh filename="meshes/rr_wheel.obj" />
+      </geometry>
+    </visual>
+    <collision name="rr_wheel_collision">
+      <origin xyz="0 0 0" rpy="1.570796 0 0" />
+      <geometry>
+        <cylinder radius="0.409" length="0.23" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="scoop">
+    <inertial>
+      <mass value="0.6000" />
+      <inertia ixx="0.000600" iyy="0.000600" izz="0.000600" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="scoop_visual">
+      <geometry>
+        <mesh filename="meshes/scoop.obj" />
+      </geometry>
+    </visual>
+  </link>
+  <link name="seat_back_l">
+    <inertial>
+      <mass value="1.6000" />
+      <inertia ixx="0.001600" iyy="0.001600" izz="0.001600" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="seat_back_l_visual">
+      <geometry>
+        <mesh filename="meshes/seat_back_l.obj" />
+      </geometry>
+    </visual>
+  </link>
+  <link name="seat_back_r">
+    <inertial>
+      <mass value="1.6000" />
+      <inertia ixx="0.001600" iyy="0.001600" izz="0.001600" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="seat_back_r_visual">
+      <geometry>
+        <mesh filename="meshes/seat_back_r.obj" />
+      </geometry>
+    </visual>
+  </link>
+  <link name="sep_antenna">
+    <inertial>
+      <mass value="0.9000" />
+      <inertia ixx="0.000900" iyy="0.000900" izz="0.000900" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="sep_antenna_visual">
+      <geometry>
+        <mesh filename="meshes/sep_antenna.obj" />
+      </geometry>
+    </visual>
+  </link>
+  <link name="sep_receiver">
+    <inertial>
+      <mass value="8.0000" />
+      <inertia ixx="0.008000" iyy="0.008000" izz="0.008000" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="sep_receiver_visual">
+      <geometry>
+        <mesh filename="meshes/sep_receiver.obj" />
+      </geometry>
+    </visual>
+  </link>
+  <link name="spu_cover">
+    <inertial>
+      <mass value="0.3500" />
+      <inertia ixx="0.000350" iyy="0.000350" izz="0.000350" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="spu_cover_visual">
+      <geometry>
+        <mesh filename="meshes/spu_cover.obj" />
+      </geometry>
+    </visual>
+  </link>
+  <link name="tcu">
+    <inertial>
+      <mass value="3.8000" />
+      <inertia ixx="0.003800" iyy="0.003800" izz="0.003800" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="tcu_visual">
+      <geometry>
+        <mesh filename="meshes/tcu.obj" />
+      </geometry>
+    </visual>
+  </link>
+  <link name="tongs_1">
+    <inertial>
+      <mass value="0.4500" />
+      <inertia ixx="0.000450" iyy="0.000450" izz="0.000450" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="tongs_1_visual">
+      <geometry>
+        <mesh filename="meshes/tongs_1.obj" />
+      </geometry>
+    </visual>
+  </link>
+  <link name="tongs_2">
+    <inertial>
+      <mass value="0.4500" />
+      <inertia ixx="0.000450" iyy="0.000450" izz="0.000450" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="tongs_2_visual">
+      <geometry>
+        <mesh filename="meshes/tongs_2.obj" />
+      </geometry>
+    </visual>
+  </link>
+  <link name="traverse_gravimeter">
+    <inertial>
+      <mass value="12.7000" />
+      <inertia ixx="0.012700" iyy="0.012700" izz="0.012700" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="traverse_gravimeter_visual">
+      <geometry>
+        <mesh filename="meshes/traverse_gravimeter.obj" />
+      </geometry>
+    </visual>
+  </link>
+  <link name="tv_camera">
+    <inertial>
+      <mass value="3.6000" />
+      <inertia ixx="0.003600" iyy="0.003600" izz="0.003600" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="tv_camera_visual">
+      <geometry>
+        <mesh filename="meshes/tv_camera.obj" />
+      </geometry>
+    </visual>
+  </link>
+  <link name="tv_pan">
+    <inertial>
+      <mass value="0.9000" />
+      <inertia ixx="0.000900" iyy="0.000900" izz="0.000900" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="tv_pan_visual">
+      <geometry>
+        <mesh filename="meshes/tv_pan.obj" />
+      </geometry>
+    </visual>
+  </link>
+  <joint name="aft_steer_sector" type="revolute">
+    <origin xyz="-0.48768 0.00000 -0.09123" rpy="0 0 0" />
+    <parent link="chassis_aft" />
+    <child link="aft_steer_sector" />
+    <axis xyz="0.000000 0.000000 -1.000000" />
+    <limit lower="-0.813764" upper="0.813764" effort="142.85714285714286" velocity="10.000" />
+    <dynamics damping="0.0" friction="0" />
+  </joint>
+  <joint name="bat1_cover" type="fixed">
+    <origin xyz="0.30226 0.45720 0.22149" rpy="0 0 0" />
+    <parent link="chassis_fwd" />
+    <child link="bat1_cover" />
+  </joint>
+  <joint name="bat2_cover" type="fixed">
+    <origin xyz="0.44704 -0.45720 0.22149" rpy="0 0 0" />
+    <parent link="chassis_fwd" />
+    <child link="bat2_cover" />
+  </joint>
+  <joint name="chassis_aft" type="fixed">
+    <origin xyz="-0.65532 0.00000 0.47123" rpy="0 0 0" />
+    <parent link="chassis" />
+    <child link="chassis_aft" />
+  </joint>
+  <joint name="chassis_fwd" type="fixed">
+    <origin xyz="0.69088 0.00000 0.47123" rpy="0 0 0" />
+    <parent link="chassis" />
+    <child link="chassis_fwd" />
+  </joint>
+  <joint name="extension_handle" type="fixed">
+    <origin xyz="0.22860 -0.36576 0.68072" rpy="0 0 0" />
+    <parent link="pallet" />
+    <child link="extension_handle" />
+  </joint>
+  <joint name="fwd_steer_sector" type="revolute">
+    <origin xyz="0.45212 0.00000 -0.09123" rpy="0 0 0" />
+    <parent link="chassis_fwd" />
+    <child link="fwd_steer_sector" />
+    <axis xyz="0.000000 0.000000 1.000000" />
+    <limit lower="-0.813764" upper="0.813764" effort="142.85714285714286" velocity="10.000" />
+    <dynamics damping="0.0" friction="0" />
+  </joint>
+  <joint name="gnomon" type="fixed">
+    <origin xyz="0.30480 0.40386 0.15240" rpy="0 0 0" />
+    <parent link="pallet" />
+    <child link="gnomon" />
+  </joint>
+  <joint name="hammer" type="fixed">
+    <origin xyz="-0.31496 -0.10160 0.25400" rpy="0 0 0" />
+    <parent link="pallet" />
+    <child link="hammer" />
+  </joint>
+  <joint name="hc_brake" type="revolute">
+    <origin xyz="0.00000 0.00000 0.02540" rpy="0 0 0" />
+    <parent link="hc_steer" />
+    <child link="hc_brake" />
+    <axis xyz="0.000000 -1.000000 0.000000" />
+    <limit lower="0.000000" upper="0.523599" effort="60.0" velocity="10.000" />
+    <dynamics damping="0.0" friction="0" />
+  </joint>
+  <joint name="hc_reverse_switch" type="revolute">
+    <origin xyz="-0.02159 0.00762 0.03048" rpy="0 0 0" />
+    <parent link="hc_throttle" />
+    <child link="hc_reverse_switch" />
+    <axis xyz="0.000000 1.000000 0.000000" />
+    <limit lower="0.000000" upper="0.436332" effort="0.2" velocity="10.000" />
+    <dynamics damping="0.0" friction="0" />
+  </joint>
+  <joint name="hc_steer" type="revolute">
+    <origin xyz="0.05080 0.00000 0.67316" rpy="0 0 0" />
+    <parent link="chassis" />
+    <child link="hc_steer" />
+    <axis xyz="1.000000 0.000000 0.000000" />
+    <limit lower="-0.244346" upper="0.244346" effort="5.0" velocity="10.000" />
+    <dynamics damping="0.0" friction="0" />
+  </joint>
+  <joint name="hc_throttle" type="revolute">
+    <origin xyz="0.00000 0.00000 0.19558" rpy="0 0 0" />
+    <parent link="hc_brake" />
+    <child link="hc_throttle" />
+    <axis xyz="0.000000 1.000000 0.000000" />
+    <limit lower="-0.244346" upper="0.244346" effort="2.0" velocity="10.000" />
+    <dynamics damping="0.0" friction="0" />
+  </joint>
+  <joint name="hga_az" type="revolute">
+    <origin xyz="0.00000 0.00000 0.37338" rpy="0 0 0" />
+    <parent link="hga_mast_ext" />
+    <child link="hga_az" />
+    <axis xyz="0.000000 0.000000 1.000000" />
+    <limit lower="-3.141593" upper="3.141593" effort="30.0" velocity="10.000" />
+    <dynamics damping="0.0" friction="0" />
+  </joint>
+  <joint name="hga_dish" type="fixed">
+    <origin xyz="0.04245 0.00000 0.05059" rpy="0 0 0" />
+    <parent link="hga_el" />
+    <child link="hga_dish" />
+  </joint>
+  <joint name="hga_el" type="revolute">
+    <origin xyz="0.00000 0.00000 0.00000" rpy="0 0 0" />
+    <parent link="hga_az" />
+    <child link="hga_el" />
+    <axis xyz="0.000000 -1.000000 0.000000" />
+    <limit lower="-0.872665" upper="0.698132" effort="30.0" velocity="10.000" />
+    <dynamics damping="0.0" friction="0" />
+  </joint>
+  <joint name="hga_mast" type="fixed">
+    <origin xyz="0.77978 0.36195 -0.03683" rpy="0 0 0" />
+    <parent link="chassis_fwd" />
+    <child link="hga_mast" />
+  </joint>
+  <joint name="hga_mast_ext" type="fixed">
+    <origin xyz="0.00000 0.00000 0.68072" rpy="0 0 0" />
+    <parent link="hga_mast" />
+    <child link="hga_mast_ext" />
+  </joint>
+  <joint name="lcru" type="fixed">
+    <origin xyz="0.80518 0.00000 0.01905" rpy="0 0 0" />
+    <parent link="chassis_fwd" />
+    <child link="lcru" />
+  </joint>
+  <joint name="lf_damper_cyl" type="continuous">
+    <origin xyz="0.48212 0.37225 -0.07223" rpy="0 0 0" />
+    <parent link="chassis_fwd" />
+    <child link="lf_damper_cyl" />
+    <axis xyz="1.000000 0.000000 0.000000" />
+    <dynamics damping="0.0" friction="0" />
+    <mimic joint="lf_lower_arm" multiplier="0.539981" offset="0" />
+  </joint>
+  <joint name="lf_damper_rod" type="prismatic">
+    <origin xyz="0.00000 0.17917 0.05061" rpy="0 0 0" />
+    <parent link="lf_damper_cyl" />
+    <child link="lf_damper_rod" />
+    <axis xyz="0.000000 0.962337 0.271859" />
+    <limit lower="-0.080000" upper="0.080000" effort="1000.0" velocity="10.000" />
+    <dynamics damping="1300.0" friction="0" />
+    <mimic joint="lf_lower_arm" multiplier="0.072096" offset="0" />
+  </joint>
+  <joint name="lf_fender_ext" type="fixed">
+    <origin xyz="0.00000 0.10703 0.00000" rpy="0 0 0" />
+    <parent link="lf_steer" />
+    <child link="lf_fender_ext" />
+  </joint>
+  <joint name="lf_lower_arm" type="revolute">
+    <origin xyz="0.45212 0.49225 -0.09398" rpy="0 0 0" />
+    <parent link="chassis_fwd" />
+    <child link="lf_lower_arm" />
+    <axis xyz="1.000000 0.000000 0.000000" />
+    <limit lower="-0.328180" upper="0.504627" effort="1000.0" velocity="10.000" />
+    <dynamics damping="0.0" friction="0" />
+  </joint>
+  <joint name="lf_steer" type="revolute">
+    <origin xyz="0.00000 0.00000 0.07112" rpy="0 0 0" />
+    <parent link="lf_upright" />
+    <child link="lf_steer" />
+    <axis xyz="0.000000 0.000000 1.000000" />
+    <limit lower="-0.959931" upper="0.959931" effort="1000.0" velocity="10.000" />
+    <dynamics damping="0.0" friction="0" />
+    <mimic joint="fwd_steer_sector" multiplier="0.760059" offset="0" />
+  </joint>
+  <joint name="lf_tie_rod" type="revolute">
+    <origin xyz="-0.13000 0.06500 0.00000" rpy="0 0 0" />
+    <parent link="fwd_steer_sector" />
+    <child link="lf_tie_rod" />
+    <axis xyz="0.000000 0.000000 1.000000" />
+    <limit lower="-1.570796" upper="1.570796" effort="1000.0" velocity="10.000" />
+    <dynamics damping="0.0" friction="0" />
+    <mimic joint="fwd_steer_sector" multiplier="-1.123106" offset="0" />
+  </joint>
+  <joint name="lf_upper_arm" type="revolute">
+    <origin xyz="0.45212 0.51943 0.03759" rpy="0 0 0" />
+    <parent link="chassis_fwd" />
+    <child link="lf_upper_arm" />
+    <axis xyz="1.000000 0.000000 0.000000" />
+    <limit lower="-0.328180" upper="0.504627" effort="1000.0" velocity="10.000" />
+    <dynamics damping="0.0" friction="0" />
+    <mimic joint="lf_lower_arm" multiplier="1.094356" offset="0" />
+  </joint>
+  <joint name="lf_upright" type="continuous">
+    <origin xyz="0.00000 0.31521 -0.03937" rpy="0 0 0" />
+    <parent link="lf_lower_arm" />
+    <child link="lf_upright" />
+    <axis xyz="1.000000 0.000000 0.000000" />
+    <dynamics damping="0.0" friction="0" />
+    <mimic joint="lf_lower_arm" multiplier="-1.000000" offset="0" />
+  </joint>
+  <joint name="lf_wheel" type="continuous">
+    <origin xyz="0.00000 0.10703 0.00000" rpy="0 0 0" />
+    <parent link="lf_steer" />
+    <child link="lf_wheel" />
+    <axis xyz="0.000000 1.000000 0.000000" />
+    <limit effort="60.0" velocity="14.262" />
+    <dynamics damping="0.0" friction="0" />
+  </joint>
+  <joint name="lga_antenna" type="revolute">
+    <origin xyz="0.00000 0.00000 0.96266" rpy="0 0 0" />
+    <parent link="lga_staff" />
+    <child link="lga_antenna" />
+    <axis xyz="0.000000 -1.000000 0.000000" />
+    <limit lower="-0.872665" upper="0.698132" effort="8.0" velocity="10.000" />
+    <dynamics damping="0.0" friction="0" />
+  </joint>
+  <joint name="lga_staff" type="revolute">
+    <origin xyz="0.60706 0.21844 0.49663" rpy="0 0 0" />
+    <parent link="chassis" />
+    <child link="lga_staff" />
+    <axis xyz="0.000000 0.000000 1.000000" />
+    <limit lower="-3.141593" upper="3.141593" effort="8.0" velocity="10.000" />
+    <dynamics damping="0.0" friction="0" />
+  </joint>
+  <joint name="lr_damper_cyl" type="continuous">
+    <origin xyz="-0.51768 0.37225 -0.07223" rpy="0 0 0" />
+    <parent link="chassis_aft" />
+    <child link="lr_damper_cyl" />
+    <axis xyz="1.000000 0.000000 0.000000" />
+    <dynamics damping="0.0" friction="0" />
+    <mimic joint="lr_lower_arm" multiplier="0.539981" offset="0" />
+  </joint>
+  <joint name="lr_damper_rod" type="prismatic">
+    <origin xyz="0.00000 0.17917 0.05061" rpy="0 0 0" />
+    <parent link="lr_damper_cyl" />
+    <child link="lr_damper_rod" />
+    <axis xyz="0.000000 0.962337 0.271859" />
+    <limit lower="-0.080000" upper="0.080000" effort="1000.0" velocity="10.000" />
+    <dynamics damping="1300.0" friction="0" />
+    <mimic joint="lr_lower_arm" multiplier="0.072096" offset="0" />
+  </joint>
+  <joint name="lr_fender_ext" type="fixed">
+    <origin xyz="0.00000 0.10703 0.00000" rpy="0 0 0" />
+    <parent link="lr_steer" />
+    <child link="lr_fender_ext" />
+  </joint>
+  <joint name="lr_lower_arm" type="revolute">
+    <origin xyz="-0.48768 0.49225 -0.09398" rpy="0 0 0" />
+    <parent link="chassis_aft" />
+    <child link="lr_lower_arm" />
+    <axis xyz="1.000000 0.000000 0.000000" />
+    <limit lower="-0.328180" upper="0.504627" effort="1000.0" velocity="10.000" />
+    <dynamics damping="0.0" friction="0" />
+  </joint>
+  <joint name="lr_steer" type="revolute">
+    <origin xyz="0.00000 0.00000 0.07112" rpy="0 0 0" />
+    <parent link="lr_upright" />
+    <child link="lr_steer" />
+    <axis xyz="0.000000 0.000000 1.000000" />
+    <limit lower="-0.959931" upper="0.959931" effort="1000.0" velocity="10.000" />
+    <dynamics damping="0.0" friction="0" />
+    <mimic joint="aft_steer_sector" multiplier="-0.760059" offset="0" />
+  </joint>
+  <joint name="lr_tie_rod" type="revolute">
+    <origin xyz="0.13000 0.06500 0.00000" rpy="0 0 0" />
+    <parent link="aft_steer_sector" />
+    <child link="lr_tie_rod" />
+    <axis xyz="0.000000 0.000000 1.000000" />
+    <limit lower="-1.570796" upper="1.570796" effort="1000.0" velocity="10.000" />
+    <dynamics damping="0.0" friction="0" />
+    <mimic joint="aft_steer_sector" multiplier="1.123106" offset="0" />
+  </joint>
+  <joint name="lr_upper_arm" type="revolute">
+    <origin xyz="-0.48768 0.51943 0.03759" rpy="0 0 0" />
+    <parent link="chassis_aft" />
+    <child link="lr_upper_arm" />
+    <axis xyz="1.000000 0.000000 0.000000" />
+    <limit lower="-0.328180" upper="0.504627" effort="1000.0" velocity="10.000" />
+    <dynamics damping="0.0" friction="0" />
+    <mimic joint="lr_lower_arm" multiplier="1.094356" offset="0" />
+  </joint>
+  <joint name="lr_upright" type="continuous">
+    <origin xyz="0.00000 0.31521 -0.03937" rpy="0 0 0" />
+    <parent link="lr_lower_arm" />
+    <child link="lr_upright" />
+    <axis xyz="1.000000 0.000000 0.000000" />
+    <dynamics damping="0.0" friction="0" />
+    <mimic joint="lr_lower_arm" multiplier="-1.000000" offset="0" />
+  </joint>
+  <joint name="lr_wheel" type="continuous">
+    <origin xyz="0.00000 0.10703 0.00000" rpy="0 0 0" />
+    <parent link="lr_steer" />
+    <child link="lr_wheel" />
+    <axis xyz="0.000000 1.000000 0.000000" />
+    <limit effort="60.0" velocity="14.262" />
+    <dynamics damping="0.0" friction="0" />
+  </joint>
+  <joint name="pallet" type="fixed">
+    <origin xyz="-0.36322 0.00000 0.00254" rpy="0 0 0" />
+    <parent link="chassis_aft" />
+    <child link="pallet" />
+  </joint>
+  <joint name="rake" type="fixed">
+    <origin xyz="-0.33528 -0.46228 0.05080" rpy="0 0 0" />
+    <parent link="pallet" />
+    <child link="rake" />
+  </joint>
+  <joint name="rf_damper_cyl" type="continuous">
+    <origin xyz="0.48212 -0.37225 -0.07223" rpy="0 0 0" />
+    <parent link="chassis_fwd" />
+    <child link="rf_damper_cyl" />
+    <axis xyz="1.000000 0.000000 0.000000" />
+    <dynamics damping="0.0" friction="0" />
+    <mimic joint="rf_lower_arm" multiplier="0.540004" offset="0" />
+  </joint>
+  <joint name="rf_damper_rod" type="prismatic">
+    <origin xyz="0.00000 -0.17917 0.05061" rpy="0 0 0" />
+    <parent link="rf_damper_cyl" />
+    <child link="rf_damper_rod" />
+    <axis xyz="0.000000 -0.962337 0.271859" />
+    <limit lower="-0.080000" upper="0.080000" effort="1000.0" velocity="10.000" />
+    <dynamics damping="1300.0" friction="0" />
+    <mimic joint="rf_lower_arm" multiplier="-0.072070" offset="0" />
+  </joint>
+  <joint name="rf_fender_ext" type="fixed">
+    <origin xyz="0.00000 -0.10703 0.00000" rpy="0 0 0" />
+    <parent link="rf_steer" />
+    <child link="rf_fender_ext" />
+  </joint>
+  <joint name="rf_lower_arm" type="revolute">
+    <origin xyz="0.45212 -0.49225 -0.09398" rpy="0 0 0" />
+    <parent link="chassis_fwd" />
+    <child link="rf_lower_arm" />
+    <axis xyz="1.000000 0.000000 0.000000" />
+    <limit lower="-0.504627" upper="0.328180" effort="1000.0" velocity="10.000" />
+    <dynamics damping="0.0" friction="0" />
+  </joint>
+  <joint name="rf_steer" type="revolute">
+    <origin xyz="0.00000 0.00000 0.07112" rpy="0 0 0" />
+    <parent link="rf_upright" />
+    <child link="rf_steer" />
+    <axis xyz="0.000000 0.000000 1.000000" />
+    <limit lower="-0.959931" upper="0.959931" effort="1000.0" velocity="10.000" />
+    <dynamics damping="0.0" friction="0" />
+    <mimic joint="fwd_steer_sector" multiplier="0.760059" offset="0" />
+  </joint>
+  <joint name="rf_tie_rod" type="revolute">
+    <origin xyz="-0.13000 -0.06500 0.00000" rpy="0 0 0" />
+    <parent link="fwd_steer_sector" />
+    <child link="rf_tie_rod" />
+    <axis xyz="0.000000 0.000000 1.000000" />
+    <limit lower="-1.570796" upper="1.570796" effort="1000.0" velocity="10.000" />
+    <dynamics damping="0.0" friction="0" />
+    <mimic joint="fwd_steer_sector" multiplier="-1.123106" offset="0" />
+  </joint>
+  <joint name="rf_upper_arm" type="revolute">
+    <origin xyz="0.45212 -0.51943 0.03759" rpy="0 0 0" />
+    <parent link="chassis_fwd" />
+    <child link="rf_upper_arm" />
+    <axis xyz="1.000000 0.000000 0.000000" />
+    <limit lower="-0.504627" upper="0.328180" effort="1000.0" velocity="10.000" />
+    <dynamics damping="0.0" friction="0" />
+    <mimic joint="rf_lower_arm" multiplier="1.094356" offset="0" />
+  </joint>
+  <joint name="rf_upright" type="continuous">
+    <origin xyz="0.00000 -0.31521 -0.03937" rpy="0 0 0" />
+    <parent link="rf_lower_arm" />
+    <child link="rf_upright" />
+    <axis xyz="1.000000 0.000000 0.000000" />
+    <dynamics damping="0.0" friction="0" />
+    <mimic joint="rf_lower_arm" multiplier="-1.000000" offset="0" />
+  </joint>
+  <joint name="rf_wheel" type="continuous">
+    <origin xyz="0.00000 -0.10703 0.00000" rpy="0 0 0" />
+    <parent link="rf_steer" />
+    <child link="rf_wheel" />
+    <axis xyz="0.000000 1.000000 0.000000" />
+    <limit effort="60.0" velocity="14.262" />
+    <dynamics damping="0.0" friction="0" />
+  </joint>
+  <joint name="rr_damper_cyl" type="continuous">
+    <origin xyz="-0.51768 -0.37225 -0.07223" rpy="0 0 0" />
+    <parent link="chassis_aft" />
+    <child link="rr_damper_cyl" />
+    <axis xyz="1.000000 0.000000 0.000000" />
+    <dynamics damping="0.0" friction="0" />
+    <mimic joint="rr_lower_arm" multiplier="0.540004" offset="0" />
+  </joint>
+  <joint name="rr_damper_rod" type="prismatic">
+    <origin xyz="0.00000 -0.17917 0.05061" rpy="0 0 0" />
+    <parent link="rr_damper_cyl" />
+    <child link="rr_damper_rod" />
+    <axis xyz="0.000000 -0.962337 0.271859" />
+    <limit lower="-0.080000" upper="0.080000" effort="1000.0" velocity="10.000" />
+    <dynamics damping="1300.0" friction="0" />
+    <mimic joint="rr_lower_arm" multiplier="-0.072070" offset="0" />
+  </joint>
+  <joint name="rr_fender_ext" type="fixed">
+    <origin xyz="0.00000 -0.10703 0.00000" rpy="0 0 0" />
+    <parent link="rr_steer" />
+    <child link="rr_fender_ext" />
+  </joint>
+  <joint name="rr_lower_arm" type="revolute">
+    <origin xyz="-0.48768 -0.49225 -0.09398" rpy="0 0 0" />
+    <parent link="chassis_aft" />
+    <child link="rr_lower_arm" />
+    <axis xyz="1.000000 0.000000 0.000000" />
+    <limit lower="-0.504627" upper="0.328180" effort="1000.0" velocity="10.000" />
+    <dynamics damping="0.0" friction="0" />
+  </joint>
+  <joint name="rr_steer" type="revolute">
+    <origin xyz="0.00000 0.00000 0.07112" rpy="0 0 0" />
+    <parent link="rr_upright" />
+    <child link="rr_steer" />
+    <axis xyz="0.000000 0.000000 1.000000" />
+    <limit lower="-0.959931" upper="0.959931" effort="1000.0" velocity="10.000" />
+    <dynamics damping="0.0" friction="0" />
+    <mimic joint="aft_steer_sector" multiplier="-0.760059" offset="0" />
+  </joint>
+  <joint name="rr_tie_rod" type="revolute">
+    <origin xyz="0.13000 -0.06500 0.00000" rpy="0 0 0" />
+    <parent link="aft_steer_sector" />
+    <child link="rr_tie_rod" />
+    <axis xyz="0.000000 0.000000 1.000000" />
+    <limit lower="-1.570796" upper="1.570796" effort="1000.0" velocity="10.000" />
+    <dynamics damping="0.0" friction="0" />
+    <mimic joint="aft_steer_sector" multiplier="1.123106" offset="0" />
+  </joint>
+  <joint name="rr_upper_arm" type="revolute">
+    <origin xyz="-0.48768 -0.51943 0.03759" rpy="0 0 0" />
+    <parent link="chassis_aft" />
+    <child link="rr_upper_arm" />
+    <axis xyz="1.000000 0.000000 0.000000" />
+    <limit lower="-0.504627" upper="0.328180" effort="1000.0" velocity="10.000" />
+    <dynamics damping="0.0" friction="0" />
+    <mimic joint="rr_lower_arm" multiplier="1.094356" offset="0" />
+  </joint>
+  <joint name="rr_upright" type="continuous">
+    <origin xyz="0.00000 -0.31521 -0.03937" rpy="0 0 0" />
+    <parent link="rr_lower_arm" />
+    <child link="rr_upright" />
+    <axis xyz="1.000000 0.000000 0.000000" />
+    <dynamics damping="0.0" friction="0" />
+    <mimic joint="rr_lower_arm" multiplier="-1.000000" offset="0" />
+  </joint>
+  <joint name="rr_wheel" type="continuous">
+    <origin xyz="0.00000 -0.10703 0.00000" rpy="0 0 0" />
+    <parent link="rr_steer" />
+    <child link="rr_wheel" />
+    <axis xyz="0.000000 1.000000 0.000000" />
+    <limit effort="60.0" velocity="14.262" />
+    <dynamics damping="0.0" friction="0" />
+  </joint>
+  <joint name="scoop" type="fixed">
+    <origin xyz="-0.31496 0.11430 0.20320" rpy="0 0 0" />
+    <parent link="pallet" />
+    <child link="scoop" />
+  </joint>
+  <joint name="seat_back_l" type="fixed">
+    <origin xyz="-0.47244 0.34925 0.66554" rpy="0 0 0" />
+    <parent link="chassis" />
+    <child link="seat_back_l" />
+  </joint>
+  <joint name="seat_back_r" type="fixed">
+    <origin xyz="-0.47244 -0.34925 0.66554" rpy="0 0 0" />
+    <parent link="chassis" />
+    <child link="seat_back_r" />
+  </joint>
+  <joint name="sep_antenna" type="fixed">
+    <origin xyz="-0.31750 0.05080 0.65786" rpy="0 0 0" />
+    <parent link="pallet" />
+    <child link="sep_antenna" />
+  </joint>
+  <joint name="sep_receiver" type="fixed">
+    <origin xyz="0.02794 0.22860 0.66040" rpy="0 0 0" />
+    <parent link="pallet" />
+    <child link="sep_receiver" />
+  </joint>
+  <joint name="spu_cover" type="fixed">
+    <origin xyz="0.45720 0.17526 0.22149" rpy="0 0 0" />
+    <parent link="chassis_fwd" />
+    <child link="spu_cover" />
+  </joint>
+  <joint name="tcu" type="fixed">
+    <origin xyz="0.77978 -0.36195 -0.03683" rpy="0 0 0" />
+    <parent link="chassis_fwd" />
+    <child link="tcu" />
+  </joint>
+  <joint name="tongs_1" type="fixed">
+    <origin xyz="0.09144 -0.36576 0.42926" rpy="0 0 0" />
+    <parent link="pallet" />
+    <child link="tongs_1" />
+  </joint>
+  <joint name="tongs_2" type="fixed">
+    <origin xyz="0.09144 -0.28956 0.42926" rpy="0 0 0" />
+    <parent link="pallet" />
+    <child link="tongs_2" />
+  </joint>
+  <joint name="traverse_gravimeter" type="fixed">
+    <origin xyz="-0.42291 -0.26035 0.03810" rpy="0 0 0" />
+    <parent link="pallet" />
+    <child link="traverse_gravimeter" />
+  </joint>
+  <joint name="tv_camera" type="revolute">
+    <origin xyz="0.00000 0.00000 0.24130" rpy="0 0 0" />
+    <parent link="tv_pan" />
+    <child link="tv_camera" />
+    <axis xyz="0.000000 -1.000000 0.000000" />
+    <limit lower="-0.785398" upper="1.483530" effort="2.0" velocity="10.000" />
+    <dynamics damping="0.0" friction="0" />
+  </joint>
+  <joint name="tv_pan" type="revolute">
+    <origin xyz="0.00000 0.00000 0.53340" rpy="0 0 0" />
+    <parent link="tcu" />
+    <child link="tv_pan" />
+    <axis xyz="0.000000 0.000000 -1.000000" />
+    <limit lower="-2.338741" upper="3.735005" effort="2.0" velocity="10.000" />
+    <dynamics damping="0.0" friction="0" />
+  </joint>
+</robot>

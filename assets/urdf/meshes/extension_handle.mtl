@@ -1,0 +1,24 @@
+# Blender 5.2.2 LTS MTL File: 'lrv.blend'
+# www.blender.org
+
+newmtl aluminium_spun
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 3
+map_Kd -s 6.6666665 6.6666665 1 aluminium_spun_basecolor.png
+map_Ns -s 6.6666665 6.6666665 1 aluminium_spun_roughness.png
+map_Bump -s 6.6666665 6.6666665 1 -bm 0.300000 aluminium_spun_normal.png
+
+newmtl eq_black_anodized
+Ka 0.400000 0.400000 0.400000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 3
+map_Kd -s 10 10 1 eq_black_anodized_basecolor.png
+map_Ns -s 10 10 1 eq_black_anodized_roughness.png
+map_Bump -s 10 10 1 -bm 0.600000 eq_black_anodized_normal.png

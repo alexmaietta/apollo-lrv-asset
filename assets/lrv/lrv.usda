@@ -1,0 +1,183 @@
+#usda 1.0
+(
+    customLayerData = {
+        dictionary SimReady_Metadata = {
+            float3 asset_extents = (3.689882, 2.168, 2.4076092)
+            string asset_license = "CC-BY-4.0"
+            string asset_name = "lrv"
+            string asset_type = "robot"
+            string asset_version = "1.0.0"
+            string author = "Alex Maietta"
+            string category = "vehicle"
+            double mass = 285.598
+            string qcode = "Q275816"
+            int rigid_body_count = 72
+            string source_file = "build/lrv.blend (scripts/build.py)"
+            string usd_date_generated = "2026-10-10"
+        }
+        string asset_name = "lrv"
+        string asset_type = "robot"
+        string asset_version = "1.0.0"
+        string creator = "lrv pipeline (scripts/package_usd.py)"
+        string source_file = "build/lrv.blend (scripts/build.py)"
+        string usd_date_generated = "2026-10-10"
+        string usd_version = "0.26.8"
+    }
+    defaultPrim = "lrv"
+    kilogramsPerUnit = 1
+    metersPerUnit = 1
+    upAxis = "Z"
+)
+
+def Xform "lrv" (
+    prepend references = @./payloads/base.usda@
+    variants = {
+        string BodyColliders = "full"
+        string Fidelity = "full"
+        string LCRU = "radiator_open"
+        string Mission = "a17"
+        string Physics = "physx"
+        string SeatBelts = "stowed"
+        string Sensor = "all"
+        string WheelCollider = "mesh"
+    }
+    prepend variantSets = ["Physics", "Fidelity", "Mission", "WheelCollider", "BodyColliders", "Sensor", "LCRU", "SeatBelts"]
+)
+{
+    variantSet "Physics" = {
+        "mujoco" (
+            prepend payload = @./payloads/Physics/mujoco.usda@
+        ) {
+
+        }
+        "none" {
+
+        }
+        "physics" (
+            prepend payload = @./payloads/Physics/physics.usda@
+        ) {
+
+        }
+        "physx" (
+            prepend payload = @./payloads/Physics/physx.usda@
+        ) {
+
+        }
+    }
+    variantSet "Fidelity" = {
+        "full" (
+            prepend payload = @./payloads/Fidelity/full.usda@
+        ) {
+
+        }
+        "none" {
+
+        }
+        "proxy" (
+            prepend payload = @./payloads/Fidelity/proxy.usda@
+        ) {
+
+        }
+    }
+    variantSet "Mission" = {
+        "a15" (
+            prepend payload = @./payloads/Mission/a15.usda@
+        ) {
+
+        }
+        "a17" (
+            prepend payload = @./payloads/Mission/a17.usda@
+        ) {
+
+        }
+        "a17_repair" (
+            prepend payload = @./payloads/Mission/a17_repair.usda@
+        ) {
+
+        }
+        "nasm" (
+            prepend payload = @./payloads/Mission/nasm.usda@
+        ) {
+
+        }
+        "none" {
+
+        }
+    }
+    variantSet "WheelCollider" = {
+        "cylinder" (
+            prepend payload = @./payloads/WheelCollider/cylinder.usda@
+        ) {
+
+        }
+        "mesh" (
+            prepend payload = @./payloads/WheelCollider/mesh.usda@
+        ) {
+
+        }
+        "none" {
+
+        }
+    }
+    variantSet "BodyColliders" = {
+        "chassis" (
+            prepend payload = @./payloads/BodyColliders/chassis.usda@
+        ) {
+
+        }
+        "full" (
+            prepend payload = @./payloads/BodyColliders/full.usda@
+        ) {
+
+        }
+        "none" {
+
+        }
+        "wheels_only" (
+            prepend payload = @./payloads/BodyColliders/wheels_only.usda@
+        ) {
+
+        }
+    }
+    variantSet "Sensor" = {
+        "all" (
+            prepend payload = @./payloads/Sensor/all.usda@
+        ) {
+
+        }
+        "none" {
+
+        }
+    }
+    variantSet "LCRU" = {
+        "closed" (
+            prepend payload = @./payloads/LCRU/closed.usda@
+        ) {
+
+        }
+        "none" {
+
+        }
+        "radiator_open" (
+            prepend payload = @./payloads/LCRU/radiator_open.usda@
+        ) {
+
+        }
+    }
+    variantSet "SeatBelts" = {
+        "buckled" (
+            prepend payload = @./payloads/SeatBelts/buckled.usda@
+        ) {
+
+        }
+        "none" {
+
+        }
+        "stowed" (
+            prepend payload = @./payloads/SeatBelts/stowed.usda@
+        ) {
+
+        }
+    }
+}
+

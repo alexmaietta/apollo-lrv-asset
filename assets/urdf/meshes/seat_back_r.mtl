@@ -1,0 +1,143 @@
+# Blender 5.2.2 LTS MTL File: 'lrv.blend'
+# www.blender.org
+
+newmtl aluminium
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 3
+map_Kd -s 2.5 2.5 1 aluminium_basecolor.png
+map_Ns -s 2.5 2.5 1 aluminium_roughness.png
+map_Bump -s 2.5 2.5 1 -bm 0.400000 aluminium_normal.png
+
+newmtl chrome
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 3
+map_Kd -s 3.3333333 3.3333333 1 chrome_basecolor.png
+map_Ns -s 3.3333333 3.3333333 1 chrome_roughness.png
+map_Bump -s 3.3333333 3.3333333 1 -bm 0.600000 chrome_normal.png
+
+newmtl crew_decal_seat29
+Ns 22.499992
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd crew_seat_pn_29.png
+
+newmtl crew_decal_seat30
+Ns 22.499992
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd crew_seat_pn_30.png
+
+newmtl crew_edge_tape
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd -s 12.5 12.5 1 crew_edge_tape_basecolor.png
+map_Ns -s 12.5 12.5 1 crew_edge_tape_roughness.png
+map_Bump -s 12.5 12.5 1 -bm 0.600000 crew_edge_tape_normal.png
+
+newmtl crew_knob_white
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd -s 10 10 1 crew_knob_white_basecolor.png
+map_Ns -s 10 10 1 crew_knob_white_roughness.png
+map_Bump -s 10 10 1 -bm 0.600000 crew_knob_white_normal.png
+
+newmtl crew_lacing
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd -s 3.3333333 3.3333333 1 crew_lacing_basecolor.png
+map_Ns -s 3.3333333 3.3333333 1 crew_lacing_roughness.png
+map_Bump -s 3.3333333 3.3333333 1 -bm 0.600000 crew_lacing_normal.png
+
+newmtl crew_strap_brown
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd -s 4 4 1 crew_strap_brown_basecolor.png
+map_Ns -s 4 4 1 crew_strap_brown_roughness.png
+map_Bump -s 4 4 1 -bm 0.600000 crew_strap_brown_normal.png
+
+newmtl crew_velcro_hook
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd -s 12.5 12.5 1 crew_velcro_hook_basecolor.png
+map_Ns -s 12.5 12.5 1 crew_velcro_hook_roughness.png
+map_Bump -s 12.5 12.5 1 -bm 0.600000 crew_velcro_hook_normal.png
+
+newmtl crew_velcro_tan
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd -s 12.5 12.5 1 crew_velcro_tan_basecolor.png
+map_Ns -s 12.5 12.5 1 crew_velcro_tan_roughness.png
+map_Bump -s 12.5 12.5 1 -bm 0.600000 crew_velcro_tan_normal.png
+
+newmtl crew_velcro_white
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd -s 12.5 12.5 1 crew_velcro_white_basecolor.png
+map_Ns -s 12.5 12.5 1 crew_velcro_white_roughness.png
+map_Bump -s 12.5 12.5 1 -bm 0.600000 crew_velcro_white_normal.png
+
+newmtl crew_webbing_olive
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd -s 20 20 1 crew_webbing_olive_basecolor.png
+map_Ns -s 20 20 1 crew_webbing_olive_roughness.png
+map_Bump -s 20 20 1 -bm 0.600000 crew_webbing_olive_normal.png
+
+newmtl crew_webbing_white
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd -s 20 20 1 crew_webbing_white_basecolor.png
+map_Ns -s 20 20 1 crew_webbing_white_roughness.png
+map_Bump -s 20 20 1 -bm 0.600000 crew_webbing_white_normal.png

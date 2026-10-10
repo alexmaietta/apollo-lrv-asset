@@ -1,0 +1,118 @@
+#usda 1.0
+(
+    customLayerData = {
+        string creator = "lrv pipeline (scripts/package_usd.py)"
+    }
+    defaultPrim = "lrv"
+    kilogramsPerUnit = 1
+    metersPerUnit = 1
+    upAxis = "Z"
+)
+
+def "lrv"
+{
+    def "Geometry"
+    {
+        def "chassis"
+        {
+            def "chassis_fwd"
+            {
+                def "lf_lower_arm"
+                {
+                    def "lf_upright"
+                    {
+                        def "lf_steer"
+                        {
+                            def "lf_wheel"
+                            {
+                                def Xform "lf_wheel_hull_col" (
+                                    instanceable = true
+                                    prepend references = @../instances.usda@</Instances/lf_wheel_hull_col>
+                                )
+                                {
+                                    quatd xformOp:orient = (1, 0, 0, 0)
+                                    double3 xformOp:scale = (1, 1, 1)
+                                    double3 xformOp:translate = (0, 0, 0)
+                                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                                }
+                            }
+                        }
+                    }
+                }
+
+                def "rf_lower_arm"
+                {
+                    def "rf_upright"
+                    {
+                        def "rf_steer"
+                        {
+                            def "rf_wheel"
+                            {
+                                def Xform "rf_wheel_hull_col" (
+                                    instanceable = true
+                                    prepend references = @../instances.usda@</Instances/rf_wheel_hull_col>
+                                )
+                                {
+                                    quatd xformOp:orient = (1, 0, 0, 0)
+                                    double3 xformOp:scale = (1, 1, 1)
+                                    double3 xformOp:translate = (0, 0, 0)
+                                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            def "chassis_aft"
+            {
+                def "lr_lower_arm"
+                {
+                    def "lr_upright"
+                    {
+                        def "lr_steer"
+                        {
+                            def "lr_wheel"
+                            {
+                                def Xform "lr_wheel_hull_col" (
+                                    instanceable = true
+                                    prepend references = @../instances.usda@</Instances/lr_wheel_hull_col>
+                                )
+                                {
+                                    quatd xformOp:orient = (1, 0, 0, 0)
+                                    double3 xformOp:scale = (1, 1, 1)
+                                    double3 xformOp:translate = (0, 0, 0)
+                                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                                }
+                            }
+                        }
+                    }
+                }
+
+                def "rr_lower_arm"
+                {
+                    def "rr_upright"
+                    {
+                        def "rr_steer"
+                        {
+                            def "rr_wheel"
+                            {
+                                def Xform "rr_wheel_hull_col" (
+                                    instanceable = true
+                                    prepend references = @../instances.usda@</Instances/rr_wheel_hull_col>
+                                )
+                                {
+                                    quatd xformOp:orient = (1, 0, 0, 0)
+                                    double3 xformOp:scale = (1, 1, 1)
+                                    double3 xformOp:translate = (0, 0, 0)
+                                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+

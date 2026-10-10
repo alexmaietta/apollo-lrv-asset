@@ -1,0 +1,46 @@
+# Blender 5.2.2 LTS MTL File: 'lrv.blend'
+# www.blender.org
+
+newmtl aluminium
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 3
+map_Kd -s 2.5 2.5 1 aluminium_basecolor.png
+map_Ns -s 2.5 2.5 1 aluminium_roughness.png
+map_Bump -s 2.5 2.5 1 -bm 0.400000 aluminium_normal.png
+
+newmtl crew_grip
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd -s 10 10 1 crew_grip_basecolor.png
+map_Ns -s 10 10 1 crew_grip_roughness.png
+map_Bump -s 10 10 1 -bm 0.600000 crew_grip_normal.png
+
+newmtl crew_grip_dark
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd -s 10 10 1 crew_grip_dark_basecolor.png
+map_Ns -s 10 10 1 crew_grip_dark_roughness.png
+map_Bump -s 10 10 1 -bm 0.600000 crew_grip_dark_normal.png
+
+newmtl steel
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 3
+map_Kd -s 5 5 1 steel_basecolor.png
+map_Ns -s 5 5 1 steel_roughness.png
+map_Bump -s 5 5 1 -bm 0.400000 steel_normal.png

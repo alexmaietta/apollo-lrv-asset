@@ -1,0 +1,19 @@
+<mujoco model="lrv_scene">
+  <include file="lrv.xml" />
+  <statistic center="0 0 0.6" extent="3" />
+  <visual>
+    <headlight diffuse="0.5 0.5 0.5" ambient="0.15 0.15 0.15" specular="0 0 0" />
+    <global azimuth="140" elevation="-20" offwidth="1280" offheight="960" />
+    <quality shadowsize="4096" />
+    <rgba haze="0 0 0 1" />
+  </visual>
+  <asset>
+    <texture name="regolith" type="2d" builtin="flat" rgb1="0.42 0.40 0.38" rgb2="0.36 0.34 0.32" mark="random" random="0.4" markrgb="0.5 0.48 0.45" width="512" height="512" />
+    <material name="regolith" texture="regolith" texrepeat="20 20" reflectance="0" />
+    <texture name="sky" type="skybox" builtin="flat" rgb1="0 0 0" rgb2="0 0 0" width="64" height="64" />
+  </asset>
+  <worldbody>
+    <light name="sun" directional="true" pos="0 0 10" dir="0.5 0.3 -0.6" diffuse="1.1 1.1 1.1" castshadow="true" />
+    <geom name="floor" type="plane" size="0 0 0.05" material="regolith" friction="0.8 0.02 0.002" condim="3" />
+  </worldbody>
+</mujoco>

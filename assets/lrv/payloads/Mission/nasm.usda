@@ -1,0 +1,170 @@
+#usda 1.0
+(
+    customLayerData = {
+        string creator = "lrv pipeline (scripts/package_usd.py)"
+    }
+    defaultPrim = "lrv"
+    kilogramsPerUnit = 1
+    metersPerUnit = 1
+    upAxis = "Z"
+)
+
+def "lrv"
+{
+    def "Geometry"
+    {
+        def "chassis"
+        {
+            def "chassis_fwd"
+            {
+                def "rf_lower_arm"
+                {
+                    def "rf_upright"
+                    {
+                        def "rf_steer"
+                        {
+                            def Xform "rf_fender_flap_nasm" (
+                                instanceable = true
+                                prepend references = @../instances.usda@</Instances/rf_fender_flap_nasm>
+                            )
+                            {
+                                quatd xformOp:orient = (1, 0, 0, 0)
+                                double3 xformOp:scale = (1, 1, 1)
+                                double3 xformOp:translate = (0, 0, 0)
+                                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                            }
+                        }
+                    }
+                }
+
+                def "lf_lower_arm"
+                {
+                    def "lf_upright"
+                    {
+                        def "lf_steer"
+                        {
+                            def Xform "lf_fender_flap_nasm" (
+                                instanceable = true
+                                prepend references = @../instances.usda@</Instances/lf_fender_flap_nasm>
+                            )
+                            {
+                                quatd xformOp:orient = (1, 0, 0, 0)
+                                double3 xformOp:scale = (1, 1, 1)
+                                double3 xformOp:translate = (0, 0, 0)
+                                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                            }
+
+                            def "lf_fender_ext"
+                            {
+                                def Xform "lf_fender_ext_nasm" (
+                                    instanceable = true
+                                    prepend references = @../instances.usda@</Instances/lf_fender_ext_nasm>
+                                )
+                                {
+                                    quatd xformOp:orient = (1, 0, 0, 0)
+                                    double3 xformOp:scale = (1, 1, 1)
+                                    double3 xformOp:translate = (0, 0, 0)
+                                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                                }
+
+                                def Xform "lf_fender_ext_bead_nasm" (
+                                    instanceable = true
+                                    prepend references = @../instances.usda@</Instances/lf_fender_ext_bead_nasm>
+                                )
+                                {
+                                    quatd xformOp:orient = (1, 0, 0, 0)
+                                    double3 xformOp:scale = (1, 1, 1)
+                                    double3 xformOp:translate = (0, 0, 0)
+                                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            def "chassis_aft"
+            {
+                def "lr_lower_arm"
+                {
+                    def "lr_upright"
+                    {
+                        def "lr_steer"
+                        {
+                            def "lr_fender_ext"
+                            {
+                                def Xform "lr_flag_decal" (
+                                    instanceable = true
+                                    prepend references = @../instances.usda@</Instances/lr_flag_decal>
+                                )
+                                {
+                                    quatd xformOp:orient = (1, 0, 0, 0)
+                                    double3 xformOp:scale = (1, 1, 1)
+                                    double3 xformOp:translate = (0, 0, 0)
+                                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                                }
+                            }
+                        }
+                    }
+                }
+
+                def "rr_lower_arm"
+                {
+                    def "rr_upright"
+                    {
+                        def "rr_steer"
+                        {
+                            def "rr_fender_ext"
+                            {
+                                def Xform "rr_fender_ext" (
+                                    instanceable = true
+                                    prepend references = @../instances.usda@</Instances/rr_fender_ext>
+                                )
+                                {
+                                    quatd xformOp:orient = (1, 0, 0, 0)
+                                    double3 xformOp:scale = (1, 1, 1)
+                                    double3 xformOp:translate = (0, 0, 0)
+                                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                                }
+
+                                def Xform "rr_fender_ext_bead" (
+                                    instanceable = true
+                                    prepend references = @../instances.usda@</Instances/rr_fender_ext_bead>
+                                )
+                                {
+                                    quatd xformOp:orient = (1, 0, 0, 0)
+                                    double3 xformOp:scale = (1, 1, 1)
+                                    double3 xformOp:translate = (0, 0, 0)
+                                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                                }
+
+                                def Xform "rr_fender_ext_rivets" (
+                                    instanceable = true
+                                    prepend references = @../instances.usda@</Instances/rr_fender_ext_rivets>
+                                )
+                                {
+                                    quatd xformOp:orient = (1, 0, 0, 0)
+                                    double3 xformOp:scale = (1, 1, 1)
+                                    double3 xformOp:translate = (0, 0, 0)
+                                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                                }
+
+                                def Xform "rr_flag_decal" (
+                                    instanceable = true
+                                    prepend references = @../instances.usda@</Instances/rr_flag_decal>
+                                )
+                                {
+                                    quatd xformOp:orient = (1, 0, 0, 0)
+                                    double3 xformOp:scale = (1, 1, 1)
+                                    double3 xformOp:translate = (0, 0, 0)
+                                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+

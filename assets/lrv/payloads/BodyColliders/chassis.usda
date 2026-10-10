@@ -1,0 +1,59 @@
+#usda 1.0
+(
+    customLayerData = {
+        string creator = "lrv pipeline (scripts/package_usd.py)"
+    }
+    defaultPrim = "lrv"
+    kilogramsPerUnit = 1
+    metersPerUnit = 1
+    upAxis = "Z"
+)
+
+def "lrv"
+{
+    def "Geometry"
+    {
+        def "chassis"
+        {
+            def Xform "chassis_col" (
+                instanceable = true
+                prepend references = @../instances.usda@</Instances/chassis_col>
+            )
+            {
+                quatd xformOp:orient = (1, 0, 0, 0)
+                double3 xformOp:scale = (1, 1, 1)
+                double3 xformOp:translate = (0, 0, 0)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+            }
+
+            def "chassis_aft"
+            {
+                def Xform "chassis_aft_col" (
+                    instanceable = true
+                    prepend references = @../instances.usda@</Instances/chassis_aft_col>
+                )
+                {
+                    quatd xformOp:orient = (1, 0, 0, 0)
+                    double3 xformOp:scale = (1, 1, 1)
+                    double3 xformOp:translate = (0, 0, 0)
+                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                }
+            }
+
+            def "chassis_fwd"
+            {
+                def Xform "chassis_fwd_col" (
+                    instanceable = true
+                    prepend references = @../instances.usda@</Instances/chassis_fwd_col>
+                )
+                {
+                    quatd xformOp:orient = (1, 0, 0, 0)
+                    double3 xformOp:scale = (1, 1, 1)
+                    double3 xformOp:translate = (0, 0, 0)
+                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                }
+            }
+        }
+    }
+}
+

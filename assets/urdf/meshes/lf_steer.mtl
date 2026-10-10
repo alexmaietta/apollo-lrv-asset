@@ -1,0 +1,113 @@
+# Blender 5.2.2 LTS MTL File: 'lrv.blend'
+# www.blender.org
+
+newmtl aluminium
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 3
+map_Kd -s 2.5 2.5 1 aluminium_basecolor.png
+map_Ns -s 2.5 2.5 1 aluminium_roughness.png
+map_Bump -s 2.5 2.5 1 -bm 0.400000 aluminium_normal.png
+
+newmtl brass
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 3
+map_Kd -s 3.3333333 3.3333333 1 brass_basecolor.png
+map_Ns -s 3.3333333 3.3333333 1 brass_roughness.png
+map_Bump -s 3.3333333 3.3333333 1 -bm 0.600000 brass_normal.png
+
+newmtl damper
+Ka 0.600000 0.600000 0.600000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 3
+map_Kd -s 3.3333333 3.3333333 1 damper_basecolor.png
+map_Ns -s 3.3333333 3.3333333 1 damper_roughness.png
+map_Bump -s 3.3333333 3.3333333 1 -bm 0.600000 damper_normal.png
+
+newmtl drive_housing
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 3
+map_Kd -s 5 5 1 drive_housing_basecolor.png
+map_Ns -s 5 5 1 drive_housing_roughness.png
+map_Bump -s 5 5 1 -bm 0.500000 drive_housing_normal.png
+
+newmtl fender
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd -s 3.3333333 3.3333333 1 fiberglass_fender_basecolor.png
+map_Ns -s 3.3333333 3.3333333 1 fiberglass_fender_roughness.png
+map_refl -s 3.3333333 3.3333333 1 fiberglass_fender_metallic.png
+map_Bump -s 3.3333333 3.3333333 1 -bm 0.600000 fiberglass_fender_normal.png
+
+newmtl flap_grey
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd -s 3.3333333 3.3333333 1 flap_grey_basecolor.png
+map_Ns -s 3.3333333 3.3333333 1 flap_grey_roughness.png
+map_Bump -s 3.3333333 3.3333333 1 -bm 0.600000 flap_grey_normal.png
+
+newmtl harness_jacket
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd -s 20 20 1 harness_jacket_basecolor.png
+map_Ns -s 20 20 1 harness_jacket_roughness.png
+map_Bump -s 20 20 1 -bm 0.600000 harness_jacket_normal.png
+
+newmtl rubber_boot
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd -s 3.3333333 3.3333333 1 rubber_boot_basecolor.png
+map_Ns -s 3.3333333 3.3333333 1 rubber_boot_roughness.png
+map_Bump -s 3.3333333 3.3333333 1 -bm 0.600000 rubber_boot_normal.png
+
+newmtl steel
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 3
+map_Kd -s 5 5 1 steel_basecolor.png
+map_Ns -s 5 5 1 steel_roughness.png
+map_Bump -s 5 5 1 -bm 0.400000 steel_normal.png
+
+newmtl white_paint
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd -s 3.3333333 3.3333333 1 white_paint_basecolor.png
+map_Ns -s 3.3333333 3.3333333 1 white_paint_roughness.png
+map_Bump -s 3.3333333 3.3333333 1 -bm 0.300000 white_paint_normal.png

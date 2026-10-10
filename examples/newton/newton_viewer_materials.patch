@@ -1,0 +1,815 @@
+diff --git a/newton/_src/usd/utils.py b/newton/_src/usd/utils.py
+index a2e599a6..c3abcfcb 100644
+--- a/newton/_src/usd/utils.py
++++ b/newton/_src/usd/utils.py
+@@ -3,6 +3,7 @@
+ 
+ from __future__ import annotations
+ 
++import functools
+ import logging
+ import math
+ import os
+@@ -2616,6 +2617,104 @@ def _coerce_float(value: Any) -> float | None:
+         return None
+ 
+ 
++def _connected_uv_texture(shader_input: UsdShade.Input | None, prim: Usd.Prim) -> tuple[str, int, UsdShade.Shader] | None:
++    """Resolve the ``UsdUVTexture`` driving ``shader_input``.
++
++    Returns:
++        ``(file path, channel index of the connected output, texture shader)``, or ``None``.
++    """
++    if not shader_input:
++        return None
++    try:
++        source = shader_input.GetConnectedSource()
++    except Exception:
++        return None
++    if not source:
++        return None
++    tex = UsdShade.Shader(source[0].GetPrim())
++    if tex.GetIdAttr().Get() != "UsdUVTexture":
++        return None
++    file_input = tex.GetInput("file")
++    if not file_input:
++        return None
++    attrs = UsdShade.Utils.GetValueProducingAttributes(file_input)
++    attr = attrs[0] if attrs else file_input.GetAttr()
++    path = _resolve_asset_path(attr.Get(), prim, attr)
++    if not path:
++        return None
++    output = str(source[1])
++    channel = "rgba".index(output) if output in ("r", "g", "b", "a") else 0
++    return path, channel, tex
++
++
++@functools.lru_cache(maxsize=None)
++def _texture_band_means(path: str) -> tuple[float, ...]:
++    """Per-band means in [0, 1] of a texture file (cached by path; decoded at native depth)."""
++    try:
++        from PIL import Image, ImageStat  # noqa: PLC0415
++
++        with Image.open(path) as img:
++            if img.mode not in ("L", "LA", "RGB", "RGBA"):
++                img = img.convert("RGBA")
++            return tuple(m / 255.0 for m in ImageStat.Stat(img).mean)
++    except Exception:
++        pixels = load_texture(path)  # URLs and USD package paths
++        if pixels is None:
++            return ()
++        return tuple(float(m) / 255.0 for m in pixels.reshape(-1, pixels.shape[-1]).mean(axis=0))
++
++
++def _texture_channel_mean(path: str, channel: int) -> float | None:
++    """Mean of one texture channel; the scalar stand-in for roughness/metallic maps."""
++    means = _texture_band_means(path)
++    if not means:
++        return None
++    if len(means) <= 2:  # grayscale (+alpha): r/g/b all read the luminance band
++        channel = len(means) - 1 if channel == 3 else 0
++    return means[min(channel, len(means) - 1)]
++
++
++@functools.lru_cache(maxsize=16)
++def _cutout_texture(texture: str | None, color: tuple[float, float, float] | None, opacity: str, channel: int):
++    """RGBA albedo whose alpha is the opacity map (nearest-resampled to match), cached by file paths."""
++    return _merge_opacity_into_texture(texture, color, opacity, channel)
++
++
++def _merge_opacity_into_texture(texture: Any, color: Any, opacity: str, channel: int) -> np.ndarray | None:
++    opacity_pixels = load_texture(opacity)
++    if opacity_pixels is None:
++        return None
++    a = opacity_pixels[..., channel]
++    base = load_texture(texture) if texture is not None else None
++    if base is None:
++        rgb = np.array(color if color is not None else (1.0, 1.0, 1.0), dtype=np.float32)
++        base = np.empty((*a.shape, 4), dtype=np.uint8)
++        base[..., :3] = np.clip(rgb * 255.0 + 0.5, 0, 255).astype(np.uint8)
++    elif base.shape[2] == 3:
++        base = np.concatenate([base, np.full((*base.shape[:2], 1), 255, np.uint8)], axis=2)
++    else:
++        base = np.array(base, dtype=np.uint8, copy=True)
++    if a.shape != base.shape[:2]:
++        ys = (np.arange(base.shape[0]) * a.shape[0] // base.shape[0]).clip(0, a.shape[0] - 1)
++        xs = (np.arange(base.shape[1]) * a.shape[1] // base.shape[1]).clip(0, a.shape[1] - 1)
++        a = a[ys][:, xs]
++    base[..., 3] = a
++    return base
++
++
++def _add_texture_map(properties: dict[str, Any], name: str, shader_input: UsdShade.Input, prim: Usd.Prim) -> None:
++    """Record a texture-driven scalar input (roughness/metallic) as ``texture_maps[name] = (path, channel)``.
++
++    The map's mean is kept as the per-mesh scalar fallback for renderers without per-texel support.
++    """
++    connected = _connected_uv_texture(shader_input, prim)
++    if connected is None:
++        return
++    path, channel, _ = connected
++    properties[name] = _texture_channel_mean(path, channel)
++    properties.setdefault("texture_maps", {})[name] = (path, channel)
++
++
+ def _extract_preview_surface_properties(shader: UsdShade.Shader | None, prim: Usd.Prim) -> dict[str, Any]:
+     """Extract material properties from a UsdPreviewSurface shader.
+ 
+@@ -2671,10 +2770,7 @@ def _extract_preview_surface_properties(shader: UsdShade.Shader | None, prim: Us
+             metallic_value = _get_input_value(source_shader, ("metallic", "metallic_constant"))
+             properties["metallic"] = _coerce_float(metallic_value)
+             if properties["metallic"] is None:
+-                warnings.warn(
+-                    "Metallic texture inputs are not yet supported; using scalar fallback.",
+-                    stacklevel=2,
+-                )
++                _add_texture_map(properties, "metallic", metallic_input, prim)
+         else:
+             properties["metallic"] = _coerce_float(metallic_input.Get())
+ 
+@@ -2693,13 +2789,29 @@ def _extract_preview_surface_properties(shader: UsdShade.Shader | None, prim: Us
+             )
+             properties["roughness"] = _coerce_float(roughness_value)
+             if properties["roughness"] is None:
+-                warnings.warn(
+-                    "Roughness texture inputs are not yet supported; using scalar fallback.",
+-                    stacklevel=2,
+-                )
++                _add_texture_map(properties, "roughness", roughness_input, prim)
+         else:
+             properties["roughness"] = _coerce_float(roughness_input.Get())
+ 
++    # cut-out opacity (e.g. woven wire mesh): fold the opacity map into the albedo alpha;
++    # the viewer alpha-tests textured fragments
++    opacity = _connected_uv_texture(shader.GetInput("opacity"), prim)
++    if opacity is not None:
++        texture, color = properties["texture"], properties["color"]
++        merge = _cutout_texture if not isinstance(texture, np.ndarray) else _merge_opacity_into_texture
++        cutout = merge(texture, color, opacity[0], opacity[1])
++        if cutout is not None:
++            properties["texture"] = cutout
++
++    normal = _connected_uv_texture(shader.GetInput("normal"), prim)
++    if normal is not None:
++        path, _, tex = normal
++        scale = _get_input_value(tex, ("scale",))
++        bias = _get_input_value(tex, ("bias",))
++        scale = tuple(float(v) for v in scale)[:3] if scale is not None else (1.0, 1.0, 1.0)
++        bias = tuple(float(v) for v in bias)[:3] if bias is not None else (0.0, 0.0, 0.0)
++        properties.setdefault("texture_maps", {})["normal"] = (path, scale, bias)
++
+     return properties
+ 
+ 
+diff --git a/newton/_src/utils/import_usd.py b/newton/_src/utils/import_usd.py
+index 225d0149..13a5a491 100644
+--- a/newton/_src/utils/import_usd.py
++++ b/newton/_src/utils/import_usd.py
+@@ -949,8 +949,8 @@ def parse_usd(
+         material_props = _get_material_props_cached(prim)
+         texture = material_props.get("texture")
+         physics_mesh = _get_mesh_cached(prim)
+-        if texture is not None:
+-            render_mesh = _get_mesh_cached(prim, load_uvs=True)
++        if texture is not None or material_props.get("texture_maps"):
++            render_mesh = _get_mesh_cached(prim, load_uvs=True, load_normals=True)  # keep authored smooth normals
+             # Texture UV expansion is render-only. Preserve the collision mesh's
+             # mass/inertia so visibility changes do not perturb simulation.
+             mesh = Mesh(
+@@ -973,6 +973,8 @@ def parse_usd(
+             mesh.texture = texture
+         if mesh.texture is not None and mesh.uvs is None:
+             logger.info("Mesh %s has a texture but no UVs; texture will use projected UVs.", path_name)
++        mesh.double_sided = bool(UsdGeom.Mesh(prim).GetDoubleSidedAttr().Get()) if prim.IsA(UsdGeom.Mesh) else False
++        mesh.texture_maps = material_props.get("texture_maps")  # per-texel roughness/metallic/normal (viewer GL)
+         if mesh.texture is not None:
+             # The texture provides albedo, so avoid tinting it with a scalar color.
+             mesh.color = (1.0, 1.0, 1.0)
+@@ -1064,7 +1066,7 @@ def parse_usd(
+         uvs = None
+         if mesh.uvs is not None and len(mesh.uvs) == len(mesh.vertices):
+             uvs = mesh.uvs[used_vertices]
+-        elif material_props.get("texture") is not None:
++        elif material_props.get("texture") is not None or material_props.get("texture_maps"):
+             uvs = _get_subset_uvs(prim, used_vertices, len(used_vertices))
+ 
+         submesh = Mesh(
+@@ -1080,6 +1082,8 @@ def parse_usd(
+         texture = material_props.get("texture")
+         if texture is not None:
+             submesh.texture = texture
++        submesh.double_sided = bool(UsdGeom.Mesh(prim).GetDoubleSidedAttr().Get()) if prim.IsA(UsdGeom.Mesh) else False
++        submesh.texture_maps = material_props.get("texture_maps")
+         if submesh.texture is not None and submesh.uvs is None:
+             logger.info(
+                 "Mesh material subset %s has a texture but no UVs; texture will use projected UVs.",
+diff --git a/newton/_src/viewer/gl/opengl.py b/newton/_src/viewer/gl/opengl.py
+index 0434aceb..983d776c 100644
+--- a/newton/_src/viewer/gl/opengl.py
++++ b/newton/_src/viewer/gl/opengl.py
+@@ -12,7 +12,7 @@ import warp as wp
+ from newton import Mesh
+ 
+ from ...utils.mesh import compute_vertex_normals
+-from ...utils.texture import normalize_texture
++from ...utils.texture import load_texture, normalize_texture
+ from .shaders import (
+     FrameShader,
+     ShaderArrow,
+@@ -103,6 +103,92 @@ def _upload_texture_from_file(gl, texture_image: np.ndarray) -> int:
+     return texture_id
+ 
+ 
++def _resample_nearest(channel: np.ndarray, shape: tuple[int, int]) -> np.ndarray:
++    if channel.shape == shape:
++        return channel
++    ys = np.arange(shape[0]) * channel.shape[0] // shape[0]
++    xs = np.arange(shape[1]) * channel.shape[1] // shape[1]
++    return channel[ys][:, xs]
++
++
++def _load_orm_image(roughness, metallic) -> np.ndarray | None:
++    """Pack per-texel roughness (R) and metallic (G) maps, each given as ``(path, channel)`` or ``None``.
++
++    B and A flag (255) which of R/G come from a map, so the shader keeps the per-mesh scalar otherwise.
++    """
++    channels = []
++    for spec in (roughness, metallic):
++        image = load_texture(spec[0]) if spec else None
++        channels.append(image[..., spec[1]] if image is not None else None)
++    loaded = [c for c in channels if c is not None]
++    if not loaded:
++        return None
++    shape = max((c.shape for c in loaded), key=lambda hw: hw[0] * hw[1])
++    orm = np.zeros((*shape, 4), dtype=np.uint8)
++    for i, c in enumerate(channels):
++        if c is not None:
++            orm[..., i] = _resample_nearest(c, shape)
++            orm[..., i + 2] = 255
++    return orm
++
++
++def _load_normal_image(path, scale, bias) -> np.ndarray | None:
++    """Tangent-space normal map re-encoded as ``n * 0.5 + 0.5`` (UsdUVTexture ``scale``/``bias`` applied).
++
++    Alpha is 255 to flag a bound normal map.
++    """
++    image = load_texture(path)
++    if image is None:
++        return None
++    image = np.array(image[..., :4], dtype=np.uint8)
++    if tuple(scale) != (2.0, 2.0, 2.0) or tuple(bias) != (-1.0, -1.0, -1.0):
++        n = image[..., :3].astype(np.float32) * (np.asarray(scale, np.float32) / 255.0) + np.asarray(bias, np.float32)
++        image[..., :3] = np.clip((n * 0.5 + 0.5) * 255.0 + 0.5, 0, 255).astype(np.uint8)
++    image[..., 3] = 255
++    return image
++
++
++class _TextureCache:
++    """GL textures shared between meshes by source key (file path or map spec), reference counted."""
++
++    def __init__(self):
++        self._entries = {}  # key -> [texture_id, refcount, source kept alive while its id() is the key]
++
++    @staticmethod
++    def key(kind, source):
++        if isinstance(source, np.ndarray):
++            return (kind, "array", id(source))
++        return (kind, os.fspath(source) if isinstance(source, os.PathLike) else source)
++
++    def acquire(self, key, load, source=None):
++        """Return the texture id for ``key``, uploading ``load()`` on first use (``None`` if unavailable)."""
++        entry = self._entries.get(key)
++        if entry is None:
++            image = load()
++            texture_id = _upload_texture_from_file(RendererGL.gl, image) if image is not None else 0
++            if not texture_id:
++                return None
++            entry = self._entries[key] = [texture_id, 0, source]
++        entry[1] += 1
++        return entry[0]
++
++    def release(self, key):
++        entry = self._entries.get(key)
++        if entry is None:
++            return
++        entry[1] -= 1
++        if entry[1] <= 0:
++            del self._entries[key]
++            try:
++                RendererGL.gl.glDeleteTextures(1, entry[0])
++            except Exception:
++                pass
++
++    def clear(self):
++        """Forget all entries (their GL objects die with the context)."""
++        self._entries.clear()
++
++
+ @wp.struct
+ class RenderVertex:
+     pos: wp.vec3
+@@ -190,6 +276,9 @@ class MeshGL:
+         self.indices = None
+         self.normals = None  # scratch buffer used during normal recomputation
+         self.texture_id = None
++        self.orm_texture_id = None  # per-texel roughness/metallic (see _load_orm_image)
++        self.normal_texture_id = None
++        self._texture_keys = {}  # slot -> texture cache key
+ 
+         # Optional per-vertex colors, packed as vec4 (rgb, blend weight).
+         self.vertex_colors = None  # staging buffer, allocated on first use
+@@ -272,8 +361,9 @@ class MeshGL:
+                 gl.glDeleteBuffers(1, self.ebo)
+             if getattr(self, "color_vbo", None) is not None:
+                 gl.glDeleteBuffers(1, self.color_vbo)
+-            if hasattr(self, "texture_id") and self.texture_id is not None:
+-                gl.glDeleteTextures(1, self.texture_id)
++            for key in getattr(self, "_texture_keys", {}).values():
++                RendererGL.texture_cache.release(key)
++            self._texture_keys = {}
+         except Exception:
+             # Ignore any errors if the GL context has already been torn down
+             pass
+@@ -393,34 +483,45 @@ class MeshGL:
+             device=self.device,
+         )
+ 
++    def _set_texture(self, slot, key, load, source=None):
++        """Point ``slot`` (``texture_id``, ``orm_texture_id``, ...) at the cached texture for ``key``."""
++        texture_id = RendererGL.texture_cache.acquire(key, load, source) if key is not None else None
++        if texture_id is None:
++            key = None
++        old_key = self._texture_keys.pop(slot, None)
++        if key is not None:
++            self._texture_keys[slot] = key
++        if old_key is not None:
++            RendererGL.texture_cache.release(old_key)  # after acquire, so an unchanged texture is not reloaded
++        setattr(self, slot, texture_id)
++
+     def update_texture(self, texture=None):
++        if texture is None:
++            self._set_texture("texture_id", None, None)
++        else:
++            key = RendererGL.texture_cache.key("albedo", texture)
++            self._set_texture("texture_id", key, lambda: load_texture(texture), texture)
++
++    def update_texture_maps(self, texture_maps=None):
++        """Bind per-texel material maps: ``{"roughness"|"metallic": (path, channel), "normal": (path, scale, bias)}``."""
++        maps = texture_maps or {}
++        orm = (maps.get("roughness"), maps.get("metallic"))
++        key = ("orm", *orm) if any(orm) else None
++        self._set_texture("orm_texture_id", key, lambda: _load_orm_image(*orm))
++        normal = maps.get("normal")
++        key = ("normal", normal[0], tuple(normal[1]), tuple(normal[2])) if normal else None
++        self._set_texture("normal_texture_id", key, lambda: _load_normal_image(*normal))
++
++    def bind_textures(self):
++        """Bind albedo (unit 1), roughness/metallic (unit 3) and normal (unit 4) maps, or their fallbacks."""
+         gl = RendererGL.gl
+-        texture_image = None
+-        if texture is not None:
+-            from ...utils.texture import load_texture  # noqa: PLC0415
+-
+-            texture_image = load_texture(texture)
+-
+-        if texture_image is None:
+-            if self.texture_id is not None:
+-                try:
+-                    gl.glDeleteTextures(1, self.texture_id)
+-                except Exception:
+-                    pass
+-                self.texture_id = None
+-            return
+-
+-        if self.texture_id is not None:
+-            try:
+-                gl.glDeleteTextures(1, self.texture_id)
+-            except Exception:
+-                pass
+-            self.texture_id = None
+-
+-        texture_id = _upload_texture_from_file(gl, texture_image)
+-        if not texture_id:
+-            return
+-        self.texture_id = texture_id
++        for unit, texture_id, fallback in (
++            (gl.GL_TEXTURE1, self.texture_id, RendererGL.get_fallback_texture),
++            (gl.GL_TEXTURE1 + 2, self.orm_texture_id, RendererGL.get_no_map_texture),
++            (gl.GL_TEXTURE1 + 3, self.normal_texture_id, RendererGL.get_no_map_texture),
++        ):
++            gl.glActiveTexture(unit)
++            gl.glBindTexture(gl.GL_TEXTURE_2D, texture_id if texture_id is not None else fallback())
+ 
+     def render(self):
+         if not self.hidden:
+@@ -431,11 +532,7 @@ class MeshGL:
+             else:
+                 gl.glDisable(gl.GL_CULL_FACE)
+ 
+-            gl.glActiveTexture(gl.GL_TEXTURE1)
+-            if self.texture_id is not None:
+-                gl.glBindTexture(gl.GL_TEXTURE_2D, self.texture_id)
+-            else:
+-                gl.glBindTexture(gl.GL_TEXTURE_2D, RendererGL.get_fallback_texture())
++            self.bind_textures()
+ 
+             # Set per-mesh albedo and material (global state, not per-VAO).
+             gl.glVertexAttrib3f(7, *self.color)
+@@ -1040,11 +1137,7 @@ class MeshInstancerGL:
+         else:
+             gl.glDisable(gl.GL_CULL_FACE)
+ 
+-        gl.glActiveTexture(gl.GL_TEXTURE1)
+-        if self.mesh.texture_id is not None:
+-            gl.glBindTexture(gl.GL_TEXTURE_2D, self.mesh.texture_id)
+-        else:
+-            gl.glBindTexture(gl.GL_TEXTURE_2D, RendererGL.get_fallback_texture())
++        self.mesh.bind_textures()
+ 
+         self._sync_vertex_colors()
+         if not self._color_vbo_id:
+@@ -1061,6 +1154,8 @@ class MeshInstancerGL:
+ class RendererGL:
+     gl = None  # Class-level variable to hold the imported module
+     _fallback_texture = None  # 1x1 white texture bound when no albedo is set (suppresses macOS GL warning)
++    _no_map_texture = None  # 1x1 zero texture bound when no roughness/metallic or normal map is set
++    texture_cache = _TextureCache()  # mesh textures shared by source (file path / map spec)
+ 
+     @classmethod
+     def initialize_gl(cls):
+@@ -1069,22 +1164,33 @@ class RendererGL:
+ 
+             cls.gl = gl
+ 
++    @staticmethod
++    def _create_1x1_texture(rgba):
++        gl = RendererGL.gl
++        tex = gl.GLuint()
++        gl.glGenTextures(1, tex)
++        gl.glBindTexture(gl.GL_TEXTURE_2D, tex)
++        pixel = (gl.GLubyte * 4)(*rgba)
++        gl.glTexImage2D(gl.GL_TEXTURE_2D, 0, gl.GL_RGBA, 1, 1, 0, gl.GL_RGBA, gl.GL_UNSIGNED_BYTE, pixel)
++        gl.glTexParameteri(gl.GL_TEXTURE_2D, gl.GL_TEXTURE_MIN_FILTER, gl.GL_NEAREST)
++        gl.glTexParameteri(gl.GL_TEXTURE_2D, gl.GL_TEXTURE_MAG_FILTER, gl.GL_NEAREST)
++        gl.glBindTexture(gl.GL_TEXTURE_2D, 0)
++        return tex
++
+     @classmethod
+     def get_fallback_texture(cls):
+         """Return a 1x1 white RGBA texture, creating it on first use."""
+         if cls._fallback_texture is None:
+-            gl = cls.gl
+-            tex = gl.GLuint()
+-            gl.glGenTextures(1, tex)
+-            gl.glBindTexture(gl.GL_TEXTURE_2D, tex)
+-            pixel = (gl.GLubyte * 4)(255, 255, 255, 255)
+-            gl.glTexImage2D(gl.GL_TEXTURE_2D, 0, gl.GL_RGBA, 1, 1, 0, gl.GL_RGBA, gl.GL_UNSIGNED_BYTE, pixel)
+-            gl.glTexParameteri(gl.GL_TEXTURE_2D, gl.GL_TEXTURE_MIN_FILTER, gl.GL_NEAREST)
+-            gl.glTexParameteri(gl.GL_TEXTURE_2D, gl.GL_TEXTURE_MAG_FILTER, gl.GL_NEAREST)
+-            gl.glBindTexture(gl.GL_TEXTURE_2D, 0)
+-            cls._fallback_texture = tex
++            cls._fallback_texture = cls._create_1x1_texture((255, 255, 255, 255))
+         return cls._fallback_texture
+ 
++    @classmethod
++    def get_no_map_texture(cls):
++        """Return a 1x1 all-zero texture: the "no map bound" value for the roughness/metallic and normal maps."""
++        if cls._no_map_texture is None:
++            cls._no_map_texture = cls._create_1x1_texture((0, 0, 0, 0))
++        return cls._no_map_texture
++
+     def __init__(self, title="Newton", screen_width=1920, screen_height=1080, vsync=True, headless=None, device=None):
+         self.draw_sky = True
+         self.draw_fps = True
+@@ -1557,6 +1663,8 @@ class RendererGL:
+             self.app.platform_event_loop.stop()
+ 
+         RendererGL._fallback_texture = None
++        RendererGL._no_map_texture = None
++        RendererGL.texture_cache.clear()
+         self.window.close()
+ 
+     def _setup_window_callbacks(self):
+@@ -2027,10 +2135,17 @@ class RendererGL:
+             spotlight_enabled=self.spotlight_enabled,
+             shadow_extents=self.shadow_extents,
+             exposure=self.exposure,
++            alpha_to_coverage=self.msaa_samples > 0,
+         )
+ 
++        # cut-out textures (opacity in albedo alpha) write MSAA coverage instead of blending
++        if self.msaa_samples > 0:
++            gl.glEnable(gl.GL_SAMPLE_ALPHA_TO_COVERAGE)
++            gl.glEnable(gl.GL_SAMPLE_ALPHA_TO_ONE)
+         with self._shape_shader:
+             self._draw_objects(objects)
++        gl.glDisable(gl.GL_SAMPLE_ALPHA_TO_COVERAGE)
++        gl.glDisable(gl.GL_SAMPLE_ALPHA_TO_ONE)
+ 
+         gl.glPolygonMode(gl.GL_FRONT_AND_BACK, gl.GL_FILL)
+ 
+diff --git a/newton/_src/viewer/gl/shaders.py b/newton/_src/viewer/gl/shaders.py
+index 2fd11b78..f636ded5 100644
+--- a/newton/_src/viewer/gl/shaders.py
++++ b/newton/_src/viewer/gl/shaders.py
+@@ -112,6 +112,9 @@ uniform sampler2D shadow_map;
+ uniform sampler2D env_map;
+ uniform float env_intensity;
+ uniform sampler2D albedo_map;
++uniform sampler2D orm_map;     // R roughness, G metallic; B/A = 1 where R/G come from a map
++uniform sampler2D normal_map;  // tangent-space normal encoded n * 0.5 + 0.5; A = 1 when bound
++uniform bool alpha_to_coverage;
+ 
+ uniform vec3 fogColor;
+ uniform int up_axis;
+@@ -267,21 +270,55 @@ vec3 sample_env_map(vec3 dir, float lod)
+     return textureLod(env_map, vec2(u, v), lod).rgb;
+ }
+ 
++// Normal mapping with a per-pixel tangent frame from screen-space derivatives (no tangent attributes).
++vec3 perturb_normal(vec3 N, vec3 dp1, vec3 dp2, vec2 duv1, vec2 duv2, vec3 n_ts)
++{
++    vec3 dp2perp = cross(dp2, N);
++    vec3 dp1perp = cross(N, dp1);
++    vec3 T = dp2perp * duv1.x + dp1perp * duv2.x;
++    vec3 B = dp2perp * duv1.y + dp1perp * duv2.y;
++    float len2 = max(dot(T, T), dot(B, B));
++    if (len2 < 1e-20)
++        return N;  // degenerate UVs
++    float s = inversesqrt(len2);
++    return normalize(mat3(T * s, B * s, N) * n_ts);
++}
++
+ void main()
+ {
+-    // material properties from vertex shader
+-    float roughness = clamp(Material.x, 0.0, 1.0);
+-    float metallic = clamp(Material.y, 0.0, 1.0);
++    // derivatives up front (implicit-derivative sampling must stay in uniform control flow)
++    vec2 duv1 = dFdx(TexCoord);
++    vec2 duv2 = dFdy(TexCoord);
++    vec3 dp1 = dFdx(FragPos);
++    vec3 dp2 = dFdy(FragPos);
++    vec4 orm = texture(orm_map, TexCoord);
++    vec4 nmap = texture(normal_map, TexCoord);
++
++    // material properties from vertex shader, overridden per texel by a roughness/metallic map
++    float roughness = clamp(mix(Material.x, orm.r, orm.b), 0.0, 1.0);
++    float metallic = clamp(mix(Material.y, orm.g, orm.a), 0.0, 1.0);
+     float checker_enable = Material.z;
+     float texture_enable = Material.w;
+     float checker_scale = 1.0;
+ 
+     // convert to linear space
+     vec3 albedo = pow(ObjectColor, vec3(2.2));
++    float alpha = 1.0;
+     if (texture_enable > 0.5)
+     {
+-        vec3 tex_color = texture(albedo_map, TexCoord).rgb;
+-        albedo *= pow(tex_color, vec3(2.2));
++        vec4 tex_rgba = texture(albedo_map, TexCoord);
++        albedo *= pow(tex_rgba.rgb, vec3(2.2));
++        // cut-out materials (opacity folded into albedo alpha), e.g. wire tires and knitted reflectors:
++        // crisp alpha-tested edges while the pattern is resolved, the mip-filtered mean coverage once it
++        // is minified (so a fine knit reads as an even, semi-transparent tint instead of sparse speckle)
++        vec2 texels = vec2(textureSize(albedo_map, 0));
++        float lod = 0.5 * log2(max(max(dot(duv1 * texels, duv1 * texels), dot(duv2 * texels, duv2 * texels)), 1e-8));
++        float sharp = (tex_rgba.a - 0.5) / max(fwidth(tex_rgba.a), 1e-4) + 0.5;
++        alpha = clamp(mix(sharp, tex_rgba.a, clamp(lod, 0.0, 1.0)), 0.0, 1.0);
++        // MSAA: alpha becomes the sample coverage mask; otherwise a dithered alpha test
++        float dither = fract(sin(dot(gl_FragCoord.xy, vec2(12.9898, 78.233))) * 43758.5453);
++        if (alpha < (alpha_to_coverage ? 0.02 : max(dither, 0.02)))
++            discard;
+     }
+ 
+     // Optional checker pattern in object-space so it follows instance transforms
+@@ -309,6 +346,16 @@ void main()
+     vec3 V = normalize(view_pos - FragPos);
+     // Flip normal for backfacing triangles
+     if (!gl_FrontFacing) N = -N;
++    if (nmap.a > 0.5)
++    {
++        vec3 n_ts = nmap.xyz * 2.0 - 1.0;
++        // Toksvig: a mip-averaged (shortened) normal widens the lobe instead of sparkling at distance
++        float n_len = clamp(length(n_ts), 1e-3, 1.0);
++        float a = roughness * roughness;
++        roughness = sqrt(sqrt(a * a + (1.0 - n_len) / n_len));
++        roughness = min(roughness, 1.0);
++        N = perturb_normal(N, dp1, dp2, duv1, duv2, n_ts);
++    }
+     vec3 L = normalize(sun_direction);
+     vec3 H = normalize(V + L);
+ 
+@@ -387,7 +434,7 @@ void main()
+     // gamma correction (sRGB)
+     color = pow(color, vec3(1.0 / 2.2));
+ 
+-    FragColor = vec4(color, 1.0);
++    FragColor = vec4(color, alpha_to_coverage ? alpha : 1.0);
+ }
+ """
+ 
+@@ -534,6 +581,9 @@ class ShaderShape(ShaderGL):
+             self.loc_light_space_matrix = self._get_uniform_location("light_space_matrix")
+             self.loc_shadow_map = self._get_uniform_location("shadow_map")
+             self.loc_albedo_map = self._get_uniform_location("albedo_map")
++            self.loc_orm_map = self._get_uniform_location("orm_map")
++            self.loc_normal_map = self._get_uniform_location("normal_map")
++            self.loc_alpha_to_coverage = self._get_uniform_location("alpha_to_coverage")
+             self.loc_env_map = self._get_uniform_location("env_map")
+             self.loc_env_intensity = self._get_uniform_location("env_intensity")
+             self.loc_fog_color = self._get_uniform_location("fogColor")
+@@ -571,6 +621,7 @@ class ShaderShape(ShaderGL):
+         spotlight_enabled: bool = True,
+         shadow_extents: float = 10.0,
+         exposure: float = 1.6,
++        alpha_to_coverage: bool = False,
+     ):
+         """Update all shader uniforms."""
+         with self:
+@@ -604,6 +655,9 @@ class ShaderShape(ShaderGL):
+                 self.loc_light_space_matrix, 1, self._gl.GL_FALSE, arr_pointer(light_space_matrix)
+             )
+             self._gl.glUniform1i(self.loc_albedo_map, 1)
++            self._gl.glUniform1i(self.loc_orm_map, 3)
++            self._gl.glUniform1i(self.loc_normal_map, 4)
++            self._gl.glUniform1i(self.loc_alpha_to_coverage, int(alpha_to_coverage))
+             self._gl.glActiveTexture(self._gl.GL_TEXTURE2)
+             if env_texture is not None:
+                 self._gl.glBindTexture(self._gl.GL_TEXTURE_2D, env_texture)
+diff --git a/newton/_src/viewer/viewer.py b/newton/_src/viewer/viewer.py
+index 0b3dcbb7..1836799f 100644
+--- a/newton/_src/viewer/viewer.py
++++ b/newton/_src/viewer/viewer.py
+@@ -1631,7 +1631,11 @@ class ViewerBase(ABC):
+                 uvs,
+                 hidden=hidden,
+                 texture=texture,
++                backface_culling=not getattr(geo_src, "double_sided", False),
++                roughness=getattr(geo_src, "_roughness", None),
++                metallic=getattr(geo_src, "_metallic", None),
+             )
++            self._log_mesh_texture_maps(name, getattr(geo_src, "texture_maps", None) if uvs is not None else None)
+             return
+ 
+         # Generate vertices/indices for supported primitive types
+@@ -2276,7 +2280,14 @@ class ViewerBase(ABC):
+             uvs_wp,
+             hidden=hidden,
+             texture=getattr(src, "texture", None),
++            backface_culling=not getattr(src, "double_sided", False),
++            roughness=getattr(src, "_roughness", None),
++            metallic=getattr(src, "_metallic", None),
+         )
++        self._log_mesh_texture_maps(name, getattr(src, "texture_maps", None) if uvs_wp is not None else None)
++
++    def _log_mesh_texture_maps(self, name: str, texture_maps: dict | None) -> None:
++        """Attach per-texel roughness/metallic/normal maps to a logged mesh (only the GL viewer uses them)."""
+ 
+     # creates meshes and instances for each shape in the Model
+     def _populate_shapes(self):
+diff --git a/newton/_src/viewer/viewer_gl.py b/newton/_src/viewer/viewer_gl.py
+index 807078cd..37fed6f1 100644
+--- a/newton/_src/viewer/viewer_gl.py
++++ b/newton/_src/viewer/viewer_gl.py
+@@ -931,6 +931,10 @@ class ViewerGL(ViewerBase):
+                 m = float(metallic)
+             self.objects[name].material = (r, m, c, t)
+ 
++    @override
++    def _log_mesh_texture_maps(self, name: str, texture_maps: dict | None) -> None:
++        self.objects[self._qualify(name)].update_texture_maps(texture_maps)
++
+     @override
+     def log_instances(
+         self,
+diff --git a/newton/_src/viewer/viewer_rtx.py b/newton/_src/viewer/viewer_rtx.py
+index eca09688..79807e8a 100644
+--- a/newton/_src/viewer/viewer_rtx.py
++++ b/newton/_src/viewer/viewer_rtx.py
+@@ -2000,8 +2000,10 @@ void main() {
+ 
+         for _pname, product in products.items():
+             for frame in product.frames:
+-                if "LdrColor" in frame.render_vars:
+-                    with frame.render_vars["LdrColor"].map(device=Device.CPU) as mapping:
++                # ovrtx >= 0.5 keys render vars by full path ("/Render/Vars/LdrColor")
++                key = next((k for k in frame.render_vars if k == "LdrColor" or k.endswith("/LdrColor")), None)
++                if key is not None:
++                    with frame.render_vars[key].map(device=Device.CPU) as mapping:
+                         pixels = np.array(np.from_dlpack(mapping), copy=True)
+                     return pixels
+ 
+diff --git a/newton/_src/viewer/viewer_usd.py b/newton/_src/viewer/viewer_usd.py
+index f70ec236..cdc8096b 100644
+--- a/newton/_src/viewer/viewer_usd.py
++++ b/newton/_src/viewer/viewer_usd.py
+@@ -158,6 +158,7 @@ class ViewerUSD(ViewerBase):
+         layer._instancers = {}  # instancer_name -> UsdGeom.PointInstancer
+         layer._points = {}  # point_name -> UsdGeom.Points
+         layer._texture_materials: dict[str, Any] = {}  # mesh_name -> UsdShade.Material
++        layer._texture_mapped: set[str] = set()  # meshes whose material already has roughness/metallic/normal maps
+         layer._vertex_colored_meshes: set[str] = set()  # meshes with a vertex-interpolated displayColor
+ 
+     def _reset_stage(self):
+@@ -380,12 +381,12 @@ class ViewerUSD(ViewerBase):
+         # provided — a UsdUVTexture shader with no "st" primvar would sample
+         # undefined data and produce incorrect results.
+         if texture is not None and uvs is not None and name not in self._texture_materials:
+-            self._create_texture_material(name, mesh_prim, texture)
++            self._create_texture_material(name, mesh_prim, texture, roughness=roughness, metallic=metallic)
+ 
+         # how to hide the prototype mesh but not the instances in USD?
+         mesh_prim.GetVisibilityAttr().Set("inherited" if not hidden else "invisible", self._frame_index)
+ 
+-    def _create_texture_material(self, mesh_name: str, mesh_prim, texture):
++    def _create_texture_material(self, mesh_name: str, mesh_prim, texture, roughness=None, metallic=None):
+         """Create a UsdPreviewSurface material with a diffuse texture and bind it to *mesh_prim*."""
+         from pxr import Sdf as _Sdf
+         from pxr import UsdShade
+@@ -393,12 +394,14 @@ class ViewerUSD(ViewerBase):
+         from ..utils.texture import load_texture  # noqa: PLC0415
+ 
+         # Resolve texture to a file path on disk
++        cutout = False
+         if isinstance(texture, str):
+             tex_path = os.path.abspath(texture)
+         else:
+             tex_array = load_texture(texture)
+             if tex_array is None:
+                 return
++            cutout = tex_array.ndim == 3 and tex_array.shape[2] == 4 and int(tex_array[..., 3].min()) < 250
+             tex_dir = os.path.dirname(self.output_path)
+             safe_name = mesh_name.replace("/", "_").replace("\\", "_")
+             tex_path = os.path.join(tex_dir, f"_tex_{safe_name}.png")
+@@ -419,7 +422,8 @@ class ViewerUSD(ViewerBase):
+         surface = UsdShade.Shader.Define(self.stage, f"{mat_path}/PreviewSurface")
+         surface.CreateIdAttr("UsdPreviewSurface")
+         diff_input = surface.CreateInput("diffuseColor", _Sdf.ValueTypeNames.Color3f)
+-        surface.CreateInput("roughness", _Sdf.ValueTypeNames.Float).Set(0.5)
++        surface.CreateInput("roughness", _Sdf.ValueTypeNames.Float).Set(0.5 if roughness is None else float(roughness))
++        surface.CreateInput("metallic", _Sdf.ValueTypeNames.Float).Set(0.0 if metallic is None else float(metallic))
+         material.CreateSurfaceOutput().ConnectToSource(surface.ConnectableAPI(), "surface")
+ 
+         tex_reader = UsdShade.Shader.Define(self.stage, f"{mat_path}/DiffuseTexture")
+@@ -430,6 +434,11 @@ class ViewerUSD(ViewerBase):
+         tex_reader.CreateInput("wrapT", _Sdf.ValueTypeNames.Token).Set("repeat")
+         tex_reader.CreateOutput("rgb", _Sdf.ValueTypeNames.Float3)
+         diff_input.ConnectToSource(tex_reader.ConnectableAPI(), "rgb")
++        if cutout:  # opacity merged into the albedo alpha (wire mesh, knit): alpha-tested cut-out
++            tex_reader.CreateOutput("a", _Sdf.ValueTypeNames.Float)
++            surface.CreateInput("opacity", _Sdf.ValueTypeNames.Float).ConnectToSource(tex_reader.ConnectableAPI(), "a")
++            # threshold 0 = blended coverage: fine wire/knit reads as an even tint at distance (path tracers)
++            surface.CreateInput("opacityThreshold", _Sdf.ValueTypeNames.Float).Set(0.0)
+ 
+         st_reader = UsdShade.Shader.Define(self.stage, f"{mat_path}/PrimvarSt")
+         st_reader.CreateIdAttr("UsdPrimvarReader_float2")
+@@ -441,6 +450,47 @@ class ViewerUSD(ViewerBase):
+         UsdShade.MaterialBindingAPI(mesh_prim.GetPrim()).Bind(material)
+         self._texture_materials[mesh_name] = material
+ 
++    @override
++    def _log_mesh_texture_maps(self, name: str, texture_maps: dict | None) -> None:
++        """Add per-texel roughness/metallic and normal maps to the mesh's UsdPreviewSurface."""
++        from pxr import Sdf as _Sdf
++        from pxr import UsdShade
++
++        name = self._qualify(name)
++        material = self._texture_materials.get(name)
++        if not texture_maps or material is None or name in self._texture_mapped:
++            return
++        self._texture_mapped.add(name)
++        mat_path = str(material.GetPath())
++        surface = UsdShade.Shader.Get(self.stage, f"{mat_path}/PreviewSurface")
++        st = UsdShade.Shader.Get(self.stage, f"{mat_path}/PrimvarSt")
++        channels = {0: "r", 1: "g", 2: "b", 3: "a"}
++
++        def reader(key, path, colorspace="raw"):
++            tex = UsdShade.Shader.Define(self.stage, f"{mat_path}/{key}Texture")
++            tex.CreateIdAttr("UsdUVTexture")
++            tex.CreateInput("file", _Sdf.ValueTypeNames.Asset).Set(os.path.abspath(path))
++            tex.CreateInput("sourceColorSpace", _Sdf.ValueTypeNames.Token).Set(colorspace)
++            tex.CreateInput("wrapS", _Sdf.ValueTypeNames.Token).Set("repeat")
++            tex.CreateInput("wrapT", _Sdf.ValueTypeNames.Token).Set("repeat")
++            tex.CreateInput("st", _Sdf.ValueTypeNames.Float2).ConnectToSource(st.ConnectableAPI(), "result")
++            return tex
++
++        for key in ("roughness", "metallic"):
++            if key in texture_maps:
++                path, channel = texture_maps[key][:2]
++                ch = channels.get(int(channel), "r") if not isinstance(channel, str) else channel
++                tex = reader(key, path)
++                tex.CreateOutput(ch, _Sdf.ValueTypeNames.Float)
++                surface.CreateInput(key, _Sdf.ValueTypeNames.Float).ConnectToSource(tex.ConnectableAPI(), ch)
++        if "normal" in texture_maps:
++            path, scale, bias = texture_maps["normal"]
++            tex = reader("normal", path)
++            tex.CreateInput("scale", _Sdf.ValueTypeNames.Float4).Set(Gf.Vec4f(*(tuple(scale)[:3] + (1.0,))))
++            tex.CreateInput("bias", _Sdf.ValueTypeNames.Float4).Set(Gf.Vec4f(*(tuple(bias)[:3] + (0.0,))))
++            tex.CreateOutput("rgb", _Sdf.ValueTypeNames.Float3)
++            surface.CreateInput("normal", _Sdf.ValueTypeNames.Normal3f).ConnectToSource(tex.ConnectableAPI(), "rgb")
++
+     @staticmethod
+     def _texture_material_path(mesh_name: str) -> str:
+         safe = mesh_name.replace("/", "_").lstrip("_")

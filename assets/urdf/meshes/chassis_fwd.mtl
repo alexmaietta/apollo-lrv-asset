@@ -1,0 +1,166 @@
+# Blender 5.2.2 LTS MTL File: 'lrv.blend'
+# www.blender.org
+
+newmtl aluminium
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 3
+map_Kd -s 2.5 2.5 1 aluminium_basecolor.png
+map_Ns -s 2.5 2.5 1 aluminium_roughness.png
+map_Bump -s 2.5 2.5 1 -bm 0.400000 aluminium_normal.png
+
+newmtl crew_webbing_white
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd -s 20 20 1 crew_webbing_white_basecolor.png
+map_Ns -s 20 20 1 crew_webbing_white_roughness.png
+map_Bump -s 20 20 1 -bm 0.600000 crew_webbing_white_normal.png
+
+newmtl drive_housing
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 3
+map_Kd -s 5 5 1 drive_housing_basecolor.png
+map_Ns -s 5 5 1 drive_housing_roughness.png
+map_Bump -s 5 5 1 -bm 0.500000 drive_housing_normal.png
+
+newmtl eq_battery_case
+Ka 0.700000 0.700000 0.700000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 3
+map_Kd -s 5 5 1 eq_battery_case_basecolor.png
+map_Ns -s 5 5 1 eq_battery_case_roughness.png
+map_Bump -s 5 5 1 -bm 0.600000 eq_battery_case_normal.png
+
+newmtl eq_beta_cloth
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd -s 2.5 2.5 1 eq_beta_cloth_basecolor.png
+map_Ns -s 2.5 2.5 1 eq_beta_cloth_roughness.png
+map_Bump -s 2.5 2.5 1 -bm 0.600000 eq_beta_cloth_normal.png
+
+newmtl eq_binding_tape
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd -s 12.5 12.5 1 eq_binding_tape_basecolor.png
+map_Ns -s 12.5 12.5 1 eq_binding_tape_roughness.png
+map_Bump -s 12.5 12.5 1 -bm 0.600000 eq_binding_tape_normal.png
+
+newmtl eq_copper_strap
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 3
+map_Kd -s 4 4 1 eq_copper_strap_basecolor.png
+map_Ns -s 4 4 1 eq_copper_strap_roughness.png
+map_Bump -s 4 4 1 -bm 0.600000 eq_copper_strap_normal.png
+
+newmtl eq_fiberglass
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd -s 3.3333333 3.3333333 1 eq_fiberglass_basecolor.png
+map_Ns -s 3.3333333 3.3333333 1 eq_fiberglass_roughness.png
+map_Bump -s 3.3333333 3.3333333 1 -bm 0.600000 eq_fiberglass_normal.png
+
+newmtl eq_gray_anodized
+Ka 0.500000 0.500000 0.500000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 3
+map_Kd -s 10 10 1 eq_gray_anodized_basecolor.png
+map_Ns -s 10 10 1 eq_gray_anodized_roughness.png
+map_Bump -s 10 10 1 -bm 0.600000 eq_gray_anodized_normal.png
+
+newmtl eq_osr_mirror
+Ns 940.900024
+Ka 1.000000 1.000000 1.000000
+Kd 0.930000 0.940000 0.960000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 3
+
+newmtl floor_panel
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 3
+map_Kd -s 5 5 1 floor_panel_basecolor.png
+map_Ns -s 5 5 1 floor_panel_roughness.png
+map_Bump -s 5 5 1 -bm 0.400000 floor_panel_normal.png
+
+newmtl harness_jacket
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd -s 20 20 1 harness_jacket_basecolor.png
+map_Ns -s 20 20 1 harness_jacket_roughness.png
+map_Bump -s 20 20 1 -bm 0.600000 harness_jacket_normal.png
+
+newmtl steel
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 3
+map_Kd -s 5 5 1 steel_basecolor.png
+map_Ns -s 5 5 1 steel_roughness.png
+map_Bump -s 5 5 1 -bm 0.400000 steel_normal.png
+
+newmtl white_paint
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd -s 3.3333333 3.3333333 1 white_paint_basecolor.png
+map_Ns -s 3.3333333 3.3333333 1 white_paint_roughness.png
+map_Bump -s 3.3333333 3.3333333 1 -bm 0.300000 white_paint_normal.png
+
+newmtl yellow_paint
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd -s 3.3333333 3.3333333 1 yellow_paint_basecolor.png
+map_Ns -s 3.3333333 3.3333333 1 yellow_paint_roughness.png
+map_Bump -s 3.3333333 3.3333333 1 -bm 0.300000 yellow_paint_normal.png

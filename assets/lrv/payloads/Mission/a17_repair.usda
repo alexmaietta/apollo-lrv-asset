@@ -1,0 +1,570 @@
+#usda 1.0
+(
+    customLayerData = {
+        string creator = "lrv pipeline (github: local ~/code/lrv)"
+    }
+    defaultPrim = "lrv"
+    kilogramsPerUnit = 1
+    metersPerUnit = 1
+    upAxis = "Z"
+)
+
+def "lrv"
+{
+    def "Geometry"
+    {
+        def "chassis"
+        {
+            def "chassis_aft"
+            {
+                def "lr_lower_arm"
+                {
+                    def "lr_upright"
+                    {
+                        def "lr_steer"
+                        {
+                            def Xform "lr_fender_stop_rivets" (
+                                instanceable = true
+                                prepend references = @../instances.usda@</Instances/lr_fender_stop_rivets>
+                            )
+                            {
+                                quatd xformOp:orient = (1, 0, 0, 0)
+                                double3 xformOp:scale = (1, 1, 1)
+                                double3 xformOp:translate = (0, 0, 0)
+                                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                            }
+
+                            def Xform "lr_fender_stops" (
+                                instanceable = true
+                                prepend references = @../instances.usda@</Instances/lr_fender_stops>
+                            )
+                            {
+                                quatd xformOp:orient = (1, 0, 0, 0)
+                                double3 xformOp:scale = (1, 1, 1)
+                                double3 xformOp:translate = (0, 0, 0)
+                                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                            }
+                        }
+                    }
+                }
+
+                def "rr_lower_arm"
+                {
+                    def "rr_upright"
+                    {
+                        def "rr_steer"
+                        {
+                            def Xform "rr_fender_repair_clamp_screws" (
+                                instanceable = true
+                                prepend references = @../instances.usda@</Instances/rr_fender_repair_clamp_screws>
+                            )
+                            {
+                                quatd xformOp:orient = (1, 0, 0, 0)
+                                double3 xformOp:scale = (1, 1, 1)
+                                double3 xformOp:translate = (0, 0, 0)
+                                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                            }
+
+                            def Xform "rr_fender_stops" (
+                                instanceable = true
+                                prepend references = @../instances.usda@</Instances/rr_fender_stops>
+                            )
+                            {
+                                quatd xformOp:orient = (1, 0, 0, 0)
+                                double3 xformOp:scale = (1, 1, 1)
+                                double3 xformOp:translate = (0, 0, 0)
+                                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                            }
+
+                            def Xform "rr_fender_repair_maps" (
+                                instanceable = true
+                                prepend references = @../instances.usda@</Instances/rr_fender_repair_maps>
+                            )
+                            {
+                                quatd xformOp:orient = (1, 0, 0, 0)
+                                double3 xformOp:scale = (1, 1, 1)
+                                double3 xformOp:translate = (0, 0, 0)
+                                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                            }
+
+                            def Xform "rr_fender_stop_rivets" (
+                                instanceable = true
+                                prepend references = @../instances.usda@</Instances/rr_fender_stop_rivets>
+                            )
+                            {
+                                quatd xformOp:orient = (1, 0, 0, 0)
+                                double3 xformOp:scale = (1, 1, 1)
+                                double3 xformOp:translate = (0, 0, 0)
+                                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                            }
+
+                            def Xform "rr_fender_repair_clamps" (
+                                instanceable = true
+                                prepend references = @../instances.usda@</Instances/rr_fender_repair_clamps>
+                            )
+                            {
+                                quatd xformOp:orient = (1, 0, 0, 0)
+                                double3 xformOp:scale = (1, 1, 1)
+                                double3 xformOp:translate = (0, 0, 0)
+                                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                            }
+
+                            def Xform "rr_fender_repair_tape" (
+                                instanceable = true
+                                prepend references = @../instances.usda@</Instances/rr_fender_repair_tape>
+                            )
+                            {
+                                quatd xformOp:orient = (1, 0, 0, 0)
+                                double3 xformOp:scale = (1, 1, 1)
+                                double3 xformOp:translate = (0, 0, 0)
+                                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                            }
+                        }
+                    }
+                }
+
+                def "pallet"
+                {
+                    def "sep_antenna"
+                    {
+                        def Xform "eq_sep_antenna_mast" (
+                            instanceable = true
+                            prepend references = @../instances.usda@</Instances/eq_sep_antenna_mast>
+                        )
+                        {
+                            quatd xformOp:orient = (1, 0, 0, 0)
+                            double3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (0, 0, 0)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def Xform "eq_sep_antenna_cable" (
+                            instanceable = true
+                            prepend references = @../instances.usda@</Instances/eq_sep_antenna_cable>
+                        )
+                        {
+                            quatd xformOp:orient = (1, 0, 0, 0)
+                            double3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (0, 0, 0)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def Xform "eq_sep_antenna_loops" (
+                            instanceable = true
+                            prepend references = @../instances.usda@</Instances/eq_sep_antenna_loops>
+                        )
+                        {
+                            quatd xformOp:orient = (1, 0, 0, 0)
+                            double3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (0, 0, 0)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+                    }
+
+                    def "sep_receiver"
+                    {
+                        def Xform "eq_sep_receiver_blanket" (
+                            instanceable = true
+                            prepend references = @../instances.usda@</Instances/eq_sep_receiver_blanket>
+                        )
+                        {
+                            quatd xformOp:orient = (1, 0, 0, 0)
+                            double3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (0, 0, 0)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def Xform "eq_sep_receiver_handle" (
+                            instanceable = true
+                            prepend references = @../instances.usda@</Instances/eq_sep_receiver_handle>
+                        )
+                        {
+                            quatd xformOp:orient = (1, 0, 0, 0)
+                            double3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (0, 0, 0)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def Xform "eq_sep_receiver_radiator" (
+                            instanceable = true
+                            prepend references = @../instances.usda@</Instances/eq_sep_receiver_radiator>
+                        )
+                        {
+                            quatd xformOp:orient = (1, 0, 0, 0)
+                            double3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (0, 0, 0)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+                    }
+
+                    def "traverse_gravimeter"
+                    {
+                        def Xform "eq_tge_cover" (
+                            instanceable = true
+                            prepend references = @../instances.usda@</Instances/eq_tge_cover>
+                        )
+                        {
+                            quatd xformOp:orient = (1, 0, 0, 0)
+                            double3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (0, 0, 0)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def Xform "eq_tge_handle_feet" (
+                            instanceable = true
+                            prepend references = @../instances.usda@</Instances/eq_tge_handle_feet>
+                        )
+                        {
+                            quatd xformOp:orient = (1, 0, 0, 0)
+                            double3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (0, 0, 0)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def Xform "eq_tge_hub" (
+                            instanceable = true
+                            prepend references = @../instances.usda@</Instances/eq_tge_hub>
+                        )
+                        {
+                            quatd xformOp:orient = (1, 0, 0, 0)
+                            double3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (0, 0, 0)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def Xform "eq_tge_recess" (
+                            instanceable = true
+                            prepend references = @../instances.usda@</Instances/eq_tge_recess>
+                        )
+                        {
+                            quatd xformOp:orient = (1, 0, 0, 0)
+                            double3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (0, 0, 0)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def Xform "eq_tge_lid" (
+                            instanceable = true
+                            prepend references = @../instances.usda@</Instances/eq_tge_lid>
+                        )
+                        {
+                            quatd xformOp:orient = (1, 0, 0, 0)
+                            double3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (0, 0, 0)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def Xform "eq_tge_seam" (
+                            instanceable = true
+                            prepend references = @../instances.usda@</Instances/eq_tge_seam>
+                        )
+                        {
+                            quatd xformOp:orient = (1, 0, 0, 0)
+                            double3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (0, 0, 0)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+                    }
+                }
+
+                def Xform "eq_aft_decal" (
+                    instanceable = true
+                    prepend references = @../instances.usda@</Instances/eq_aft_decal>
+                )
+                {
+                    quatd xformOp:orient = (1, 0, 0, 0)
+                    double3 xformOp:scale = (1, 1, 1)
+                    double3 xformOp:translate = (0.6553199887275696, 0, -0.47123000025749207)
+                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                }
+            }
+
+            def "chassis_fwd"
+            {
+                def "lf_lower_arm"
+                {
+                    def "lf_upright"
+                    {
+                        def "lf_steer"
+                        {
+                            def Xform "lf_fender_stops" (
+                                instanceable = true
+                                prepend references = @../instances.usda@</Instances/lf_fender_stops>
+                            )
+                            {
+                                quatd xformOp:orient = (1, 0, 0, 0)
+                                double3 xformOp:scale = (1, 1, 1)
+                                double3 xformOp:translate = (0, 0, 0)
+                                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                            }
+
+                            def Xform "lf_fender_stop_rivets" (
+                                instanceable = true
+                                prepend references = @../instances.usda@</Instances/lf_fender_stop_rivets>
+                            )
+                            {
+                                quatd xformOp:orient = (1, 0, 0, 0)
+                                double3 xformOp:scale = (1, 1, 1)
+                                double3 xformOp:translate = (0, 0, 0)
+                                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                            }
+
+                            def "lf_fender_ext"
+                            {
+                                def Xform "lf_fender_ext" (
+                                    instanceable = true
+                                    prepend references = @../instances.usda@</Instances/lf_fender_ext>
+                                )
+                                {
+                                    quatd xformOp:orient = (1, 0, 0, 0)
+                                    double3 xformOp:scale = (1, 1, 1)
+                                    double3 xformOp:translate = (0, 0, 0)
+                                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                                }
+
+                                def Xform "lf_fender_ext_bead" (
+                                    instanceable = true
+                                    prepend references = @../instances.usda@</Instances/lf_fender_ext_bead>
+                                )
+                                {
+                                    quatd xformOp:orient = (1, 0, 0, 0)
+                                    double3 xformOp:scale = (1, 1, 1)
+                                    double3 xformOp:translate = (0, 0, 0)
+                                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                                }
+                            }
+                        }
+                    }
+                }
+
+                def "rf_lower_arm"
+                {
+                    def "rf_upright"
+                    {
+                        def "rf_steer"
+                        {
+                            def Xform "rf_fender_stops" (
+                                instanceable = true
+                                prepend references = @../instances.usda@</Instances/rf_fender_stops>
+                            )
+                            {
+                                quatd xformOp:orient = (1, 0, 0, 0)
+                                double3 xformOp:scale = (1, 1, 1)
+                                double3 xformOp:translate = (0, 0, 0)
+                                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                            }
+
+                            def Xform "rf_fender_stop_rivets" (
+                                instanceable = true
+                                prepend references = @../instances.usda@</Instances/rf_fender_stop_rivets>
+                            )
+                            {
+                                quatd xformOp:orient = (1, 0, 0, 0)
+                                double3 xformOp:scale = (1, 1, 1)
+                                double3 xformOp:translate = (0, 0, 0)
+                                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                            }
+                        }
+                    }
+                }
+
+                def "tcu"
+                {
+                    def "tv_pan"
+                    {
+                        def Xform "eq_tv_pan_column" (
+                            instanceable = true
+                            prepend references = @../instances.usda@</Instances/eq_tv_pan_column>
+                        )
+                        {
+                            quatd xformOp:orient = (1, 0, 0, 0)
+                            double3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (0, 0, 0)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def Xform "eq_tv_yoke" (
+                            instanceable = true
+                            prepend references = @../instances.usda@</Instances/eq_tv_yoke>
+                        )
+                        {
+                            quatd xformOp:orient = (1, 0, 0, 0)
+                            double3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (0, 0, 0)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def Xform "eq_tv_tilt_motor" (
+                            instanceable = true
+                            prepend references = @../instances.usda@</Instances/eq_tv_tilt_motor>
+                        )
+                        {
+                            quatd xformOp:orient = (1, 0, 0, 0)
+                            double3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (0, 0, 0)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "tv_camera"
+                        {
+                            def Xform "eq_tv_camera_cable" (
+                                instanceable = true
+                                prepend references = @../instances.usda@</Instances/eq_tv_camera_cable>
+                            )
+                            {
+                                quatd xformOp:orient = (1, 0, 0, 0)
+                                double3 xformOp:scale = (1, 1, 1)
+                                double3 xformOp:translate = (0, 0, 0)
+                                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                            }
+
+                            def Xform "eq_tv_camera_bolts" (
+                                instanceable = true
+                                prepend references = @../instances.usda@</Instances/eq_tv_camera_bolts>
+                            )
+                            {
+                                quatd xformOp:orient = (1, 0, 0, 0)
+                                double3 xformOp:scale = (1, 1, 1)
+                                double3 xformOp:translate = (0, 0, 0)
+                                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                            }
+
+                            def Xform "eq_tv_sunshade" (
+                                instanceable = true
+                                prepend references = @../instances.usda@</Instances/eq_tv_sunshade>
+                            )
+                            {
+                                quatd xformOp:orient = (1, 0, 0, 0)
+                                double3 xformOp:scale = (1, 1, 1)
+                                double3 xformOp:translate = (0, 0, 0)
+                                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                            }
+
+                            def Xform "eq_tv_lens_barrel" (
+                                instanceable = true
+                                prepend references = @../instances.usda@</Instances/eq_tv_lens_barrel>
+                            )
+                            {
+                                quatd xformOp:orient = (1, 0, 0, 0)
+                                double3 xformOp:scale = (1, 1, 1)
+                                double3 xformOp:translate = (0, 0, 0)
+                                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                            }
+
+                            def Xform "eq_tv_camera_tape" (
+                                instanceable = true
+                                prepend references = @../instances.usda@</Instances/eq_tv_camera_tape>
+                            )
+                            {
+                                quatd xformOp:orient = (1, 0, 0, 0)
+                                double3 xformOp:scale = (1, 1, 1)
+                                double3 xformOp:translate = (0, 0, 0)
+                                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                            }
+
+                            def Xform "eq_tv_camera_blanket" (
+                                instanceable = true
+                                prepend references = @../instances.usda@</Instances/eq_tv_camera_blanket>
+                            )
+                            {
+                                quatd xformOp:orient = (1, 0, 0, 0)
+                                double3 xformOp:scale = (1, 1, 1)
+                                double3 xformOp:translate = (0, 0, 0)
+                                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                            }
+
+                            def Xform "eq_tv_camera_connector" (
+                                instanceable = true
+                                prepend references = @../instances.usda@</Instances/eq_tv_camera_connector>
+                            )
+                            {
+                                quatd xformOp:orient = (1, 0, 0, 0)
+                                double3 xformOp:scale = (1, 1, 1)
+                                double3 xformOp:translate = (0, 0, 0)
+                                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                            }
+
+                            def Xform "eq_tv_camera_plates" (
+                                instanceable = true
+                                prepend references = @../instances.usda@</Instances/eq_tv_camera_plates>
+                            )
+                            {
+                                quatd xformOp:orient = (1, 0, 0, 0)
+                                double3 xformOp:scale = (1, 1, 1)
+                                double3 xformOp:translate = (0, 0, 0)
+                                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                            }
+                        }
+                    }
+
+                    def Xform "eq_tv_staff" (
+                        instanceable = true
+                        prepend references = @../instances.usda@</Instances/eq_tv_staff>
+                    )
+                    {
+                        quatd xformOp:orient = (1, 0, 0, 0)
+                        double3 xformOp:scale = (1, 1, 1)
+                        double3 xformOp:translate = (0, 0, 0)
+                        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                    }
+
+                    def Xform "eq_tcu_connectors" (
+                        instanceable = true
+                        prepend references = @../instances.usda@</Instances/eq_tcu_connectors>
+                    )
+                    {
+                        quatd xformOp:orient = (1, 0, 0, 0)
+                        double3 xformOp:scale = (1, 1, 1)
+                        double3 xformOp:translate = (0, 0, 0)
+                        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                    }
+
+                    def Xform "eq_tcu_blanket" (
+                        instanceable = true
+                        prepend references = @../instances.usda@</Instances/eq_tcu_blanket>
+                    )
+                    {
+                        quatd xformOp:orient = (1, 0, 0, 0)
+                        double3 xformOp:scale = (1, 1, 1)
+                        double3 xformOp:translate = (0, 0, 0)
+                        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                    }
+
+                    def Xform "eq_tcu_face" (
+                        instanceable = true
+                        prepend references = @../instances.usda@</Instances/eq_tcu_face>
+                    )
+                    {
+                        quatd xformOp:orient = (1, 0, 0, 0)
+                        double3 xformOp:scale = (1, 1, 1)
+                        double3 xformOp:translate = (0, 0, 0)
+                        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                    }
+
+                    def Xform "eq_tv_cable" (
+                        instanceable = true
+                        prepend references = @../instances.usda@</Instances/eq_tv_cable>
+                    )
+                    {
+                        quatd xformOp:orient = (1, 0, 0, 0)
+                        double3 xformOp:scale = (1, 1, 1)
+                        double3 xformOp:translate = (0, 0, 0)
+                        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                    }
+
+                    def Xform "eq_tv_staff_hinge_pin" (
+                        instanceable = true
+                        prepend references = @../instances.usda@</Instances/eq_tv_staff_hinge_pin>
+                    )
+                    {
+                        quatd xformOp:orient = (1, 0, 0, 0)
+                        double3 xformOp:scale = (1, 1, 1)
+                        double3 xformOp:translate = (0, 0, 0)
+                        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                    }
+                }
+            }
+        }
+    }
+}
+

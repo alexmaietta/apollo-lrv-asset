@@ -1,0 +1,431 @@
+#usda 1.0
+(
+    customLayerData = {
+        string creator = "lrv pipeline (scripts/package_usd.py)"
+    }
+    defaultPrim = "lrv"
+    kilogramsPerUnit = 1
+    metersPerUnit = 1
+    subLayers = [
+        @./physics.usda@
+    ]
+    upAxis = "Z"
+)
+
+over "lrv"
+{
+    over "Geometry"
+    {
+        over "chassis" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsArticulationRootAPI", "NewtonArticulationRootAPI", "PhysxArticulationAPI"]
+        )
+        {
+            bool physxArticulation:enabledSelfCollisions = 0
+            int physxArticulation:solverPositionIterationCount = 32
+            int physxArticulation:solverVelocityIterationCount = 1
+        }
+    }
+
+    over "Physics"
+    {
+        over "chassis_aft" (
+            prepend apiSchemas = ["PhysicsJointStateAPI:angular", "PhysicsDriveAPI:angular", "PhysxJointAPI"]
+        )
+        {
+            float physxJoint:maxJointVelocity = 360
+        }
+
+        over "aft_steer_sector" (
+            prepend apiSchemas = ["PhysicsJointStateAPI:angular", "PhysicsDriveAPI:angular", "PhysxJointAPI"]
+        )
+        {
+            float physxJoint:maxJointVelocity = 360
+        }
+
+        over "lr_tie_rod" (
+            prepend apiSchemas = ["PhysxJointAPI"]
+        )
+        {
+            float physxJoint:maxJointVelocity = 360
+        }
+
+        over "rr_tie_rod" (
+            prepend apiSchemas = ["PhysxJointAPI"]
+        )
+        {
+            float physxJoint:maxJointVelocity = 360
+        }
+
+        over "lr_damper_cyl" (
+            prepend apiSchemas = ["PhysicsJointStateAPI:angular", "PhysicsDriveAPI:angular", "PhysxJointAPI"]
+        )
+        {
+            float physxJoint:maxJointVelocity = 360
+        }
+
+        over "lr_damper_rod" (
+            prepend apiSchemas = ["PhysicsJointStateAPI:linear", "PhysicsDriveAPI:linear", "PhysxJointAPI"]
+        )
+        {
+            float physxJoint:maxJointVelocity = 1
+        }
+
+        over "lr_lower_arm" (
+            prepend apiSchemas = ["PhysicsJointStateAPI:angular", "PhysicsDriveAPI:angular", "PhysxJointAPI"]
+        )
+        {
+            float physxJoint:maxJointVelocity = 360
+        }
+
+        over "lr_upright" (
+            prepend apiSchemas = ["PhysicsJointStateAPI:angular", "PhysicsDriveAPI:angular", "PhysxJointAPI"]
+        )
+        {
+            float physxJoint:maxJointVelocity = 360
+        }
+
+        over "lr_steer" (
+            prepend apiSchemas = ["PhysicsJointStateAPI:angular", "PhysicsDriveAPI:angular", "PhysxJointAPI"]
+        )
+        {
+            float physxJoint:maxJointVelocity = 360
+        }
+
+        over "lr_fender_ext" (
+            prepend apiSchemas = ["PhysicsJointStateAPI:angular", "PhysicsDriveAPI:angular", "PhysxJointAPI"]
+        )
+        {
+            float physxJoint:maxJointVelocity = 360
+        }
+
+        over "lr_wheel" (
+            prepend apiSchemas = ["PhysicsJointStateAPI:angular", "PhysicsDriveAPI:angular", "PhysxJointAPI"]
+        )
+        {
+            float physxJoint:maxJointVelocity = 817.17694
+        }
+
+        over "lr_upper_arm" (
+            prepend apiSchemas = ["PhysicsJointStateAPI:angular", "PhysicsDriveAPI:angular", "PhysxJointAPI"]
+        )
+        {
+            float physxJoint:maxJointVelocity = 360
+        }
+
+        over "rr_damper_cyl" (
+            prepend apiSchemas = ["PhysicsJointStateAPI:angular", "PhysicsDriveAPI:angular", "PhysxJointAPI"]
+        )
+        {
+            float physxJoint:maxJointVelocity = 360
+        }
+
+        over "rr_damper_rod" (
+            prepend apiSchemas = ["PhysicsJointStateAPI:linear", "PhysicsDriveAPI:linear", "PhysxJointAPI"]
+        )
+        {
+            float physxJoint:maxJointVelocity = 1
+        }
+
+        over "rr_lower_arm" (
+            prepend apiSchemas = ["PhysicsJointStateAPI:angular", "PhysicsDriveAPI:angular", "PhysxJointAPI"]
+        )
+        {
+            float physxJoint:maxJointVelocity = 360
+        }
+
+        over "rr_upright" (
+            prepend apiSchemas = ["PhysicsJointStateAPI:angular", "PhysicsDriveAPI:angular", "PhysxJointAPI"]
+        )
+        {
+            float physxJoint:maxJointVelocity = 360
+        }
+
+        over "rr_steer" (
+            prepend apiSchemas = ["PhysicsJointStateAPI:angular", "PhysicsDriveAPI:angular", "PhysxJointAPI"]
+        )
+        {
+            float physxJoint:maxJointVelocity = 360
+        }
+
+        over "rr_fender_ext" (
+            prepend apiSchemas = ["PhysicsJointStateAPI:angular", "PhysicsDriveAPI:angular", "PhysxJointAPI"]
+        )
+        {
+            float physxJoint:maxJointVelocity = 360
+        }
+
+        over "rr_wheel" (
+            prepend apiSchemas = ["PhysicsJointStateAPI:angular", "PhysicsDriveAPI:angular", "PhysxJointAPI"]
+        )
+        {
+            float physxJoint:maxJointVelocity = 817.17694
+        }
+
+        over "rr_upper_arm" (
+            prepend apiSchemas = ["PhysicsJointStateAPI:angular", "PhysicsDriveAPI:angular", "PhysxJointAPI"]
+        )
+        {
+            float physxJoint:maxJointVelocity = 360
+        }
+
+        over "chassis_fwd" (
+            prepend apiSchemas = ["PhysicsJointStateAPI:angular", "PhysicsDriveAPI:angular", "PhysxJointAPI"]
+        )
+        {
+            float physxJoint:maxJointVelocity = 360
+        }
+
+        over "bat1_cover" (
+            prepend apiSchemas = ["PhysicsJointStateAPI:angular", "PhysicsDriveAPI:angular", "PhysxJointAPI"]
+        )
+        {
+            float physxJoint:maxJointVelocity = 360
+        }
+
+        over "bat2_cover" (
+            prepend apiSchemas = ["PhysicsJointStateAPI:angular", "PhysicsDriveAPI:angular", "PhysxJointAPI"]
+        )
+        {
+            float physxJoint:maxJointVelocity = 360
+        }
+
+        over "fwd_steer_sector" (
+            prepend apiSchemas = ["PhysicsJointStateAPI:angular", "PhysicsDriveAPI:angular", "PhysxJointAPI"]
+        )
+        {
+            float physxJoint:maxJointVelocity = 360
+        }
+
+        over "lf_tie_rod" (
+            prepend apiSchemas = ["PhysxJointAPI"]
+        )
+        {
+            float physxJoint:maxJointVelocity = 360
+        }
+
+        over "rf_tie_rod" (
+            prepend apiSchemas = ["PhysxJointAPI"]
+        )
+        {
+            float physxJoint:maxJointVelocity = 360
+        }
+
+        over "hga_mast_ext" (
+            prepend apiSchemas = ["PhysicsJointStateAPI:linear", "PhysicsDriveAPI:linear", "PhysxJointAPI"]
+        )
+        {
+            float physxJoint:maxJointVelocity = 1
+        }
+
+        over "hga_az" (
+            prepend apiSchemas = ["PhysicsJointStateAPI:angular", "PhysicsDriveAPI:angular", "PhysxJointAPI"]
+        )
+        {
+            float physxJoint:maxJointVelocity = 360
+        }
+
+        over "hga_el" (
+            prepend apiSchemas = ["PhysicsJointStateAPI:angular", "PhysicsDriveAPI:angular", "PhysxJointAPI"]
+        )
+        {
+            float physxJoint:maxJointVelocity = 360
+        }
+
+        over "hga_dish" (
+            prepend apiSchemas = ["PhysicsJointStateAPI:angular", "PhysicsDriveAPI:angular", "PhysxJointAPI"]
+        )
+        {
+            float physxJoint:maxJointVelocity = 360
+        }
+
+        over "lf_damper_cyl" (
+            prepend apiSchemas = ["PhysicsJointStateAPI:angular", "PhysicsDriveAPI:angular", "PhysxJointAPI"]
+        )
+        {
+            float physxJoint:maxJointVelocity = 360
+        }
+
+        over "lf_damper_rod" (
+            prepend apiSchemas = ["PhysicsJointStateAPI:linear", "PhysicsDriveAPI:linear", "PhysxJointAPI"]
+        )
+        {
+            float physxJoint:maxJointVelocity = 1
+        }
+
+        over "lf_lower_arm" (
+            prepend apiSchemas = ["PhysicsJointStateAPI:angular", "PhysicsDriveAPI:angular", "PhysxJointAPI"]
+        )
+        {
+            float physxJoint:maxJointVelocity = 360
+        }
+
+        over "lf_upright" (
+            prepend apiSchemas = ["PhysicsJointStateAPI:angular", "PhysicsDriveAPI:angular", "PhysxJointAPI"]
+        )
+        {
+            float physxJoint:maxJointVelocity = 360
+        }
+
+        over "lf_steer" (
+            prepend apiSchemas = ["PhysicsJointStateAPI:angular", "PhysicsDriveAPI:angular", "PhysxJointAPI"]
+        )
+        {
+            float physxJoint:maxJointVelocity = 360
+        }
+
+        over "lf_fender_ext" (
+            prepend apiSchemas = ["PhysicsJointStateAPI:angular", "PhysicsDriveAPI:angular", "PhysxJointAPI"]
+        )
+        {
+            float physxJoint:maxJointVelocity = 360
+        }
+
+        over "lf_wheel" (
+            prepend apiSchemas = ["PhysicsJointStateAPI:angular", "PhysicsDriveAPI:angular", "PhysxJointAPI"]
+        )
+        {
+            float physxJoint:maxJointVelocity = 817.17694
+        }
+
+        over "lf_upper_arm" (
+            prepend apiSchemas = ["PhysicsJointStateAPI:angular", "PhysicsDriveAPI:angular", "PhysxJointAPI"]
+        )
+        {
+            float physxJoint:maxJointVelocity = 360
+        }
+
+        over "rf_damper_cyl" (
+            prepend apiSchemas = ["PhysicsJointStateAPI:angular", "PhysicsDriveAPI:angular", "PhysxJointAPI"]
+        )
+        {
+            float physxJoint:maxJointVelocity = 360
+        }
+
+        over "rf_damper_rod" (
+            prepend apiSchemas = ["PhysicsJointStateAPI:linear", "PhysicsDriveAPI:linear", "PhysxJointAPI"]
+        )
+        {
+            float physxJoint:maxJointVelocity = 1
+        }
+
+        over "rf_lower_arm" (
+            prepend apiSchemas = ["PhysicsJointStateAPI:angular", "PhysicsDriveAPI:angular", "PhysxJointAPI"]
+        )
+        {
+            float physxJoint:maxJointVelocity = 360
+        }
+
+        over "rf_upright" (
+            prepend apiSchemas = ["PhysicsJointStateAPI:angular", "PhysicsDriveAPI:angular", "PhysxJointAPI"]
+        )
+        {
+            float physxJoint:maxJointVelocity = 360
+        }
+
+        over "rf_steer" (
+            prepend apiSchemas = ["PhysicsJointStateAPI:angular", "PhysicsDriveAPI:angular", "PhysxJointAPI"]
+        )
+        {
+            float physxJoint:maxJointVelocity = 360
+        }
+
+        over "rf_fender_ext" (
+            prepend apiSchemas = ["PhysicsJointStateAPI:angular", "PhysicsDriveAPI:angular", "PhysxJointAPI"]
+        )
+        {
+            float physxJoint:maxJointVelocity = 360
+        }
+
+        over "rf_wheel" (
+            prepend apiSchemas = ["PhysicsJointStateAPI:angular", "PhysicsDriveAPI:angular", "PhysxJointAPI"]
+        )
+        {
+            float physxJoint:maxJointVelocity = 817.17694
+        }
+
+        over "rf_upper_arm" (
+            prepend apiSchemas = ["PhysicsJointStateAPI:angular", "PhysicsDriveAPI:angular", "PhysxJointAPI"]
+        )
+        {
+            float physxJoint:maxJointVelocity = 360
+        }
+
+        over "spu_cover" (
+            prepend apiSchemas = ["PhysicsJointStateAPI:angular", "PhysicsDriveAPI:angular", "PhysxJointAPI"]
+        )
+        {
+            float physxJoint:maxJointVelocity = 360
+        }
+
+        over "tv_pan" (
+            prepend apiSchemas = ["PhysicsJointStateAPI:angular", "PhysicsDriveAPI:angular", "PhysxJointAPI"]
+        )
+        {
+            float physxJoint:maxJointVelocity = 360
+        }
+
+        over "tv_camera" (
+            prepend apiSchemas = ["PhysicsJointStateAPI:angular", "PhysicsDriveAPI:angular", "PhysxJointAPI"]
+        )
+        {
+            float physxJoint:maxJointVelocity = 360
+        }
+
+        over "hc_steer" (
+            prepend apiSchemas = ["PhysicsJointStateAPI:angular", "PhysicsDriveAPI:angular", "PhysxJointAPI"]
+        )
+        {
+            float physxJoint:maxJointVelocity = 360
+        }
+
+        over "hc_brake" (
+            prepend apiSchemas = ["PhysicsJointStateAPI:angular", "PhysicsDriveAPI:angular", "PhysxJointAPI"]
+        )
+        {
+            float physxJoint:maxJointVelocity = 360
+        }
+
+        over "hc_throttle" (
+            prepend apiSchemas = ["PhysicsJointStateAPI:angular", "PhysicsDriveAPI:angular", "PhysxJointAPI"]
+        )
+        {
+            float physxJoint:maxJointVelocity = 360
+        }
+
+        over "hc_reverse_switch" (
+            prepend apiSchemas = ["PhysicsJointStateAPI:angular", "PhysicsDriveAPI:angular", "PhysxJointAPI"]
+        )
+        {
+            float physxJoint:maxJointVelocity = 360
+        }
+
+        over "lga_staff" (
+            prepend apiSchemas = ["PhysicsJointStateAPI:angular", "PhysicsDriveAPI:angular", "PhysxJointAPI"]
+        )
+        {
+            float physxJoint:maxJointVelocity = 360
+        }
+
+        over "lga_antenna" (
+            prepend apiSchemas = ["PhysicsJointStateAPI:angular", "PhysicsDriveAPI:angular", "PhysxJointAPI"]
+        )
+        {
+            float physxJoint:maxJointVelocity = 360
+        }
+
+        over "seat_back_l" (
+            prepend apiSchemas = ["PhysicsJointStateAPI:angular", "PhysicsDriveAPI:angular", "PhysxJointAPI"]
+        )
+        {
+            float physxJoint:maxJointVelocity = 360
+        }
+
+        over "seat_back_r" (
+            prepend apiSchemas = ["PhysicsJointStateAPI:angular", "PhysicsDriveAPI:angular", "PhysxJointAPI"]
+        )
+        {
+            float physxJoint:maxJointVelocity = 360
+        }
+    }
+}
+

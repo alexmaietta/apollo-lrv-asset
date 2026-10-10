@@ -1,0 +1,1163 @@
+#usda 1.0
+(
+    customLayerData = {
+        string creator = "lrv pipeline (scripts/package_usd.py)"
+    }
+    defaultPrim = "lrv"
+    kilogramsPerUnit = 1
+    metersPerUnit = 1
+    upAxis = "Z"
+)
+
+over "lrv" (
+    prepend apiSchemas = ["IsaacRobotAPI"]
+)
+{
+    string isaac:description = "Apollo Lunar Roving Vehicle (LRV-3, Apollo 17)"
+    token isaac:license = "Other"
+    string isaac:namespace = "lrv"
+    prepend rel isaac:physics:robotJoints = [
+        </lrv/Physics/chassis_aft>,
+        </lrv/Physics/aft_steer_sector>,
+        </lrv/Physics/lr_tie_rod>,
+        </lrv/Physics/rr_tie_rod>,
+        </lrv/Physics/lr_damper_cyl>,
+        </lrv/Physics/lr_damper_rod>,
+        </lrv/Physics/lr_lower_arm>,
+        </lrv/Physics/lr_upright>,
+        </lrv/Physics/lr_steer>,
+        </lrv/Physics/lr_fender_ext>,
+        </lrv/Physics/lr_wheel>,
+        </lrv/Physics/lr_upper_arm>,
+        </lrv/Physics/pallet>,
+        </lrv/Physics/extension_handle>,
+        </lrv/Physics/gnomon>,
+        </lrv/Physics/hammer>,
+        </lrv/Physics/rake>,
+        </lrv/Physics/scoop>,
+        </lrv/Physics/sep_antenna>,
+        </lrv/Physics/sep_receiver>,
+        </lrv/Physics/tongs_1>,
+        </lrv/Physics/tongs_2>,
+        </lrv/Physics/traverse_gravimeter>,
+        </lrv/Physics/rr_damper_cyl>,
+        </lrv/Physics/rr_damper_rod>,
+        </lrv/Physics/rr_lower_arm>,
+        </lrv/Physics/rr_upright>,
+        </lrv/Physics/rr_steer>,
+        </lrv/Physics/rr_fender_ext>,
+        </lrv/Physics/rr_wheel>,
+        </lrv/Physics/rr_upper_arm>,
+        </lrv/Physics/chassis_fwd>,
+        </lrv/Physics/bat1_cover>,
+        </lrv/Physics/bat2_cover>,
+        </lrv/Physics/fwd_steer_sector>,
+        </lrv/Physics/lf_tie_rod>,
+        </lrv/Physics/rf_tie_rod>,
+        </lrv/Physics/hga_mast>,
+        </lrv/Physics/hga_mast_ext>,
+        </lrv/Physics/hga_az>,
+        </lrv/Physics/hga_el>,
+        </lrv/Physics/hga_dish>,
+        </lrv/Physics/lcru>,
+        </lrv/Physics/lf_damper_cyl>,
+        </lrv/Physics/lf_damper_rod>,
+        </lrv/Physics/lf_lower_arm>,
+        </lrv/Physics/lf_upright>,
+        </lrv/Physics/lf_steer>,
+        </lrv/Physics/lf_fender_ext>,
+        </lrv/Physics/lf_wheel>,
+        </lrv/Physics/lf_upper_arm>,
+        </lrv/Physics/rf_damper_cyl>,
+        </lrv/Physics/rf_damper_rod>,
+        </lrv/Physics/rf_lower_arm>,
+        </lrv/Physics/rf_upright>,
+        </lrv/Physics/rf_steer>,
+        </lrv/Physics/rf_fender_ext>,
+        </lrv/Physics/rf_wheel>,
+        </lrv/Physics/rf_upper_arm>,
+        </lrv/Physics/spu_cover>,
+        </lrv/Physics/tcu>,
+        </lrv/Physics/tv_pan>,
+        </lrv/Physics/tv_camera>,
+        </lrv/Physics/hc_steer>,
+        </lrv/Physics/hc_brake>,
+        </lrv/Physics/hc_throttle>,
+        </lrv/Physics/hc_reverse_switch>,
+        </lrv/Physics/lga_staff>,
+        </lrv/Physics/lga_antenna>,
+        </lrv/Physics/seat_back_l>,
+        </lrv/Physics/seat_back_r>,
+    ]
+    prepend rel isaac:physics:robotLinks = [
+        </lrv/Geometry/chassis>,
+        </lrv/Geometry/chassis/seat_h_point_l>,
+        </lrv/Geometry/chassis/seat_h_point_r>,
+        </lrv/Geometry/chassis/footrest_l>,
+        </lrv/Geometry/chassis/footrest_r>,
+        </lrv/Geometry/chassis/toe_hold_l>,
+        </lrv/Geometry/chassis/toe_hold_r>,
+        </lrv/Geometry/chassis/handhold_l>,
+        </lrv/Geometry/chassis/handhold_r>,
+        </lrv/Geometry/chassis/nav_reference>,
+        </lrv/Geometry/chassis/chassis_aft>,
+        </lrv/Geometry/chassis/chassis_aft/aft_steer_sector>,
+        </lrv/Geometry/chassis/chassis_aft/aft_steer_sector/lr_tie_rod>,
+        </lrv/Geometry/chassis/chassis_aft/aft_steer_sector/rr_tie_rod>,
+        </lrv/Geometry/chassis/chassis_aft/lr_damper_cyl>,
+        </lrv/Geometry/chassis/chassis_aft/lr_damper_cyl/lr_damper_rod>,
+        </lrv/Geometry/chassis/chassis_aft/lr_lower_arm>,
+        </lrv/Geometry/chassis/chassis_aft/lr_lower_arm/lr_upright>,
+        </lrv/Geometry/chassis/chassis_aft/lr_lower_arm/lr_upright/lr_steer>,
+        </lrv/Geometry/chassis/chassis_aft/lr_lower_arm/lr_upright/lr_steer/lr_fender_ext>,
+        </lrv/Geometry/chassis/chassis_aft/lr_lower_arm/lr_upright/lr_steer/lr_wheel>,
+        </lrv/Geometry/chassis/chassis_aft/lr_upper_arm>,
+        </lrv/Geometry/chassis/chassis_aft/pallet>,
+        </lrv/Geometry/chassis/chassis_aft/pallet/extension_handle>,
+        </lrv/Geometry/chassis/chassis_aft/pallet/gnomon>,
+        </lrv/Geometry/chassis/chassis_aft/pallet/hammer>,
+        </lrv/Geometry/chassis/chassis_aft/pallet/rake>,
+        </lrv/Geometry/chassis/chassis_aft/pallet/scoop>,
+        </lrv/Geometry/chassis/chassis_aft/pallet/sep_antenna>,
+        </lrv/Geometry/chassis/chassis_aft/pallet/sep_receiver>,
+        </lrv/Geometry/chassis/chassis_aft/pallet/tongs_1>,
+        </lrv/Geometry/chassis/chassis_aft/pallet/tongs_2>,
+        </lrv/Geometry/chassis/chassis_aft/pallet/traverse_gravimeter>,
+        </lrv/Geometry/chassis/chassis_aft/rr_damper_cyl>,
+        </lrv/Geometry/chassis/chassis_aft/rr_damper_cyl/rr_damper_rod>,
+        </lrv/Geometry/chassis/chassis_aft/rr_lower_arm>,
+        </lrv/Geometry/chassis/chassis_aft/rr_lower_arm/rr_upright>,
+        </lrv/Geometry/chassis/chassis_aft/rr_lower_arm/rr_upright/rr_steer>,
+        </lrv/Geometry/chassis/chassis_aft/rr_lower_arm/rr_upright/rr_steer/rr_fender_ext>,
+        </lrv/Geometry/chassis/chassis_aft/rr_lower_arm/rr_upright/rr_steer/rr_wheel>,
+        </lrv/Geometry/chassis/chassis_aft/rr_upper_arm>,
+        </lrv/Geometry/chassis/chassis_fwd>,
+        </lrv/Geometry/chassis/chassis_fwd/bat1_cover>,
+        </lrv/Geometry/chassis/chassis_fwd/bat2_cover>,
+        </lrv/Geometry/chassis/chassis_fwd/fwd_steer_sector>,
+        </lrv/Geometry/chassis/chassis_fwd/fwd_steer_sector/lf_tie_rod>,
+        </lrv/Geometry/chassis/chassis_fwd/fwd_steer_sector/rf_tie_rod>,
+        </lrv/Geometry/chassis/chassis_fwd/hga_mast>,
+        </lrv/Geometry/chassis/chassis_fwd/hga_mast/hga_mast_ext>,
+        </lrv/Geometry/chassis/chassis_fwd/hga_mast/hga_mast_ext/hga_az>,
+        </lrv/Geometry/chassis/chassis_fwd/hga_mast/hga_mast_ext/hga_az/hga_el>,
+        </lrv/Geometry/chassis/chassis_fwd/hga_mast/hga_mast_ext/hga_az/hga_el/hga_dish>,
+        </lrv/Geometry/chassis/chassis_fwd/lcru>,
+        </lrv/Geometry/chassis/chassis_fwd/lf_damper_cyl>,
+        </lrv/Geometry/chassis/chassis_fwd/lf_damper_cyl/lf_damper_rod>,
+        </lrv/Geometry/chassis/chassis_fwd/lf_lower_arm>,
+        </lrv/Geometry/chassis/chassis_fwd/lf_lower_arm/lf_upright>,
+        </lrv/Geometry/chassis/chassis_fwd/lf_lower_arm/lf_upright/lf_steer>,
+        </lrv/Geometry/chassis/chassis_fwd/lf_lower_arm/lf_upright/lf_steer/lf_fender_ext>,
+        </lrv/Geometry/chassis/chassis_fwd/lf_lower_arm/lf_upright/lf_steer/lf_wheel>,
+        </lrv/Geometry/chassis/chassis_fwd/lf_upper_arm>,
+        </lrv/Geometry/chassis/chassis_fwd/rf_damper_cyl>,
+        </lrv/Geometry/chassis/chassis_fwd/rf_damper_cyl/rf_damper_rod>,
+        </lrv/Geometry/chassis/chassis_fwd/rf_lower_arm>,
+        </lrv/Geometry/chassis/chassis_fwd/rf_lower_arm/rf_upright>,
+        </lrv/Geometry/chassis/chassis_fwd/rf_lower_arm/rf_upright/rf_steer>,
+        </lrv/Geometry/chassis/chassis_fwd/rf_lower_arm/rf_upright/rf_steer/rf_fender_ext>,
+        </lrv/Geometry/chassis/chassis_fwd/rf_lower_arm/rf_upright/rf_steer/rf_wheel>,
+        </lrv/Geometry/chassis/chassis_fwd/rf_upper_arm>,
+        </lrv/Geometry/chassis/chassis_fwd/spu_cover>,
+        </lrv/Geometry/chassis/chassis_fwd/tcu>,
+        </lrv/Geometry/chassis/chassis_fwd/tcu/tv_pan>,
+        </lrv/Geometry/chassis/chassis_fwd/tcu/tv_pan/tv_camera>,
+        </lrv/Geometry/chassis/hc_steer>,
+        </lrv/Geometry/chassis/hc_steer/hc_brake>,
+        </lrv/Geometry/chassis/hc_steer/hc_brake/hc_throttle>,
+        </lrv/Geometry/chassis/hc_steer/hc_brake/hc_throttle/t_handle_grip>,
+        </lrv/Geometry/chassis/hc_steer/hc_brake/hc_throttle/hc_reverse_switch>,
+        </lrv/Geometry/chassis/lga_staff>,
+        </lrv/Geometry/chassis/lga_staff/lga_antenna>,
+        </lrv/Geometry/chassis/seat_back_l>,
+        </lrv/Geometry/chassis/seat_back_r>,
+    ]
+    token isaac:robotType = "Wheeled"
+    string isaac:source = "lrv repo (scripted Blender build: scripts/build.py)"
+    string isaac:version = "1.0.0"
+
+    over "Geometry"
+    {
+        over "chassis" (
+            prepend apiSchemas = ["IsaacLinkAPI"]
+        )
+        {
+            over "chassis_aft" (
+                prepend apiSchemas = ["IsaacLinkAPI"]
+            )
+            {
+                over "aft_steer_sector" (
+                    prepend apiSchemas = ["IsaacLinkAPI"]
+                )
+                {
+                    over "lr_tie_rod" (
+                        prepend apiSchemas = ["IsaacLinkAPI"]
+                    )
+                    {
+                    }
+
+                    over "rr_tie_rod" (
+                        prepend apiSchemas = ["IsaacLinkAPI"]
+                    )
+                    {
+                    }
+                }
+
+                over "pallet" (
+                    prepend apiSchemas = ["IsaacLinkAPI"]
+                )
+                {
+                    over "extension_handle" (
+                        prepend apiSchemas = ["IsaacLinkAPI"]
+                    )
+                    {
+                    }
+
+                    over "gnomon" (
+                        prepend apiSchemas = ["IsaacLinkAPI"]
+                    )
+                    {
+                    }
+
+                    over "hammer" (
+                        prepend apiSchemas = ["IsaacLinkAPI"]
+                    )
+                    {
+                    }
+
+                    over "rake" (
+                        prepend apiSchemas = ["IsaacLinkAPI"]
+                    )
+                    {
+                    }
+
+                    over "scoop" (
+                        prepend apiSchemas = ["IsaacLinkAPI"]
+                    )
+                    {
+                    }
+
+                    over "sep_antenna" (
+                        prepend apiSchemas = ["IsaacLinkAPI"]
+                    )
+                    {
+                    }
+
+                    over "sep_receiver" (
+                        prepend apiSchemas = ["IsaacLinkAPI"]
+                    )
+                    {
+                    }
+
+                    over "tongs_1" (
+                        prepend apiSchemas = ["IsaacLinkAPI"]
+                    )
+                    {
+                    }
+
+                    over "tongs_2" (
+                        prepend apiSchemas = ["IsaacLinkAPI"]
+                    )
+                    {
+                    }
+
+                    over "traverse_gravimeter" (
+                        prepend apiSchemas = ["IsaacLinkAPI"]
+                    )
+                    {
+                    }
+                }
+
+                over "lr_damper_cyl" (
+                    prepend apiSchemas = ["IsaacLinkAPI"]
+                )
+                {
+                    over "lr_damper_rod" (
+                        prepend apiSchemas = ["IsaacLinkAPI"]
+                    )
+                    {
+                    }
+                }
+
+                over "lr_lower_arm" (
+                    prepend apiSchemas = ["IsaacLinkAPI"]
+                )
+                {
+                    over "lr_upright" (
+                        prepend apiSchemas = ["IsaacLinkAPI"]
+                    )
+                    {
+                        over "lr_steer" (
+                            prepend apiSchemas = ["IsaacLinkAPI"]
+                        )
+                        {
+                            over "lr_fender_ext" (
+                                prepend apiSchemas = ["IsaacLinkAPI"]
+                            )
+                            {
+                            }
+
+                            over "lr_wheel" (
+                                prepend apiSchemas = ["IsaacLinkAPI"]
+                            )
+                            {
+                            }
+                        }
+                    }
+                }
+
+                over "lr_upper_arm" (
+                    prepend apiSchemas = ["IsaacLinkAPI"]
+                )
+                {
+                }
+
+                over "rr_damper_cyl" (
+                    prepend apiSchemas = ["IsaacLinkAPI"]
+                )
+                {
+                    over "rr_damper_rod" (
+                        prepend apiSchemas = ["IsaacLinkAPI"]
+                    )
+                    {
+                    }
+                }
+
+                over "rr_lower_arm" (
+                    prepend apiSchemas = ["IsaacLinkAPI"]
+                )
+                {
+                    over "rr_upright" (
+                        prepend apiSchemas = ["IsaacLinkAPI"]
+                    )
+                    {
+                        over "rr_steer" (
+                            prepend apiSchemas = ["IsaacLinkAPI"]
+                        )
+                        {
+                            over "rr_fender_ext" (
+                                prepend apiSchemas = ["IsaacLinkAPI"]
+                            )
+                            {
+                            }
+
+                            over "rr_wheel" (
+                                prepend apiSchemas = ["IsaacLinkAPI"]
+                            )
+                            {
+                            }
+                        }
+                    }
+                }
+
+                over "rr_upper_arm" (
+                    prepend apiSchemas = ["IsaacLinkAPI"]
+                )
+                {
+                }
+            }
+
+            over "chassis_fwd" (
+                prepend apiSchemas = ["IsaacLinkAPI"]
+            )
+            {
+                over "bat1_cover" (
+                    prepend apiSchemas = ["IsaacLinkAPI"]
+                )
+                {
+                }
+
+                over "bat2_cover" (
+                    prepend apiSchemas = ["IsaacLinkAPI"]
+                )
+                {
+                }
+
+                over "fwd_steer_sector" (
+                    prepend apiSchemas = ["IsaacLinkAPI"]
+                )
+                {
+                    over "lf_tie_rod" (
+                        prepend apiSchemas = ["IsaacLinkAPI"]
+                    )
+                    {
+                    }
+
+                    over "rf_tie_rod" (
+                        prepend apiSchemas = ["IsaacLinkAPI"]
+                    )
+                    {
+                    }
+                }
+
+                over "hga_mast" (
+                    prepend apiSchemas = ["IsaacLinkAPI"]
+                )
+                {
+                    over "hga_mast_ext" (
+                        prepend apiSchemas = ["IsaacLinkAPI"]
+                    )
+                    {
+                        over "hga_az" (
+                            prepend apiSchemas = ["IsaacLinkAPI"]
+                        )
+                        {
+                            over "hga_el" (
+                                prepend apiSchemas = ["IsaacLinkAPI"]
+                            )
+                            {
+                                over "hga_dish" (
+                                    prepend apiSchemas = ["IsaacLinkAPI"]
+                                )
+                                {
+                                }
+                            }
+                        }
+                    }
+                }
+
+                over "lcru" (
+                    prepend apiSchemas = ["IsaacLinkAPI"]
+                )
+                {
+                }
+
+                over "lf_damper_cyl" (
+                    prepend apiSchemas = ["IsaacLinkAPI"]
+                )
+                {
+                    over "lf_damper_rod" (
+                        prepend apiSchemas = ["IsaacLinkAPI"]
+                    )
+                    {
+                    }
+                }
+
+                over "lf_lower_arm" (
+                    prepend apiSchemas = ["IsaacLinkAPI"]
+                )
+                {
+                    over "lf_upright" (
+                        prepend apiSchemas = ["IsaacLinkAPI"]
+                    )
+                    {
+                        over "lf_steer" (
+                            prepend apiSchemas = ["IsaacLinkAPI"]
+                        )
+                        {
+                            over "lf_fender_ext" (
+                                prepend apiSchemas = ["IsaacLinkAPI"]
+                            )
+                            {
+                            }
+
+                            over "lf_wheel" (
+                                prepend apiSchemas = ["IsaacLinkAPI"]
+                            )
+                            {
+                            }
+                        }
+                    }
+                }
+
+                over "lf_upper_arm" (
+                    prepend apiSchemas = ["IsaacLinkAPI"]
+                )
+                {
+                }
+
+                over "rf_damper_cyl" (
+                    prepend apiSchemas = ["IsaacLinkAPI"]
+                )
+                {
+                    over "rf_damper_rod" (
+                        prepend apiSchemas = ["IsaacLinkAPI"]
+                    )
+                    {
+                    }
+                }
+
+                over "rf_lower_arm" (
+                    prepend apiSchemas = ["IsaacLinkAPI"]
+                )
+                {
+                    over "rf_upright" (
+                        prepend apiSchemas = ["IsaacLinkAPI"]
+                    )
+                    {
+                        over "rf_steer" (
+                            prepend apiSchemas = ["IsaacLinkAPI"]
+                        )
+                        {
+                            over "rf_fender_ext" (
+                                prepend apiSchemas = ["IsaacLinkAPI"]
+                            )
+                            {
+                            }
+
+                            over "rf_wheel" (
+                                prepend apiSchemas = ["IsaacLinkAPI"]
+                            )
+                            {
+                            }
+                        }
+                    }
+                }
+
+                over "rf_upper_arm" (
+                    prepend apiSchemas = ["IsaacLinkAPI"]
+                )
+                {
+                }
+
+                over "spu_cover" (
+                    prepend apiSchemas = ["IsaacLinkAPI"]
+                )
+                {
+                }
+
+                over "tcu" (
+                    prepend apiSchemas = ["IsaacLinkAPI"]
+                )
+                {
+                    over "tv_pan" (
+                        prepend apiSchemas = ["IsaacLinkAPI"]
+                    )
+                    {
+                        over "tv_camera" (
+                            prepend apiSchemas = ["IsaacLinkAPI"]
+                        )
+                        {
+                        }
+                    }
+                }
+            }
+
+            over "hc_steer" (
+                prepend apiSchemas = ["IsaacLinkAPI"]
+            )
+            {
+                over "hc_brake" (
+                    prepend apiSchemas = ["IsaacLinkAPI"]
+                )
+                {
+                    over "hc_throttle" (
+                        prepend apiSchemas = ["IsaacLinkAPI"]
+                    )
+                    {
+                        over "hc_reverse_switch" (
+                            prepend apiSchemas = ["IsaacLinkAPI"]
+                        )
+                        {
+                        }
+
+                        over "t_handle_grip" (
+                            prepend apiSchemas = ["IsaacSiteAPI"]
+                        )
+                        {
+                            string isaac:Description = "T-handle crossbar centre (hand target for the rig)"
+                            uniform token isaac:forwardAxis = "Z"
+                        }
+                    }
+                }
+            }
+
+            over "lga_staff" (
+                prepend apiSchemas = ["IsaacLinkAPI"]
+            )
+            {
+                over "lga_antenna" (
+                    prepend apiSchemas = ["IsaacLinkAPI"]
+                )
+                {
+                }
+            }
+
+            over "seat_back_l" (
+                prepend apiSchemas = ["IsaacLinkAPI"]
+            )
+            {
+            }
+
+            over "seat_back_r" (
+                prepend apiSchemas = ["IsaacLinkAPI"]
+            )
+            {
+            }
+
+            over "seat_h_point_l" (
+                prepend apiSchemas = ["IsaacSiteAPI"]
+            )
+            {
+                string isaac:Description = "Commander hip point (suited, PLSS against seat back)"
+                uniform token isaac:forwardAxis = "X"
+            }
+
+            over "seat_h_point_r" (
+                prepend apiSchemas = ["IsaacSiteAPI"]
+            )
+            {
+                string isaac:Description = "LMP hip point (suited, PLSS against seat back)"
+                uniform token isaac:forwardAxis = "X"
+            }
+
+            over "footrest_l" (
+                prepend apiSchemas = ["IsaacSiteAPI"]
+            )
+            {
+                string isaac:Description = "Commander footrest, centre of top surface"
+                uniform token isaac:forwardAxis = "X"
+            }
+
+            over "footrest_r" (
+                prepend apiSchemas = ["IsaacSiteAPI"]
+            )
+            {
+                string isaac:Description = "LMP footrest, centre of top surface"
+                uniform token isaac:forwardAxis = "X"
+            }
+
+            over "toe_hold_l" (
+                prepend apiSchemas = ["IsaacSiteAPI"]
+            )
+            {
+                string isaac:Description = "Outboard toe hold loop top, left"
+                uniform token isaac:forwardAxis = "X"
+            }
+
+            over "toe_hold_r" (
+                prepend apiSchemas = ["IsaacSiteAPI"]
+            )
+            {
+                string isaac:Description = "Outboard toe hold loop top, right"
+                uniform token isaac:forwardAxis = "X"
+            }
+
+            over "handhold_l" (
+                prepend apiSchemas = ["IsaacSiteAPI"]
+            )
+            {
+                string isaac:Description = "Inboard handhold upper grip, left"
+                uniform token isaac:forwardAxis = "Z"
+            }
+
+            over "handhold_r" (
+                prepend apiSchemas = ["IsaacSiteAPI"]
+            )
+            {
+                string isaac:Description = "Inboard handhold upper grip, right"
+                uniform token isaac:forwardAxis = "Z"
+            }
+
+            over "nav_reference" (
+                prepend apiSchemas = ["IsaacSiteAPI"]
+            )
+            {
+                string isaac:Description = "Vehicle reference: mid-wheelbase on the chassis floor"
+                uniform token isaac:forwardAxis = "X"
+            }
+        }
+    }
+
+    over "Physics"
+    {
+        over "chassis_aft" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+            bool[] isaac:actuator = [0]
+        }
+
+        over "aft_steer_sector" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+            bool[] isaac:actuator = [1]
+        }
+
+        over "lr_tie_rod" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+            bool[] isaac:actuator = [0]
+        }
+
+        over "rr_tie_rod" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+            bool[] isaac:actuator = [0]
+        }
+
+        over "lr_damper_cyl" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+            bool[] isaac:actuator = [0]
+        }
+
+        over "lr_damper_rod" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+            bool[] isaac:actuator = [0]
+        }
+
+        over "lr_lower_arm" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+            bool[] isaac:actuator = [0]
+        }
+
+        over "lr_upright" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+            bool[] isaac:actuator = [0]
+        }
+
+        over "lr_steer" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+            bool[] isaac:actuator = [0]
+        }
+
+        over "lr_fender_ext" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+            bool[] isaac:actuator = [0]
+        }
+
+        over "lr_wheel" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+            bool[] isaac:actuator = [1]
+        }
+
+        over "lr_upper_arm" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+            bool[] isaac:actuator = [0]
+        }
+
+        over "pallet" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+            bool[] isaac:actuator = [0]
+        }
+
+        over "extension_handle" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+            bool[] isaac:actuator = [0]
+        }
+
+        over "gnomon" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+            bool[] isaac:actuator = [0]
+        }
+
+        over "hammer" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+            bool[] isaac:actuator = [0]
+        }
+
+        over "rake" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+            bool[] isaac:actuator = [0]
+        }
+
+        over "scoop" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+            bool[] isaac:actuator = [0]
+        }
+
+        over "sep_antenna" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+            bool[] isaac:actuator = [0]
+        }
+
+        over "sep_receiver" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+            bool[] isaac:actuator = [0]
+        }
+
+        over "tongs_1" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+            bool[] isaac:actuator = [0]
+        }
+
+        over "tongs_2" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+            bool[] isaac:actuator = [0]
+        }
+
+        over "traverse_gravimeter" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+            bool[] isaac:actuator = [0]
+        }
+
+        over "rr_damper_cyl" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+            bool[] isaac:actuator = [0]
+        }
+
+        over "rr_damper_rod" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+            bool[] isaac:actuator = [0]
+        }
+
+        over "rr_lower_arm" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+            bool[] isaac:actuator = [0]
+        }
+
+        over "rr_upright" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+            bool[] isaac:actuator = [0]
+        }
+
+        over "rr_steer" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+            bool[] isaac:actuator = [0]
+        }
+
+        over "rr_fender_ext" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+            bool[] isaac:actuator = [0]
+        }
+
+        over "rr_wheel" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+            bool[] isaac:actuator = [1]
+        }
+
+        over "rr_upper_arm" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+            bool[] isaac:actuator = [0]
+        }
+
+        over "chassis_fwd" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+            bool[] isaac:actuator = [0]
+        }
+
+        over "bat1_cover" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+            bool[] isaac:actuator = [0]
+        }
+
+        over "bat2_cover" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+            bool[] isaac:actuator = [0]
+        }
+
+        over "fwd_steer_sector" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+            bool[] isaac:actuator = [1]
+        }
+
+        over "lf_tie_rod" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+            bool[] isaac:actuator = [0]
+        }
+
+        over "rf_tie_rod" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+            bool[] isaac:actuator = [0]
+        }
+
+        over "hga_mast" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+            bool[] isaac:actuator = [0]
+        }
+
+        over "hga_mast_ext" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+            bool[] isaac:actuator = [0]
+        }
+
+        over "hga_az" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+            bool[] isaac:actuator = [1]
+        }
+
+        over "hga_el" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+            bool[] isaac:actuator = [1]
+        }
+
+        over "hga_dish" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+            bool[] isaac:actuator = [0]
+        }
+
+        over "lcru" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+            bool[] isaac:actuator = [0]
+        }
+
+        over "lf_damper_cyl" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+            bool[] isaac:actuator = [0]
+        }
+
+        over "lf_damper_rod" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+            bool[] isaac:actuator = [0]
+        }
+
+        over "lf_lower_arm" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+            bool[] isaac:actuator = [0]
+        }
+
+        over "lf_upright" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+            bool[] isaac:actuator = [0]
+        }
+
+        over "lf_steer" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+            bool[] isaac:actuator = [0]
+        }
+
+        over "lf_fender_ext" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+            bool[] isaac:actuator = [0]
+        }
+
+        over "lf_wheel" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+            bool[] isaac:actuator = [1]
+        }
+
+        over "lf_upper_arm" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+            bool[] isaac:actuator = [0]
+        }
+
+        over "rf_damper_cyl" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+            bool[] isaac:actuator = [0]
+        }
+
+        over "rf_damper_rod" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+            bool[] isaac:actuator = [0]
+        }
+
+        over "rf_lower_arm" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+            bool[] isaac:actuator = [0]
+        }
+
+        over "rf_upright" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+            bool[] isaac:actuator = [0]
+        }
+
+        over "rf_steer" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+            bool[] isaac:actuator = [0]
+        }
+
+        over "rf_fender_ext" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+            bool[] isaac:actuator = [0]
+        }
+
+        over "rf_wheel" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+            bool[] isaac:actuator = [1]
+        }
+
+        over "rf_upper_arm" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+            bool[] isaac:actuator = [0]
+        }
+
+        over "spu_cover" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+            bool[] isaac:actuator = [0]
+        }
+
+        over "tcu" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+            bool[] isaac:actuator = [0]
+        }
+
+        over "tv_pan" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+            bool[] isaac:actuator = [1]
+        }
+
+        over "tv_camera" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+            bool[] isaac:actuator = [1]
+        }
+
+        over "hc_steer" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+            bool[] isaac:actuator = [1]
+        }
+
+        over "hc_brake" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+            bool[] isaac:actuator = [1]
+        }
+
+        over "hc_throttle" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+            bool[] isaac:actuator = [1]
+        }
+
+        over "hc_reverse_switch" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+            bool[] isaac:actuator = [1]
+        }
+
+        over "lga_staff" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+            bool[] isaac:actuator = [1]
+        }
+
+        over "lga_antenna" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+            bool[] isaac:actuator = [1]
+        }
+
+        over "seat_back_l" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+            bool[] isaac:actuator = [0]
+        }
+
+        over "seat_back_r" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+            bool[] isaac:actuator = [0]
+        }
+    }
+}
+

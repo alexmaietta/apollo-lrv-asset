@@ -1,0 +1,81 @@
+#usda 1.0
+(
+    customLayerData = {
+        string creator = "lrv pipeline (github: local ~/code/lrv)"
+    }
+    defaultPrim = "lrv"
+    kilogramsPerUnit = 1
+    metersPerUnit = 1
+    upAxis = "Z"
+)
+
+def "lrv"
+{
+    def "Geometry"
+    {
+        def "chassis"
+        {
+            def "chassis_fwd"
+            {
+                def "lcru"
+                {
+                    def Xform "eq_lcru_top_flaps" (
+                        instanceable = true
+                        prepend references = @../instances.usda@</Instances/eq_lcru_top_flaps>
+                    )
+                    {
+                        quatd xformOp:orient = (1, 0, 0, 0)
+                        double3 xformOp:scale = (1, 1, 1)
+                        double3 xformOp:translate = (0, 0, 0)
+                        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                    }
+
+                    def Xform "eq_lcru_lid" (
+                        instanceable = true
+                        prepend references = @../instances.usda@</Instances/eq_lcru_lid>
+                    )
+                    {
+                        quatd xformOp:orient = (1, 0, 0, 0)
+                        double3 xformOp:scale = (1, 1, 1)
+                        double3 xformOp:translate = (0, 0, 0)
+                        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                    }
+
+                    def Xform "eq_lcru_mirrors" (
+                        instanceable = true
+                        prepend references = @../instances.usda@</Instances/eq_lcru_mirrors>
+                    )
+                    {
+                        quatd xformOp:orient = (1, 0, 0, 0)
+                        double3 xformOp:scale = (1, 1, 1)
+                        double3 xformOp:translate = (0, 0, 0)
+                        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                    }
+
+                    def Xform "eq_lcru_front_flap" (
+                        instanceable = true
+                        prepend references = @../instances.usda@</Instances/eq_lcru_front_flap>
+                    )
+                    {
+                        quatd xformOp:orient = (1, 0, 0, 0)
+                        double3 xformOp:scale = (1, 1, 1)
+                        double3 xformOp:translate = (0, 0, 0)
+                        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                    }
+
+                    def Xform "eq_lcru_front_flap_binding" (
+                        instanceable = true
+                        prepend references = @../instances.usda@</Instances/eq_lcru_front_flap_binding>
+                    )
+                    {
+                        quatd xformOp:orient = (1, 0, 0, 0)
+                        double3 xformOp:scale = (1, 1, 1)
+                        double3 xformOp:translate = (0, 0, 0)
+                        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                    }
+                }
+            }
+        }
+    }
+}
+

@@ -1,0 +1,1237 @@
+<mujoco model="lrv">
+  <compiler angle="radian" meshdir="." texturedir="." inertiafromgeom="false" autolimits="true" />
+  <option timestep="0.002" gravity="0 0 -1.62" integrator="implicitfast" cone="elliptic" impratio="10" iterations="100" ls_iterations="50" />
+  <size memory="64M" />
+  <default>
+    <default class="lrv">
+      <joint armature="0.002" damping="0" />
+      <default class="visual">
+        <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" />
+      </default>
+      <default class="collision">
+        <geom contype="1" conaffinity="2" group="3" density="0" condim="3" friction="0.8 0.02 0.002" rgba="0.9 0.3 0.2 0.4" />
+      </default>
+    </default>
+  </default>
+  <asset>
+    <texture name="aluminium_basecolor" type="2d" file="textures/aluminium_basecolor.png" />
+    <texture name="aluminium_disc_basecolor" type="2d" file="textures/aluminium_disc_basecolor.png" />
+    <texture name="aluminium_spun_basecolor" type="2d" file="textures/aluminium_spun_basecolor.png" />
+    <texture name="black_paint_basecolor" type="2d" file="textures/black_paint_basecolor.png" />
+    <texture name="brass_basecolor" type="2d" file="textures/brass_basecolor.png" />
+    <texture name="chrome_basecolor" type="2d" file="textures/chrome_basecolor.png" />
+    <texture name="console_cwflag" type="2d" file="textures/console_cwflag.png" />
+    <texture name="console_panel" type="2d" file="textures/console_panel.png" />
+    <texture name="cream_paint_basecolor" type="2d" file="textures/cream_paint_basecolor.png" />
+    <texture name="crew_armrest_basecolor" type="2d" file="textures/crew_armrest_basecolor.png" />
+    <texture name="crew_armrest_pn" type="2d" file="textures/crew_armrest_pn.png" />
+    <texture name="crew_bag_basecolor" type="2d" file="textures/crew_bag_basecolor.png" />
+    <texture name="crew_belt_basecolor" type="2d" file="textures/crew_belt_basecolor.png" />
+    <texture name="crew_belt_placard" type="2d" file="textures/crew_belt_placard.png" />
+    <texture name="crew_bezel_basecolor" type="2d" file="textures/crew_bezel_basecolor.png" />
+    <texture name="crew_blue_basecolor" type="2d" file="textures/crew_blue_basecolor.png" />
+    <texture name="crew_boot_basecolor" type="2d" file="textures/crew_boot_basecolor.png" />
+    <texture name="crew_cb_knob_basecolor" type="2d" file="textures/crew_cb_knob_basecolor.png" />
+    <texture name="crew_clamp_basecolor" type="2d" file="textures/crew_clamp_basecolor.png" />
+    <texture name="crew_edge_tape_basecolor" type="2d" file="textures/crew_edge_tape_basecolor.png" />
+    <texture name="crew_foam_basecolor" type="2d" file="textures/crew_foam_basecolor.png" />
+    <texture name="crew_frame_white_basecolor" type="2d" file="textures/crew_frame_white_basecolor.png" />
+    <texture name="crew_gold_basecolor" type="2d" file="textures/crew_gold_basecolor.png" />
+    <texture name="crew_grip_basecolor" type="2d" file="textures/crew_grip_basecolor.png" />
+    <texture name="crew_grip_dark_basecolor" type="2d" file="textures/crew_grip_dark_basecolor.png" />
+    <texture name="crew_handhold_basecolor" type="2d" file="textures/crew_handhold_basecolor.png" />
+    <texture name="crew_harness_basecolor" type="2d" file="textures/crew_harness_basecolor.png" />
+    <texture name="crew_hc_instructions" type="2d" file="textures/crew_hc_instructions.png" />
+    <texture name="crew_honeycomb_basecolor" type="2d" file="textures/crew_honeycomb_basecolor.png" />
+    <texture name="crew_housing_basecolor" type="2d" file="textures/crew_housing_basecolor.png" />
+    <texture name="crew_knob_white_basecolor" type="2d" file="textures/crew_knob_white_basecolor.png" />
+    <texture name="crew_lacing_basecolor" type="2d" file="textures/crew_lacing_basecolor.png" />
+    <texture name="crew_meter_frame_basecolor" type="2d" file="textures/crew_meter_frame_basecolor.png" />
+    <texture name="crew_pan_strap_basecolor" type="2d" file="textures/crew_pan_strap_basecolor.png" />
+    <texture name="crew_seam_basecolor" type="2d" file="textures/crew_seam_basecolor.png" />
+    <texture name="crew_seat_cover_basecolor" type="2d" file="textures/crew_seat_cover_basecolor.png" />
+    <texture name="crew_seat_pn_29" type="2d" file="textures/crew_seat_pn_29.png" />
+    <texture name="crew_seat_pn_30" type="2d" file="textures/crew_seat_pn_30.png" />
+    <texture name="crew_strap_brown_basecolor" type="2d" file="textures/crew_strap_brown_basecolor.png" />
+    <texture name="crew_switch_collar_basecolor" type="2d" file="textures/crew_switch_collar_basecolor.png" />
+    <texture name="crew_tape_basecolor" type="2d" file="textures/crew_tape_basecolor.png" />
+    <texture name="crew_toggle_basecolor" type="2d" file="textures/crew_toggle_basecolor.png" />
+    <texture name="crew_velcro_dark_basecolor" type="2d" file="textures/crew_velcro_dark_basecolor.png" />
+    <texture name="crew_velcro_hook_basecolor" type="2d" file="textures/crew_velcro_hook_basecolor.png" />
+    <texture name="crew_velcro_tan_basecolor" type="2d" file="textures/crew_velcro_tan_basecolor.png" />
+    <texture name="crew_velcro_white_basecolor" type="2d" file="textures/crew_velcro_white_basecolor.png" />
+    <texture name="crew_webbing_olive_basecolor" type="2d" file="textures/crew_webbing_olive_basecolor.png" />
+    <texture name="crew_webbing_white_basecolor" type="2d" file="textures/crew_webbing_white_basecolor.png" />
+    <texture name="damper_basecolor" type="2d" file="textures/damper_basecolor.png" />
+    <texture name="drive_housing_basecolor" type="2d" file="textures/drive_housing_basecolor.png" />
+    <texture name="eq_battery_case_basecolor" type="2d" file="textures/eq_battery_case_basecolor.png" />
+    <texture name="eq_beta_cloth_basecolor" type="2d" file="textures/eq_beta_cloth_basecolor.png" />
+    <texture name="eq_binding_tape_basecolor" type="2d" file="textures/eq_binding_tape_basecolor.png" />
+    <texture name="eq_black_anodized_basecolor" type="2d" file="textures/eq_black_anodized_basecolor.png" />
+    <texture name="eq_blue_anodized_basecolor" type="2d" file="textures/eq_blue_anodized_basecolor.png" />
+    <texture name="eq_cable_white_basecolor" type="2d" file="textures/eq_cable_white_basecolor.png" />
+    <texture name="eq_copper_kapton_basecolor" type="2d" file="textures/eq_copper_kapton_basecolor.png" />
+    <texture name="eq_copper_strap_basecolor" type="2d" file="textures/eq_copper_strap_basecolor.png" />
+    <texture name="eq_fiberglass_basecolor" type="2d" file="textures/eq_fiberglass_basecolor.png" />
+    <texture name="eq_gold_kapton_basecolor" type="2d" file="textures/eq_gold_kapton_basecolor.png" />
+    <texture name="eq_gray_anodized_basecolor" type="2d" file="textures/eq_gray_anodized_basecolor.png" />
+    <texture name="eq_green_anodized_basecolor" type="2d" file="textures/eq_green_anodized_basecolor.png" />
+    <texture name="eq_knob_bronze_basecolor" type="2d" file="textures/eq_knob_bronze_basecolor.png" />
+    <texture name="eq_label_hga" type="2d" file="textures/eq_label_hga.png" />
+    <texture name="eq_label_lga" type="2d" file="textures/eq_label_lga.png" />
+    <texture name="eq_lcru_panel" type="2d" file="textures/eq_lcru_panel.png" />
+    <texture name="eq_lcru_panel_plate_basecolor" type="2d" file="textures/eq_lcru_panel_plate_basecolor.png" />
+    <texture name="eq_pallet_frame_basecolor" type="2d" file="textures/eq_pallet_frame_basecolor.png" />
+    <texture name="eq_pallet_sheet_basecolor" type="2d" file="textures/eq_pallet_sheet_basecolor.png" />
+    <texture name="eq_partno_seb39105285" type="2d" file="textures/eq_partno_seb39105285.png" />
+    <texture name="eq_placard_collection_bag" type="2d" file="textures/eq_placard_collection_bag.png" />
+    <texture name="eq_placard_dust" type="2d" file="textures/eq_placard_dust.png" />
+    <texture name="eq_placard_extension_handle" type="2d" file="textures/eq_placard_extension_handle.png" />
+    <texture name="eq_placard_gnomon" type="2d" file="textures/eq_placard_gnomon.png" />
+    <texture name="eq_placard_tongs" type="2d" file="textures/eq_placard_tongs.png" />
+    <texture name="eq_red_anodized_basecolor" type="2d" file="textures/eq_red_anodized_basecolor.png" />
+    <texture name="eq_sunshade_gray_basecolor" type="2d" file="textures/eq_sunshade_gray_basecolor.png" />
+    <texture name="eq_teflon_white_basecolor" type="2d" file="textures/eq_teflon_white_basecolor.png" />
+    <texture name="eq_tge_cover_basecolor" type="2d" file="textures/eq_tge_cover_basecolor.png" />
+    <texture name="eq_tge_lid_cover_basecolor" type="2d" file="textures/eq_tge_lid_cover_basecolor.png" />
+    <texture name="eq_velcro_basecolor" type="2d" file="textures/eq_velcro_basecolor.png" />
+    <texture name="eq_webbing_basecolor" type="2d" file="textures/eq_webbing_basecolor.png" />
+    <texture name="eq_white_tape_basecolor" type="2d" file="textures/eq_white_tape_basecolor.png" />
+    <texture name="eq_yellow_tab_webbing_basecolor" type="2d" file="textures/eq_yellow_tab_webbing_basecolor.png" />
+    <texture name="fiberglass_fender_basecolor" type="2d" file="textures/fiberglass_fender_basecolor.png" />
+    <texture name="fiberglass_fender_ext_basecolor" type="2d" file="textures/fiberglass_fender_ext_basecolor.png" />
+    <texture name="flag_us" type="2d" file="textures/flag_us.png" />
+    <texture name="flap_grey_basecolor" type="2d" file="textures/flap_grey_basecolor.png" />
+    <texture name="floor_panel_basecolor" type="2d" file="textures/floor_panel_basecolor.png" />
+    <texture name="harness_clamp_basecolor" type="2d" file="textures/harness_clamp_basecolor.png" />
+    <texture name="harness_jacket_basecolor" type="2d" file="textures/harness_jacket_basecolor.png" />
+    <texture name="hga_knit_basecolor_rgba" type="2d" file="textures/hga_knit_basecolor_rgba.png" />
+    <texture name="maps_stylised_v3" type="2d" file="textures/maps_stylised_v3.png" />
+    <texture name="repair_tape_basecolor" type="2d" file="textures/repair_tape_basecolor.png" />
+    <texture name="rubber_boot_basecolor" type="2d" file="textures/rubber_boot_basecolor.png" />
+    <texture name="steel_basecolor" type="2d" file="textures/steel_basecolor.png" />
+    <texture name="titanium_basecolor" type="2d" file="textures/titanium_basecolor.png" />
+    <texture name="white_paint_basecolor" type="2d" file="textures/white_paint_basecolor.png" />
+    <texture name="wire_weave_basecolor_rgba" type="2d" file="textures/wire_weave_basecolor_rgba.png" />
+    <texture name="yellow_paint_basecolor" type="2d" file="textures/yellow_paint_basecolor.png" />
+    <material name="a17_repair_maps" specular="0.3" shininess="0.3" texture="maps_stylised_v3" rgba="1 1 1 1" />
+    <material name="aluminium" specular="0.3" shininess="0.3" texture="aluminium_basecolor" texrepeat="2.5 2.5" rgba="1 1 1 1" />
+    <material name="aluminium_disc" specular="0.3" shininess="0.3" texture="aluminium_disc_basecolor" texrepeat="3.333333 3.333333" rgba="1 1 1 1" />
+    <material name="aluminium_spun" specular="0.3" shininess="0.3" texture="aluminium_spun_basecolor" texrepeat="6.666666 6.666666" rgba="1 1 1 1" />
+    <material name="black_paint" specular="0.3" shininess="0.3" texture="black_paint_basecolor" texrepeat="3.333333 3.333333" rgba="1 1 1 1" />
+    <material name="brass" specular="0.3" shininess="0.3" texture="brass_basecolor" texrepeat="3.333333 3.333333" rgba="1 1 1 1" />
+    <material name="chrome" specular="0.3" shininess="0.3" texture="chrome_basecolor" texrepeat="3.333333 3.333333" rgba="1 1 1 1" />
+    <material name="cream_paint" specular="0.3" shininess="0.3" texture="cream_paint_basecolor" texrepeat="3.333333 3.333333" rgba="1 1 1 1" />
+    <material name="crew_armrest" specular="0.3" shininess="0.3" texture="crew_armrest_basecolor" texrepeat="10 10" rgba="1 1 1 1" />
+    <material name="crew_bag" specular="0.3" shininess="0.3" texture="crew_bag_basecolor" texrepeat="12.5 12.5" rgba="1 1 1 1" />
+    <material name="crew_belt" specular="0.3" shininess="0.3" texture="crew_belt_basecolor" texrepeat="20 20" rgba="1 1 1 1" />
+    <material name="crew_bezel" specular="0.3" shininess="0.3" texture="crew_bezel_basecolor" texrepeat="10 10" rgba="1 1 1 1" />
+    <material name="crew_blue" specular="0.3" shininess="0.3" texture="crew_blue_basecolor" texrepeat="3.333333 3.333333" rgba="1 1 1 1" />
+    <material name="crew_boot" specular="0.3" shininess="0.3" texture="crew_boot_basecolor" texrepeat="3.333333 3.333333" rgba="1 1 1 1" />
+    <material name="crew_cb_knob" specular="0.3" shininess="0.3" texture="crew_cb_knob_basecolor" texrepeat="10 10" rgba="1 1 1 1" />
+    <material name="crew_clamp" specular="0.3" shininess="0.3" texture="crew_clamp_basecolor" texrepeat="3.333333 3.333333" rgba="1 1 1 1" />
+    <material name="crew_console_panel" specular="0.3" shininess="0.3" texture="console_panel" rgba="1 1 1 1" />
+    <material name="crew_cw_flag" specular="0.3" shininess="0.3" texture="console_cwflag" rgba="1 1 1 1" />
+    <material name="crew_decal_armrest" specular="0.3" shininess="0.3" texture="crew_armrest_pn" rgba="1 1 1 1" />
+    <material name="crew_decal_belt" specular="0.3" shininess="0.3" texture="crew_belt_placard" rgba="1 1 1 1" />
+    <material name="crew_decal_hc" specular="0.3" shininess="0.3" texture="crew_hc_instructions" rgba="1 1 1 1" />
+    <material name="crew_decal_seat29" specular="0.3" shininess="0.3" texture="crew_seat_pn_29" rgba="1 1 1 1" />
+    <material name="crew_decal_seat30" specular="0.3" shininess="0.3" texture="crew_seat_pn_30" rgba="1 1 1 1" />
+    <material name="crew_edge_tape" specular="0.3" shininess="0.3" texture="crew_edge_tape_basecolor" texrepeat="12.5 12.5" rgba="1 1 1 1" />
+    <material name="crew_foam" specular="0.3" shininess="0.3" texture="crew_foam_basecolor" texrepeat="12.5 12.5" rgba="1 1 1 1" />
+    <material name="crew_frame_white" specular="0.3" shininess="0.3" texture="crew_frame_white_basecolor" texrepeat="3.333333 3.333333" rgba="1 1 1 1" />
+    <material name="crew_gold" specular="0.3" shininess="0.3" texture="crew_gold_basecolor" texrepeat="3.333333 3.333333" rgba="1 1 1 1" />
+    <material name="crew_grip" specular="0.3" shininess="0.3" texture="crew_grip_basecolor" texrepeat="10 10" rgba="1 1 1 1" />
+    <material name="crew_grip_dark" specular="0.3" shininess="0.3" texture="crew_grip_dark_basecolor" texrepeat="10 10" rgba="1 1 1 1" />
+    <material name="crew_handhold" specular="0.3" shininess="0.3" texture="crew_handhold_basecolor" texrepeat="10 10" rgba="1 1 1 1" />
+    <material name="crew_harness" specular="0.3" shininess="0.3" texture="crew_harness_basecolor" texrepeat="20 20" rgba="1 1 1 1" />
+    <material name="crew_honeycomb" specular="0.3" shininess="0.3" texture="crew_honeycomb_basecolor" texrepeat="5 5" rgba="1 1 1 1" />
+    <material name="crew_housing" specular="0.3" shininess="0.3" texture="crew_housing_basecolor" texrepeat="3.333333 3.333333" rgba="1 1 1 1" />
+    <material name="crew_knob_white" specular="0.3" shininess="0.3" texture="crew_knob_white_basecolor" texrepeat="10 10" rgba="1 1 1 1" />
+    <material name="crew_lacing" specular="0.3" shininess="0.3" texture="crew_lacing_basecolor" texrepeat="3.333333 3.333333" rgba="1 1 1 1" />
+    <material name="crew_meter_frame" specular="0.3" shininess="0.3" texture="crew_meter_frame_basecolor" texrepeat="3.333333 3.333333" rgba="1 1 1 1" />
+    <material name="crew_pan_strap" specular="0.3" shininess="0.3" texture="crew_pan_strap_basecolor" texrepeat="4 4" rgba="1 1 1 1" />
+    <material name="crew_seam" specular="0.3" shininess="0.3" texture="crew_seam_basecolor" texrepeat="3.333333 3.333333" rgba="1 1 1 1" />
+    <material name="crew_seat_cover" specular="0.3" shininess="0.3" texture="crew_seat_cover_basecolor" texrepeat="12.5 12.5" rgba="1 1 1 1" />
+    <material name="crew_strap_brown" specular="0.3" shininess="0.3" texture="crew_strap_brown_basecolor" texrepeat="4 4" rgba="1 1 1 1" />
+    <material name="crew_switch_collar" specular="0.3" shininess="0.3" texture="crew_switch_collar_basecolor" texrepeat="10 10" rgba="1 1 1 1" />
+    <material name="crew_tape" specular="0.3" shininess="0.3" texture="crew_tape_basecolor" texrepeat="12.5 12.5" rgba="1 1 1 1" />
+    <material name="crew_toggle" specular="0.3" shininess="0.3" texture="crew_toggle_basecolor" texrepeat="10 10" rgba="1 1 1 1" />
+    <material name="crew_velcro_dark" specular="0.3" shininess="0.3" texture="crew_velcro_dark_basecolor" texrepeat="12.5 12.5" rgba="1 1 1 1" />
+    <material name="crew_velcro_hook" specular="0.3" shininess="0.3" texture="crew_velcro_hook_basecolor" texrepeat="12.5 12.5" rgba="1 1 1 1" />
+    <material name="crew_velcro_tan" specular="0.3" shininess="0.3" texture="crew_velcro_tan_basecolor" texrepeat="12.5 12.5" rgba="1 1 1 1" />
+    <material name="crew_velcro_white" specular="0.3" shininess="0.3" texture="crew_velcro_white_basecolor" texrepeat="12.5 12.5" rgba="1 1 1 1" />
+    <material name="crew_webbing_olive" specular="0.3" shininess="0.3" texture="crew_webbing_olive_basecolor" texrepeat="20 20" rgba="1 1 1 1" />
+    <material name="crew_webbing_white" specular="0.3" shininess="0.3" texture="crew_webbing_white_basecolor" texrepeat="20 20" rgba="1 1 1 1" />
+    <material name="damper" specular="0.3" shininess="0.3" texture="damper_basecolor" texrepeat="3.333333 3.333333" rgba="1 1 1 1" />
+    <material name="drive_housing" specular="0.3" shininess="0.3" texture="drive_housing_basecolor" texrepeat="5 5" rgba="1 1 1 1" />
+    <material name="eq_battery_case" specular="0.3" shininess="0.3" texture="eq_battery_case_basecolor" texrepeat="5 5" rgba="1 1 1 1" />
+    <material name="eq_beta_cloth" specular="0.3" shininess="0.3" texture="eq_beta_cloth_basecolor" texrepeat="2.5 2.5" rgba="1 1 1 1" />
+    <material name="eq_binding_tape" specular="0.3" shininess="0.3" texture="eq_binding_tape_basecolor" texrepeat="12.5 12.5" rgba="1 1 1 1" />
+    <material name="eq_black_anodized" specular="0.3" shininess="0.3" texture="eq_black_anodized_basecolor" texrepeat="10 10" rgba="1 1 1 1" />
+    <material name="eq_blue_anodized" specular="0.3" shininess="0.3" texture="eq_blue_anodized_basecolor" texrepeat="10 10" rgba="1 1 1 1" />
+    <material name="eq_cable_white" specular="0.3" shininess="0.3" texture="eq_cable_white_basecolor" texrepeat="10 10" rgba="1 1 1 1" />
+    <material name="eq_copper_kapton" specular="0.3" shininess="0.3" texture="eq_copper_kapton_basecolor" texrepeat="2 2" rgba="1 1 1 1" />
+    <material name="eq_copper_strap" specular="0.3" shininess="0.3" texture="eq_copper_strap_basecolor" texrepeat="4 4" rgba="1 1 1 1" />
+    <material name="eq_decal_yellow" specular="0.3" shininess="0.3" rgba="0.9288 0.8503 0.3173 1" />
+    <material name="eq_fiberglass" specular="0.3" shininess="0.3" texture="eq_fiberglass_basecolor" texrepeat="3.333333 3.333333" rgba="1 1 1 1" />
+    <material name="eq_gold_kapton" specular="0.3" shininess="0.3" texture="eq_gold_kapton_basecolor" texrepeat="2 2" rgba="1 1 1 1" />
+    <material name="eq_gray_anodized" specular="0.3" shininess="0.3" texture="eq_gray_anodized_basecolor" texrepeat="10 10" rgba="1 1 1 1" />
+    <material name="eq_green_anodized" specular="0.3" shininess="0.3" texture="eq_green_anodized_basecolor" texrepeat="10 10" rgba="1 1 1 1" />
+    <material name="eq_hga_mesh" specular="0.3" shininess="0.3" texture="hga_knit_basecolor_rgba" texrepeat="9.765625 9.765625" rgba="1 1 1 0.999" />
+    <material name="eq_knob_bronze" specular="0.3" shininess="0.3" texture="eq_knob_bronze_basecolor" texrepeat="10 10" rgba="1 1 1 1" />
+    <material name="eq_label_hga" specular="0.3" shininess="0.3" texture="eq_label_hga" rgba="1 1 1 1" />
+    <material name="eq_label_lga" specular="0.3" shininess="0.3" texture="eq_label_lga" rgba="1 1 1 1" />
+    <material name="eq_lcru_panel_face" specular="0.3" shininess="0.3" texture="eq_lcru_panel" rgba="1 1 1 1" />
+    <material name="eq_lcru_panel_plate" specular="0.3" shininess="0.3" texture="eq_lcru_panel_plate_basecolor" texrepeat="3.333333 3.333333" rgba="1 1 1 1" />
+    <material name="eq_osr_mirror" specular="0.3" shininess="0.3" rgba="0.9676 0.9723 0.9816 1" />
+    <material name="eq_pallet_frame" specular="0.3" shininess="0.3" texture="eq_pallet_frame_basecolor" texrepeat="3.333333 3.333333" rgba="1 1 1 1" />
+    <material name="eq_pallet_sheet" specular="0.3" shininess="0.3" texture="eq_pallet_sheet_basecolor" texrepeat="3.333333 3.333333" rgba="1 1 1 1" />
+    <material name="eq_partno_seb39105285" specular="0.3" shininess="0.3" texture="eq_partno_seb39105285" rgba="1 1 1 1" />
+    <material name="eq_placard_collection_bag" specular="0.3" shininess="0.3" texture="eq_placard_collection_bag" rgba="1 1 1 1" />
+    <material name="eq_placard_dust" specular="0.3" shininess="0.3" texture="eq_placard_dust" rgba="1 1 1 1" />
+    <material name="eq_placard_extension_handle" specular="0.3" shininess="0.3" texture="eq_placard_extension_handle" rgba="1 1 1 1" />
+    <material name="eq_placard_gnomon" specular="0.3" shininess="0.3" texture="eq_placard_gnomon" rgba="1 1 1 1" />
+    <material name="eq_placard_tongs" specular="0.3" shininess="0.3" texture="eq_placard_tongs" rgba="1 1 1 1" />
+    <material name="eq_red_anodized" specular="0.3" shininess="0.3" texture="eq_red_anodized_basecolor" texrepeat="10 10" rgba="1 1 1 1" />
+    <material name="eq_sunshade_gray" specular="0.3" shininess="0.3" texture="eq_sunshade_gray_basecolor" texrepeat="3.333333 3.333333" rgba="1 1 1 1" />
+    <material name="eq_teflon_white" specular="0.3" shininess="0.3" texture="eq_teflon_white_basecolor" texrepeat="10 10" rgba="1 1 1 1" />
+    <material name="eq_tge_cover" specular="0.3" shininess="0.3" texture="eq_tge_cover_basecolor" texrepeat="2.5 2.5" rgba="1 1 1 1" />
+    <material name="eq_tge_lid_cover" specular="0.3" shininess="0.3" texture="eq_tge_lid_cover_basecolor" texrepeat="2.5 2.5" rgba="1 1 1 1" />
+    <material name="eq_velcro" specular="0.3" shininess="0.3" texture="eq_velcro_basecolor" texrepeat="12.5 12.5" rgba="1 1 1 1" />
+    <material name="eq_webbing" specular="0.3" shininess="0.3" texture="eq_webbing_basecolor" texrepeat="20 20" rgba="1 1 1 1" />
+    <material name="eq_white_tape" specular="0.3" shininess="0.3" texture="eq_white_tape_basecolor" texrepeat="12.5 12.5" rgba="1 1 1 1" />
+    <material name="eq_yellow_tab_webbing" specular="0.3" shininess="0.3" texture="eq_yellow_tab_webbing_basecolor" texrepeat="20 20" rgba="1 1 1 1" />
+    <material name="fender" specular="0.3" shininess="0.3" texture="fiberglass_fender_basecolor" texrepeat="3.333333 3.333333" rgba="1 1 1 1" />
+    <material name="fender_ext" specular="0.3" shininess="0.3" texture="fiberglass_fender_ext_basecolor" texrepeat="3.333333 3.333333" rgba="1 1 1 1" />
+    <material name="flag_decal" specular="0.3" shininess="0.3" texture="flag_us" rgba="1 1 1 1" />
+    <material name="flap_grey" specular="0.3" shininess="0.3" texture="flap_grey_basecolor" texrepeat="3.333333 3.333333" rgba="1 1 1 1" />
+    <material name="floor_panel" specular="0.3" shininess="0.3" texture="floor_panel_basecolor" texrepeat="5 5" rgba="1 1 1 1" />
+    <material name="harness_clamp" specular="0.3" shininess="0.3" texture="harness_clamp_basecolor" texrepeat="20 20" rgba="1 1 1 1" />
+    <material name="harness_jacket" specular="0.3" shininess="0.3" texture="harness_jacket_basecolor" texrepeat="20 20" rgba="1 1 1 1" />
+    <material name="repair_tape" specular="0.3" shininess="0.3" texture="repair_tape_basecolor" texrepeat="12.5 12.5" rgba="1 1 1 1" />
+    <material name="rubber_boot" specular="0.3" shininess="0.3" texture="rubber_boot_basecolor" texrepeat="3.333333 3.333333" rgba="1 1 1 1" />
+    <material name="steel" specular="0.3" shininess="0.3" texture="steel_basecolor" texrepeat="5 5" rgba="1 1 1 1" />
+    <material name="titanium" specular="0.3" shininess="0.3" texture="titanium_basecolor" texrepeat="4 4" rgba="1 1 1 1" />
+    <material name="white_paint" specular="0.3" shininess="0.3" texture="white_paint_basecolor" texrepeat="3.333333 3.333333" rgba="1 1 1 1" />
+    <material name="wire_mesh" specular="0.3" shininess="0.3" texture="wire_weave_basecolor_rgba" texrepeat="9.065472 9.065472" rgba="1 1 1 0.999" />
+    <material name="yellow_paint" specular="0.3" shininess="0.3" texture="yellow_paint_basecolor" texrepeat="3.333333 3.333333" rgba="1 1 1 1" />
+    <mesh name="chassis__aluminium" file="meshes/chassis__aluminium.obj" inertia="shell" />
+    <mesh name="chassis__aluminium_spun" file="meshes/chassis__aluminium_spun.obj" inertia="shell" />
+    <mesh name="chassis__black_paint" file="meshes/chassis__black_paint.obj" inertia="shell" />
+    <mesh name="chassis__chrome" file="meshes/chassis__chrome.obj" inertia="shell" />
+    <mesh name="chassis__crew_armrest" file="meshes/chassis__crew_armrest.obj" inertia="shell" />
+    <mesh name="chassis__crew_bag" file="meshes/chassis__crew_bag.obj" inertia="shell" />
+    <mesh name="chassis__crew_belt" file="meshes/chassis__crew_belt.obj" inertia="shell" />
+    <mesh name="chassis__crew_bezel" file="meshes/chassis__crew_bezel.obj" inertia="shell" />
+    <mesh name="chassis__crew_blue" file="meshes/chassis__crew_blue.obj" inertia="shell" />
+    <mesh name="chassis__crew_cb_knob" file="meshes/chassis__crew_cb_knob.obj" inertia="shell" />
+    <mesh name="chassis__crew_clamp" file="meshes/chassis__crew_clamp.obj" inertia="shell" />
+    <mesh name="chassis__crew_console_panel" file="meshes/chassis__crew_console_panel.obj" inertia="shell" />
+    <mesh name="chassis__crew_cw_flag" file="meshes/chassis__crew_cw_flag.obj" inertia="shell" />
+    <mesh name="chassis__crew_decal_armrest" file="meshes/chassis__crew_decal_armrest.obj" inertia="shell" />
+    <mesh name="chassis__crew_decal_belt" file="meshes/chassis__crew_decal_belt.obj" inertia="shell" />
+    <mesh name="chassis__crew_decal_hc" file="meshes/chassis__crew_decal_hc.obj" inertia="shell" />
+    <mesh name="chassis__crew_edge_tape" file="meshes/chassis__crew_edge_tape.obj" inertia="shell" />
+    <mesh name="chassis__crew_foam" file="meshes/chassis__crew_foam.obj" inertia="shell" />
+    <mesh name="chassis__crew_frame_white" file="meshes/chassis__crew_frame_white.obj" inertia="shell" />
+    <mesh name="chassis__crew_gold" file="meshes/chassis__crew_gold.obj" inertia="shell" />
+    <mesh name="chassis__crew_grip" file="meshes/chassis__crew_grip.obj" inertia="shell" />
+    <mesh name="chassis__crew_handhold" file="meshes/chassis__crew_handhold.obj" inertia="shell" />
+    <mesh name="chassis__crew_harness" file="meshes/chassis__crew_harness.obj" inertia="shell" />
+    <mesh name="chassis__crew_honeycomb" file="meshes/chassis__crew_honeycomb.obj" inertia="shell" />
+    <mesh name="chassis__crew_housing" file="meshes/chassis__crew_housing.obj" inertia="shell" />
+    <mesh name="chassis__crew_knob_white" file="meshes/chassis__crew_knob_white.obj" inertia="shell" />
+    <mesh name="chassis__crew_lacing" file="meshes/chassis__crew_lacing.obj" inertia="shell" />
+    <mesh name="chassis__crew_meter_frame" file="meshes/chassis__crew_meter_frame.obj" inertia="shell" />
+    <mesh name="chassis__crew_pan_strap" file="meshes/chassis__crew_pan_strap.obj" inertia="shell" />
+    <mesh name="chassis__crew_seam" file="meshes/chassis__crew_seam.obj" inertia="shell" />
+    <mesh name="chassis__crew_seat_cover" file="meshes/chassis__crew_seat_cover.obj" inertia="shell" />
+    <mesh name="chassis__crew_switch_collar" file="meshes/chassis__crew_switch_collar.obj" inertia="shell" />
+    <mesh name="chassis__crew_tape" file="meshes/chassis__crew_tape.obj" inertia="shell" />
+    <mesh name="chassis__crew_toggle" file="meshes/chassis__crew_toggle.obj" inertia="shell" />
+    <mesh name="chassis__crew_velcro_dark" file="meshes/chassis__crew_velcro_dark.obj" inertia="shell" />
+    <mesh name="chassis__crew_webbing_white" file="meshes/chassis__crew_webbing_white.obj" inertia="shell" />
+    <mesh name="chassis__floor_panel" file="meshes/chassis__floor_panel.obj" inertia="shell" />
+    <mesh name="chassis__harness_clamp" file="meshes/chassis__harness_clamp.obj" inertia="shell" />
+    <mesh name="chassis__harness_jacket" file="meshes/chassis__harness_jacket.obj" inertia="shell" />
+    <mesh name="chassis__steel" file="meshes/chassis__steel.obj" inertia="shell" />
+    <mesh name="chassis_aft__aluminium" file="meshes/chassis_aft__aluminium.obj" inertia="shell" />
+    <mesh name="chassis_aft__black_paint" file="meshes/chassis_aft__black_paint.obj" inertia="shell" />
+    <mesh name="chassis_aft__drive_housing" file="meshes/chassis_aft__drive_housing.obj" inertia="shell" />
+    <mesh name="chassis_aft__eq_decal_yellow" file="meshes/chassis_aft__eq_decal_yellow.obj" inertia="shell" />
+    <mesh name="chassis_aft__floor_panel" file="meshes/chassis_aft__floor_panel.obj" inertia="shell" />
+    <mesh name="chassis_aft__harness_jacket" file="meshes/chassis_aft__harness_jacket.obj" inertia="shell" />
+    <mesh name="chassis_aft__steel" file="meshes/chassis_aft__steel.obj" inertia="shell" />
+    <mesh name="chassis_aft__yellow_paint" file="meshes/chassis_aft__yellow_paint.obj" inertia="shell" />
+    <mesh name="aft_steer_sector__aluminium" file="meshes/aft_steer_sector__aluminium.obj" inertia="shell" />
+    <mesh name="aft_steer_sector__steel" file="meshes/aft_steer_sector__steel.obj" inertia="shell" />
+    <mesh name="lr_tie_rod__steel" file="meshes/lr_tie_rod__steel.obj" inertia="shell" />
+    <mesh name="rr_tie_rod__steel" file="meshes/rr_tie_rod__steel.obj" inertia="shell" />
+    <mesh name="lr_damper_cyl__damper" file="meshes/lr_damper_cyl__damper.obj" inertia="shell" />
+    <mesh name="lr_damper_rod__chrome" file="meshes/lr_damper_rod__chrome.obj" inertia="shell" />
+    <mesh name="lr_lower_arm__aluminium" file="meshes/lr_lower_arm__aluminium.obj" inertia="shell" />
+    <mesh name="lr_upright__aluminium" file="meshes/lr_upright__aluminium.obj" inertia="shell" />
+    <mesh name="lr_steer__aluminium" file="meshes/lr_steer__aluminium.obj" inertia="shell" />
+    <mesh name="lr_steer__brass" file="meshes/lr_steer__brass.obj" inertia="shell" />
+    <mesh name="lr_steer__damper" file="meshes/lr_steer__damper.obj" inertia="shell" />
+    <mesh name="lr_steer__drive_housing" file="meshes/lr_steer__drive_housing.obj" inertia="shell" />
+    <mesh name="lr_steer__fender" file="meshes/lr_steer__fender.obj" inertia="shell" />
+    <mesh name="lr_steer__harness_jacket" file="meshes/lr_steer__harness_jacket.obj" inertia="shell" />
+    <mesh name="lr_steer__rubber_boot" file="meshes/lr_steer__rubber_boot.obj" inertia="shell" />
+    <mesh name="lr_steer__steel" file="meshes/lr_steer__steel.obj" inertia="shell" />
+    <mesh name="lr_steer__white_paint" file="meshes/lr_steer__white_paint.obj" inertia="shell" />
+    <mesh name="lr_fender_ext__brass" file="meshes/lr_fender_ext__brass.obj" inertia="shell" />
+    <mesh name="lr_fender_ext__fender" file="meshes/lr_fender_ext__fender.obj" inertia="shell" />
+    <mesh name="lr_fender_ext__flag_decal" file="meshes/lr_fender_ext__flag_decal.obj" inertia="shell" />
+    <mesh name="lr_wheel__aluminium" file="meshes/lr_wheel__aluminium.obj" inertia="shell" />
+    <mesh name="lr_wheel__aluminium_disc" file="meshes/lr_wheel__aluminium_disc.obj" inertia="shell" />
+    <mesh name="lr_wheel__aluminium_spun" file="meshes/lr_wheel__aluminium_spun.obj" inertia="shell" />
+    <mesh name="lr_wheel__black_paint" file="meshes/lr_wheel__black_paint.obj" inertia="shell" />
+    <mesh name="lr_wheel__cream_paint" file="meshes/lr_wheel__cream_paint.obj" inertia="shell" />
+    <mesh name="lr_wheel__drive_housing" file="meshes/lr_wheel__drive_housing.obj" inertia="shell" />
+    <mesh name="lr_wheel__steel" file="meshes/lr_wheel__steel.obj" inertia="shell" />
+    <mesh name="lr_wheel__titanium" file="meshes/lr_wheel__titanium.obj" inertia="shell" />
+    <mesh name="lr_wheel__white_paint" file="meshes/lr_wheel__white_paint.obj" inertia="shell" />
+    <mesh name="lr_wheel__wire_mesh" file="meshes/lr_wheel__wire_mesh.obj" inertia="shell" />
+    <mesh name="lr_upper_arm__aluminium" file="meshes/lr_upper_arm__aluminium.obj" inertia="shell" />
+    <mesh name="lr_upper_arm__harness_jacket" file="meshes/lr_upper_arm__harness_jacket.obj" inertia="shell" />
+    <mesh name="pallet__aluminium" file="meshes/pallet__aluminium.obj" inertia="shell" />
+    <mesh name="pallet__black_paint" file="meshes/pallet__black_paint.obj" inertia="shell" />
+    <mesh name="pallet__eq_beta_cloth" file="meshes/pallet__eq_beta_cloth.obj" inertia="shell" />
+    <mesh name="pallet__eq_black_anodized" file="meshes/pallet__eq_black_anodized.obj" inertia="shell" />
+    <mesh name="pallet__eq_gray_anodized" file="meshes/pallet__eq_gray_anodized.obj" inertia="shell" />
+    <mesh name="pallet__eq_green_anodized" file="meshes/pallet__eq_green_anodized.obj" inertia="shell" />
+    <mesh name="pallet__eq_pallet_frame" file="meshes/pallet__eq_pallet_frame.obj" inertia="shell" />
+    <mesh name="pallet__eq_pallet_sheet" file="meshes/pallet__eq_pallet_sheet.obj" inertia="shell" />
+    <mesh name="pallet__eq_partno_seb39105285" file="meshes/pallet__eq_partno_seb39105285.obj" inertia="shell" />
+    <mesh name="pallet__eq_placard_collection_bag" file="meshes/pallet__eq_placard_collection_bag.obj" inertia="shell" />
+    <mesh name="pallet__eq_placard_dust" file="meshes/pallet__eq_placard_dust.obj" inertia="shell" />
+    <mesh name="pallet__eq_placard_extension_handle" file="meshes/pallet__eq_placard_extension_handle.obj" inertia="shell" />
+    <mesh name="pallet__eq_placard_gnomon" file="meshes/pallet__eq_placard_gnomon.obj" inertia="shell" />
+    <mesh name="pallet__eq_placard_tongs" file="meshes/pallet__eq_placard_tongs.obj" inertia="shell" />
+    <mesh name="pallet__eq_teflon_white" file="meshes/pallet__eq_teflon_white.obj" inertia="shell" />
+    <mesh name="pallet__eq_webbing" file="meshes/pallet__eq_webbing.obj" inertia="shell" />
+    <mesh name="pallet__eq_yellow_tab_webbing" file="meshes/pallet__eq_yellow_tab_webbing.obj" inertia="shell" />
+    <mesh name="pallet__steel" file="meshes/pallet__steel.obj" inertia="shell" />
+    <mesh name="extension_handle__aluminium_spun" file="meshes/extension_handle__aluminium_spun.obj" inertia="shell" />
+    <mesh name="extension_handle__eq_black_anodized" file="meshes/extension_handle__eq_black_anodized.obj" inertia="shell" />
+    <mesh name="gnomon__black_paint" file="meshes/gnomon__black_paint.obj" inertia="shell" />
+    <mesh name="gnomon__white_paint" file="meshes/gnomon__white_paint.obj" inertia="shell" />
+    <mesh name="hammer__aluminium_spun" file="meshes/hammer__aluminium_spun.obj" inertia="shell" />
+    <mesh name="hammer__eq_beta_cloth" file="meshes/hammer__eq_beta_cloth.obj" inertia="shell" />
+    <mesh name="hammer__steel" file="meshes/hammer__steel.obj" inertia="shell" />
+    <mesh name="rake__aluminium" file="meshes/rake__aluminium.obj" inertia="shell" />
+    <mesh name="rake__aluminium_spun" file="meshes/rake__aluminium_spun.obj" inertia="shell" />
+    <mesh name="rake__steel" file="meshes/rake__steel.obj" inertia="shell" />
+    <mesh name="scoop__aluminium_spun" file="meshes/scoop__aluminium_spun.obj" inertia="shell" />
+    <mesh name="scoop__steel" file="meshes/scoop__steel.obj" inertia="shell" />
+    <mesh name="sep_antenna__aluminium_spun" file="meshes/sep_antenna__aluminium_spun.obj" inertia="shell" />
+    <mesh name="sep_antenna__eq_copper_strap" file="meshes/sep_antenna__eq_copper_strap.obj" inertia="shell" />
+    <mesh name="sep_antenna__eq_gold_kapton" file="meshes/sep_antenna__eq_gold_kapton.obj" inertia="shell" />
+    <mesh name="sep_receiver__aluminium" file="meshes/sep_receiver__aluminium.obj" inertia="shell" />
+    <mesh name="sep_receiver__eq_copper_kapton" file="meshes/sep_receiver__eq_copper_kapton.obj" inertia="shell" />
+    <mesh name="sep_receiver__eq_teflon_white" file="meshes/sep_receiver__eq_teflon_white.obj" inertia="shell" />
+    <mesh name="tongs_1__aluminium_spun" file="meshes/tongs_1__aluminium_spun.obj" inertia="shell" />
+    <mesh name="tongs_1__eq_red_anodized" file="meshes/tongs_1__eq_red_anodized.obj" inertia="shell" />
+    <mesh name="tongs_2__aluminium_spun" file="meshes/tongs_2__aluminium_spun.obj" inertia="shell" />
+    <mesh name="tongs_2__eq_red_anodized" file="meshes/tongs_2__eq_red_anodized.obj" inertia="shell" />
+    <mesh name="traverse_gravimeter__aluminium" file="meshes/traverse_gravimeter__aluminium.obj" inertia="shell" />
+    <mesh name="traverse_gravimeter__eq_tge_cover" file="meshes/traverse_gravimeter__eq_tge_cover.obj" inertia="shell" />
+    <mesh name="traverse_gravimeter__eq_tge_lid_cover" file="meshes/traverse_gravimeter__eq_tge_lid_cover.obj" inertia="shell" />
+    <mesh name="rr_damper_cyl__damper" file="meshes/rr_damper_cyl__damper.obj" inertia="shell" />
+    <mesh name="rr_damper_rod__chrome" file="meshes/rr_damper_rod__chrome.obj" inertia="shell" />
+    <mesh name="rr_lower_arm__aluminium" file="meshes/rr_lower_arm__aluminium.obj" inertia="shell" />
+    <mesh name="rr_upright__aluminium" file="meshes/rr_upright__aluminium.obj" inertia="shell" />
+    <mesh name="rr_steer__a17_repair_maps" file="meshes/rr_steer__a17_repair_maps.obj" inertia="shell" />
+    <mesh name="rr_steer__aluminium" file="meshes/rr_steer__aluminium.obj" inertia="shell" />
+    <mesh name="rr_steer__brass" file="meshes/rr_steer__brass.obj" inertia="shell" />
+    <mesh name="rr_steer__damper" file="meshes/rr_steer__damper.obj" inertia="shell" />
+    <mesh name="rr_steer__drive_housing" file="meshes/rr_steer__drive_housing.obj" inertia="shell" />
+    <mesh name="rr_steer__fender" file="meshes/rr_steer__fender.obj" inertia="shell" />
+    <mesh name="rr_steer__harness_jacket" file="meshes/rr_steer__harness_jacket.obj" inertia="shell" />
+    <mesh name="rr_steer__repair_tape" file="meshes/rr_steer__repair_tape.obj" inertia="shell" />
+    <mesh name="rr_steer__rubber_boot" file="meshes/rr_steer__rubber_boot.obj" inertia="shell" />
+    <mesh name="rr_steer__steel" file="meshes/rr_steer__steel.obj" inertia="shell" />
+    <mesh name="rr_steer__white_paint" file="meshes/rr_steer__white_paint.obj" inertia="shell" />
+    <mesh name="rr_fender_ext__brass" file="meshes/rr_fender_ext__brass.obj" inertia="shell" />
+    <mesh name="rr_fender_ext__fender" file="meshes/rr_fender_ext__fender.obj" inertia="shell" />
+    <mesh name="rr_fender_ext__flag_decal" file="meshes/rr_fender_ext__flag_decal.obj" inertia="shell" />
+    <mesh name="rr_wheel__aluminium" file="meshes/rr_wheel__aluminium.obj" inertia="shell" />
+    <mesh name="rr_wheel__aluminium_disc" file="meshes/rr_wheel__aluminium_disc.obj" inertia="shell" />
+    <mesh name="rr_wheel__aluminium_spun" file="meshes/rr_wheel__aluminium_spun.obj" inertia="shell" />
+    <mesh name="rr_wheel__black_paint" file="meshes/rr_wheel__black_paint.obj" inertia="shell" />
+    <mesh name="rr_wheel__cream_paint" file="meshes/rr_wheel__cream_paint.obj" inertia="shell" />
+    <mesh name="rr_wheel__drive_housing" file="meshes/rr_wheel__drive_housing.obj" inertia="shell" />
+    <mesh name="rr_wheel__steel" file="meshes/rr_wheel__steel.obj" inertia="shell" />
+    <mesh name="rr_wheel__titanium" file="meshes/rr_wheel__titanium.obj" inertia="shell" />
+    <mesh name="rr_wheel__white_paint" file="meshes/rr_wheel__white_paint.obj" inertia="shell" />
+    <mesh name="rr_wheel__wire_mesh" file="meshes/rr_wheel__wire_mesh.obj" inertia="shell" />
+    <mesh name="rr_upper_arm__aluminium" file="meshes/rr_upper_arm__aluminium.obj" inertia="shell" />
+    <mesh name="rr_upper_arm__harness_jacket" file="meshes/rr_upper_arm__harness_jacket.obj" inertia="shell" />
+    <mesh name="chassis_fwd__aluminium" file="meshes/chassis_fwd__aluminium.obj" inertia="shell" />
+    <mesh name="chassis_fwd__crew_webbing_white" file="meshes/chassis_fwd__crew_webbing_white.obj" inertia="shell" />
+    <mesh name="chassis_fwd__drive_housing" file="meshes/chassis_fwd__drive_housing.obj" inertia="shell" />
+    <mesh name="chassis_fwd__eq_battery_case" file="meshes/chassis_fwd__eq_battery_case.obj" inertia="shell" />
+    <mesh name="chassis_fwd__eq_beta_cloth" file="meshes/chassis_fwd__eq_beta_cloth.obj" inertia="shell" />
+    <mesh name="chassis_fwd__eq_binding_tape" file="meshes/chassis_fwd__eq_binding_tape.obj" inertia="shell" />
+    <mesh name="chassis_fwd__eq_copper_strap" file="meshes/chassis_fwd__eq_copper_strap.obj" inertia="shell" />
+    <mesh name="chassis_fwd__eq_fiberglass" file="meshes/chassis_fwd__eq_fiberglass.obj" inertia="shell" />
+    <mesh name="chassis_fwd__eq_gray_anodized" file="meshes/chassis_fwd__eq_gray_anodized.obj" inertia="shell" />
+    <mesh name="chassis_fwd__eq_osr_mirror" file="meshes/chassis_fwd__eq_osr_mirror.obj" inertia="shell" />
+    <mesh name="chassis_fwd__floor_panel" file="meshes/chassis_fwd__floor_panel.obj" inertia="shell" />
+    <mesh name="chassis_fwd__harness_jacket" file="meshes/chassis_fwd__harness_jacket.obj" inertia="shell" />
+    <mesh name="chassis_fwd__steel" file="meshes/chassis_fwd__steel.obj" inertia="shell" />
+    <mesh name="chassis_fwd__white_paint" file="meshes/chassis_fwd__white_paint.obj" inertia="shell" />
+    <mesh name="chassis_fwd__yellow_paint" file="meshes/chassis_fwd__yellow_paint.obj" inertia="shell" />
+    <mesh name="bat1_cover__aluminium" file="meshes/bat1_cover__aluminium.obj" inertia="shell" />
+    <mesh name="bat1_cover__eq_beta_cloth" file="meshes/bat1_cover__eq_beta_cloth.obj" inertia="shell" />
+    <mesh name="bat1_cover__eq_binding_tape" file="meshes/bat1_cover__eq_binding_tape.obj" inertia="shell" />
+    <mesh name="bat1_cover__eq_gold_kapton" file="meshes/bat1_cover__eq_gold_kapton.obj" inertia="shell" />
+    <mesh name="bat1_cover__eq_white_tape" file="meshes/bat1_cover__eq_white_tape.obj" inertia="shell" />
+    <mesh name="bat2_cover__aluminium" file="meshes/bat2_cover__aluminium.obj" inertia="shell" />
+    <mesh name="bat2_cover__eq_beta_cloth" file="meshes/bat2_cover__eq_beta_cloth.obj" inertia="shell" />
+    <mesh name="bat2_cover__eq_binding_tape" file="meshes/bat2_cover__eq_binding_tape.obj" inertia="shell" />
+    <mesh name="bat2_cover__eq_gold_kapton" file="meshes/bat2_cover__eq_gold_kapton.obj" inertia="shell" />
+    <mesh name="bat2_cover__eq_white_tape" file="meshes/bat2_cover__eq_white_tape.obj" inertia="shell" />
+    <mesh name="fwd_steer_sector__aluminium" file="meshes/fwd_steer_sector__aluminium.obj" inertia="shell" />
+    <mesh name="fwd_steer_sector__steel" file="meshes/fwd_steer_sector__steel.obj" inertia="shell" />
+    <mesh name="lf_tie_rod__steel" file="meshes/lf_tie_rod__steel.obj" inertia="shell" />
+    <mesh name="rf_tie_rod__steel" file="meshes/rf_tie_rod__steel.obj" inertia="shell" />
+    <mesh name="hga_mast__aluminium" file="meshes/hga_mast__aluminium.obj" inertia="shell" />
+    <mesh name="hga_mast__aluminium_spun" file="meshes/hga_mast__aluminium_spun.obj" inertia="shell" />
+    <mesh name="hga_mast__eq_cable_white" file="meshes/hga_mast__eq_cable_white.obj" inertia="shell" />
+    <mesh name="hga_mast__eq_red_anodized" file="meshes/hga_mast__eq_red_anodized.obj" inertia="shell" />
+    <mesh name="hga_mast_ext__aluminium_spun" file="meshes/hga_mast_ext__aluminium_spun.obj" inertia="shell" />
+    <mesh name="hga_mast_ext__eq_red_anodized" file="meshes/hga_mast_ext__eq_red_anodized.obj" inertia="shell" />
+    <mesh name="hga_mast_ext__steel" file="meshes/hga_mast_ext__steel.obj" inertia="shell" />
+    <mesh name="hga_az__aluminium" file="meshes/hga_az__aluminium.obj" inertia="shell" />
+    <mesh name="hga_el__aluminium" file="meshes/hga_el__aluminium.obj" inertia="shell" />
+    <mesh name="hga_el__aluminium_spun" file="meshes/hga_el__aluminium_spun.obj" inertia="shell" />
+    <mesh name="hga_el__eq_red_anodized" file="meshes/hga_el__eq_red_anodized.obj" inertia="shell" />
+    <mesh name="hga_dish__aluminium" file="meshes/hga_dish__aluminium.obj" inertia="shell" />
+    <mesh name="hga_dish__aluminium_spun" file="meshes/hga_dish__aluminium_spun.obj" inertia="shell" />
+    <mesh name="hga_dish__eq_black_anodized" file="meshes/hga_dish__eq_black_anodized.obj" inertia="shell" />
+    <mesh name="hga_dish__eq_copper_kapton" file="meshes/hga_dish__eq_copper_kapton.obj" inertia="shell" />
+    <mesh name="hga_dish__eq_hga_mesh" file="meshes/hga_dish__eq_hga_mesh.obj" inertia="shell" />
+    <mesh name="hga_dish__eq_teflon_white" file="meshes/hga_dish__eq_teflon_white.obj" inertia="shell" />
+    <mesh name="hga_dish__eq_webbing" file="meshes/hga_dish__eq_webbing.obj" inertia="shell" />
+    <mesh name="lcru__aluminium" file="meshes/lcru__aluminium.obj" inertia="shell" />
+    <mesh name="lcru__aluminium_spun" file="meshes/lcru__aluminium_spun.obj" inertia="shell" />
+    <mesh name="lcru__black_paint" file="meshes/lcru__black_paint.obj" inertia="shell" />
+    <mesh name="lcru__chrome" file="meshes/lcru__chrome.obj" inertia="shell" />
+    <mesh name="lcru__eq_beta_cloth" file="meshes/lcru__eq_beta_cloth.obj" inertia="shell" />
+    <mesh name="lcru__eq_black_anodized" file="meshes/lcru__eq_black_anodized.obj" inertia="shell" />
+    <mesh name="lcru__eq_blue_anodized" file="meshes/lcru__eq_blue_anodized.obj" inertia="shell" />
+    <mesh name="lcru__eq_gold_kapton" file="meshes/lcru__eq_gold_kapton.obj" inertia="shell" />
+    <mesh name="lcru__eq_knob_bronze" file="meshes/lcru__eq_knob_bronze.obj" inertia="shell" />
+    <mesh name="lcru__eq_label_hga" file="meshes/lcru__eq_label_hga.obj" inertia="shell" />
+    <mesh name="lcru__eq_label_lga" file="meshes/lcru__eq_label_lga.obj" inertia="shell" />
+    <mesh name="lcru__eq_lcru_panel_face" file="meshes/lcru__eq_lcru_panel_face.obj" inertia="shell" />
+    <mesh name="lcru__eq_lcru_panel_plate" file="meshes/lcru__eq_lcru_panel_plate.obj" inertia="shell" />
+    <mesh name="lcru__eq_osr_mirror" file="meshes/lcru__eq_osr_mirror.obj" inertia="shell" />
+    <mesh name="lcru__eq_red_anodized" file="meshes/lcru__eq_red_anodized.obj" inertia="shell" />
+    <mesh name="lcru__eq_teflon_white" file="meshes/lcru__eq_teflon_white.obj" inertia="shell" />
+    <mesh name="lcru__eq_velcro" file="meshes/lcru__eq_velcro.obj" inertia="shell" />
+    <mesh name="lcru__eq_white_tape" file="meshes/lcru__eq_white_tape.obj" inertia="shell" />
+    <mesh name="lcru__steel" file="meshes/lcru__steel.obj" inertia="shell" />
+    <mesh name="lcru__white_paint" file="meshes/lcru__white_paint.obj" inertia="shell" />
+    <mesh name="lf_damper_cyl__damper" file="meshes/lf_damper_cyl__damper.obj" inertia="shell" />
+    <mesh name="lf_damper_rod__chrome" file="meshes/lf_damper_rod__chrome.obj" inertia="shell" />
+    <mesh name="lf_lower_arm__aluminium" file="meshes/lf_lower_arm__aluminium.obj" inertia="shell" />
+    <mesh name="lf_upright__aluminium" file="meshes/lf_upright__aluminium.obj" inertia="shell" />
+    <mesh name="lf_steer__aluminium" file="meshes/lf_steer__aluminium.obj" inertia="shell" />
+    <mesh name="lf_steer__brass" file="meshes/lf_steer__brass.obj" inertia="shell" />
+    <mesh name="lf_steer__damper" file="meshes/lf_steer__damper.obj" inertia="shell" />
+    <mesh name="lf_steer__drive_housing" file="meshes/lf_steer__drive_housing.obj" inertia="shell" />
+    <mesh name="lf_steer__fender" file="meshes/lf_steer__fender.obj" inertia="shell" />
+    <mesh name="lf_steer__flap_grey" file="meshes/lf_steer__flap_grey.obj" inertia="shell" />
+    <mesh name="lf_steer__harness_jacket" file="meshes/lf_steer__harness_jacket.obj" inertia="shell" />
+    <mesh name="lf_steer__rubber_boot" file="meshes/lf_steer__rubber_boot.obj" inertia="shell" />
+    <mesh name="lf_steer__steel" file="meshes/lf_steer__steel.obj" inertia="shell" />
+    <mesh name="lf_steer__white_paint" file="meshes/lf_steer__white_paint.obj" inertia="shell" />
+    <mesh name="lf_fender_ext__brass" file="meshes/lf_fender_ext__brass.obj" inertia="shell" />
+    <mesh name="lf_fender_ext__fender" file="meshes/lf_fender_ext__fender.obj" inertia="shell" />
+    <mesh name="lf_fender_ext__fender_ext" file="meshes/lf_fender_ext__fender_ext.obj" inertia="shell" />
+    <mesh name="lf_fender_ext__flag_decal" file="meshes/lf_fender_ext__flag_decal.obj" inertia="shell" />
+    <mesh name="lf_wheel__aluminium" file="meshes/lf_wheel__aluminium.obj" inertia="shell" />
+    <mesh name="lf_wheel__aluminium_disc" file="meshes/lf_wheel__aluminium_disc.obj" inertia="shell" />
+    <mesh name="lf_wheel__aluminium_spun" file="meshes/lf_wheel__aluminium_spun.obj" inertia="shell" />
+    <mesh name="lf_wheel__black_paint" file="meshes/lf_wheel__black_paint.obj" inertia="shell" />
+    <mesh name="lf_wheel__cream_paint" file="meshes/lf_wheel__cream_paint.obj" inertia="shell" />
+    <mesh name="lf_wheel__drive_housing" file="meshes/lf_wheel__drive_housing.obj" inertia="shell" />
+    <mesh name="lf_wheel__steel" file="meshes/lf_wheel__steel.obj" inertia="shell" />
+    <mesh name="lf_wheel__titanium" file="meshes/lf_wheel__titanium.obj" inertia="shell" />
+    <mesh name="lf_wheel__white_paint" file="meshes/lf_wheel__white_paint.obj" inertia="shell" />
+    <mesh name="lf_wheel__wire_mesh" file="meshes/lf_wheel__wire_mesh.obj" inertia="shell" />
+    <mesh name="lf_upper_arm__aluminium" file="meshes/lf_upper_arm__aluminium.obj" inertia="shell" />
+    <mesh name="lf_upper_arm__harness_jacket" file="meshes/lf_upper_arm__harness_jacket.obj" inertia="shell" />
+    <mesh name="rf_damper_cyl__damper" file="meshes/rf_damper_cyl__damper.obj" inertia="shell" />
+    <mesh name="rf_damper_rod__chrome" file="meshes/rf_damper_rod__chrome.obj" inertia="shell" />
+    <mesh name="rf_lower_arm__aluminium" file="meshes/rf_lower_arm__aluminium.obj" inertia="shell" />
+    <mesh name="rf_upright__aluminium" file="meshes/rf_upright__aluminium.obj" inertia="shell" />
+    <mesh name="rf_steer__aluminium" file="meshes/rf_steer__aluminium.obj" inertia="shell" />
+    <mesh name="rf_steer__brass" file="meshes/rf_steer__brass.obj" inertia="shell" />
+    <mesh name="rf_steer__damper" file="meshes/rf_steer__damper.obj" inertia="shell" />
+    <mesh name="rf_steer__drive_housing" file="meshes/rf_steer__drive_housing.obj" inertia="shell" />
+    <mesh name="rf_steer__fender" file="meshes/rf_steer__fender.obj" inertia="shell" />
+    <mesh name="rf_steer__flap_grey" file="meshes/rf_steer__flap_grey.obj" inertia="shell" />
+    <mesh name="rf_steer__harness_jacket" file="meshes/rf_steer__harness_jacket.obj" inertia="shell" />
+    <mesh name="rf_steer__rubber_boot" file="meshes/rf_steer__rubber_boot.obj" inertia="shell" />
+    <mesh name="rf_steer__steel" file="meshes/rf_steer__steel.obj" inertia="shell" />
+    <mesh name="rf_steer__white_paint" file="meshes/rf_steer__white_paint.obj" inertia="shell" />
+    <mesh name="rf_fender_ext__brass" file="meshes/rf_fender_ext__brass.obj" inertia="shell" />
+    <mesh name="rf_fender_ext__fender" file="meshes/rf_fender_ext__fender.obj" inertia="shell" />
+    <mesh name="rf_fender_ext__flag_decal" file="meshes/rf_fender_ext__flag_decal.obj" inertia="shell" />
+    <mesh name="rf_wheel__aluminium" file="meshes/rf_wheel__aluminium.obj" inertia="shell" />
+    <mesh name="rf_wheel__aluminium_disc" file="meshes/rf_wheel__aluminium_disc.obj" inertia="shell" />
+    <mesh name="rf_wheel__aluminium_spun" file="meshes/rf_wheel__aluminium_spun.obj" inertia="shell" />
+    <mesh name="rf_wheel__black_paint" file="meshes/rf_wheel__black_paint.obj" inertia="shell" />
+    <mesh name="rf_wheel__cream_paint" file="meshes/rf_wheel__cream_paint.obj" inertia="shell" />
+    <mesh name="rf_wheel__drive_housing" file="meshes/rf_wheel__drive_housing.obj" inertia="shell" />
+    <mesh name="rf_wheel__steel" file="meshes/rf_wheel__steel.obj" inertia="shell" />
+    <mesh name="rf_wheel__titanium" file="meshes/rf_wheel__titanium.obj" inertia="shell" />
+    <mesh name="rf_wheel__white_paint" file="meshes/rf_wheel__white_paint.obj" inertia="shell" />
+    <mesh name="rf_wheel__wire_mesh" file="meshes/rf_wheel__wire_mesh.obj" inertia="shell" />
+    <mesh name="rf_upper_arm__aluminium" file="meshes/rf_upper_arm__aluminium.obj" inertia="shell" />
+    <mesh name="rf_upper_arm__harness_jacket" file="meshes/rf_upper_arm__harness_jacket.obj" inertia="shell" />
+    <mesh name="spu_cover__aluminium" file="meshes/spu_cover__aluminium.obj" inertia="shell" />
+    <mesh name="spu_cover__eq_beta_cloth" file="meshes/spu_cover__eq_beta_cloth.obj" inertia="shell" />
+    <mesh name="spu_cover__eq_binding_tape" file="meshes/spu_cover__eq_binding_tape.obj" inertia="shell" />
+    <mesh name="spu_cover__eq_gold_kapton" file="meshes/spu_cover__eq_gold_kapton.obj" inertia="shell" />
+    <mesh name="spu_cover__eq_white_tape" file="meshes/spu_cover__eq_white_tape.obj" inertia="shell" />
+    <mesh name="tcu__aluminium" file="meshes/tcu__aluminium.obj" inertia="shell" />
+    <mesh name="tcu__aluminium_spun" file="meshes/tcu__aluminium_spun.obj" inertia="shell" />
+    <mesh name="tcu__chrome" file="meshes/tcu__chrome.obj" inertia="shell" />
+    <mesh name="tcu__eq_cable_white" file="meshes/tcu__eq_cable_white.obj" inertia="shell" />
+    <mesh name="tcu__eq_gold_kapton" file="meshes/tcu__eq_gold_kapton.obj" inertia="shell" />
+    <mesh name="tcu__steel" file="meshes/tcu__steel.obj" inertia="shell" />
+    <mesh name="tv_pan__aluminium" file="meshes/tv_pan__aluminium.obj" inertia="shell" />
+    <mesh name="tv_pan__eq_gold_kapton" file="meshes/tv_pan__eq_gold_kapton.obj" inertia="shell" />
+    <mesh name="tv_pan__eq_gray_anodized" file="meshes/tv_pan__eq_gray_anodized.obj" inertia="shell" />
+    <mesh name="tv_camera__aluminium" file="meshes/tv_camera__aluminium.obj" inertia="shell" />
+    <mesh name="tv_camera__chrome" file="meshes/tv_camera__chrome.obj" inertia="shell" />
+    <mesh name="tv_camera__eq_beta_cloth" file="meshes/tv_camera__eq_beta_cloth.obj" inertia="shell" />
+    <mesh name="tv_camera__eq_black_anodized" file="meshes/tv_camera__eq_black_anodized.obj" inertia="shell" />
+    <mesh name="tv_camera__eq_cable_white" file="meshes/tv_camera__eq_cable_white.obj" inertia="shell" />
+    <mesh name="tv_camera__eq_gold_kapton" file="meshes/tv_camera__eq_gold_kapton.obj" inertia="shell" />
+    <mesh name="tv_camera__eq_sunshade_gray" file="meshes/tv_camera__eq_sunshade_gray.obj" inertia="shell" />
+    <mesh name="tv_camera__steel" file="meshes/tv_camera__steel.obj" inertia="shell" />
+    <mesh name="hc_steer__aluminium" file="meshes/hc_steer__aluminium.obj" inertia="shell" />
+    <mesh name="hc_steer__crew_boot" file="meshes/hc_steer__crew_boot.obj" inertia="shell" />
+    <mesh name="hc_steer__crew_webbing_white" file="meshes/hc_steer__crew_webbing_white.obj" inertia="shell" />
+    <mesh name="hc_steer__steel" file="meshes/hc_steer__steel.obj" inertia="shell" />
+    <mesh name="hc_brake__aluminium" file="meshes/hc_brake__aluminium.obj" inertia="shell" />
+    <mesh name="hc_brake__crew_grip" file="meshes/hc_brake__crew_grip.obj" inertia="shell" />
+    <mesh name="hc_brake__crew_grip_dark" file="meshes/hc_brake__crew_grip_dark.obj" inertia="shell" />
+    <mesh name="hc_brake__steel" file="meshes/hc_brake__steel.obj" inertia="shell" />
+    <mesh name="hc_throttle__crew_cb_knob" file="meshes/hc_throttle__crew_cb_knob.obj" inertia="shell" />
+    <mesh name="hc_throttle__crew_grip" file="meshes/hc_throttle__crew_grip.obj" inertia="shell" />
+    <mesh name="hc_throttle__crew_grip_dark" file="meshes/hc_throttle__crew_grip_dark.obj" inertia="shell" />
+    <mesh name="hc_reverse_switch__aluminium_spun" file="meshes/hc_reverse_switch__aluminium_spun.obj" inertia="shell" />
+    <mesh name="lga_staff__aluminium" file="meshes/lga_staff__aluminium.obj" inertia="shell" />
+    <mesh name="lga_staff__aluminium_spun" file="meshes/lga_staff__aluminium_spun.obj" inertia="shell" />
+    <mesh name="lga_staff__eq_gray_anodized" file="meshes/lga_staff__eq_gray_anodized.obj" inertia="shell" />
+    <mesh name="lga_antenna__aluminium" file="meshes/lga_antenna__aluminium.obj" inertia="shell" />
+    <mesh name="lga_antenna__eq_cable_white" file="meshes/lga_antenna__eq_cable_white.obj" inertia="shell" />
+    <mesh name="lga_antenna__eq_red_anodized" file="meshes/lga_antenna__eq_red_anodized.obj" inertia="shell" />
+    <mesh name="lga_antenna__white_paint" file="meshes/lga_antenna__white_paint.obj" inertia="shell" />
+    <mesh name="seat_back_l__aluminium" file="meshes/seat_back_l__aluminium.obj" inertia="shell" />
+    <mesh name="seat_back_l__chrome" file="meshes/seat_back_l__chrome.obj" inertia="shell" />
+    <mesh name="seat_back_l__crew_decal_seat29" file="meshes/seat_back_l__crew_decal_seat29.obj" inertia="shell" />
+    <mesh name="seat_back_l__crew_decal_seat30" file="meshes/seat_back_l__crew_decal_seat30.obj" inertia="shell" />
+    <mesh name="seat_back_l__crew_edge_tape" file="meshes/seat_back_l__crew_edge_tape.obj" inertia="shell" />
+    <mesh name="seat_back_l__crew_knob_white" file="meshes/seat_back_l__crew_knob_white.obj" inertia="shell" />
+    <mesh name="seat_back_l__crew_lacing" file="meshes/seat_back_l__crew_lacing.obj" inertia="shell" />
+    <mesh name="seat_back_l__crew_strap_brown" file="meshes/seat_back_l__crew_strap_brown.obj" inertia="shell" />
+    <mesh name="seat_back_l__crew_velcro_hook" file="meshes/seat_back_l__crew_velcro_hook.obj" inertia="shell" />
+    <mesh name="seat_back_l__crew_velcro_tan" file="meshes/seat_back_l__crew_velcro_tan.obj" inertia="shell" />
+    <mesh name="seat_back_l__crew_velcro_white" file="meshes/seat_back_l__crew_velcro_white.obj" inertia="shell" />
+    <mesh name="seat_back_l__crew_webbing_olive" file="meshes/seat_back_l__crew_webbing_olive.obj" inertia="shell" />
+    <mesh name="seat_back_l__crew_webbing_white" file="meshes/seat_back_l__crew_webbing_white.obj" inertia="shell" />
+    <mesh name="seat_back_r__aluminium" file="meshes/seat_back_r__aluminium.obj" inertia="shell" />
+    <mesh name="seat_back_r__chrome" file="meshes/seat_back_r__chrome.obj" inertia="shell" />
+    <mesh name="seat_back_r__crew_decal_seat29" file="meshes/seat_back_r__crew_decal_seat29.obj" inertia="shell" />
+    <mesh name="seat_back_r__crew_decal_seat30" file="meshes/seat_back_r__crew_decal_seat30.obj" inertia="shell" />
+    <mesh name="seat_back_r__crew_edge_tape" file="meshes/seat_back_r__crew_edge_tape.obj" inertia="shell" />
+    <mesh name="seat_back_r__crew_knob_white" file="meshes/seat_back_r__crew_knob_white.obj" inertia="shell" />
+    <mesh name="seat_back_r__crew_lacing" file="meshes/seat_back_r__crew_lacing.obj" inertia="shell" />
+    <mesh name="seat_back_r__crew_strap_brown" file="meshes/seat_back_r__crew_strap_brown.obj" inertia="shell" />
+    <mesh name="seat_back_r__crew_velcro_hook" file="meshes/seat_back_r__crew_velcro_hook.obj" inertia="shell" />
+    <mesh name="seat_back_r__crew_velcro_tan" file="meshes/seat_back_r__crew_velcro_tan.obj" inertia="shell" />
+    <mesh name="seat_back_r__crew_velcro_white" file="meshes/seat_back_r__crew_velcro_white.obj" inertia="shell" />
+    <mesh name="seat_back_r__crew_webbing_olive" file="meshes/seat_back_r__crew_webbing_olive.obj" inertia="shell" />
+    <mesh name="seat_back_r__crew_webbing_white" file="meshes/seat_back_r__crew_webbing_white.obj" inertia="shell" />
+  </asset>
+  <worldbody>
+    <body name="chassis" pos="0 0 0" childclass="lrv">
+      <inertial pos="0.038609 0 0.75077" mass="42.59" diaginertia="9.18641797 8.7169839 14.16002032" />
+      <freejoint name="root" />
+      <geom class="visual" name="chassis__aluminium" mesh="chassis__aluminium" material="aluminium" />
+      <geom class="visual" name="chassis__aluminium_spun" mesh="chassis__aluminium_spun" material="aluminium_spun" />
+      <geom class="visual" name="chassis__black_paint" mesh="chassis__black_paint" material="black_paint" />
+      <geom class="visual" name="chassis__chrome" mesh="chassis__chrome" material="chrome" />
+      <geom class="visual" name="chassis__crew_armrest" mesh="chassis__crew_armrest" material="crew_armrest" />
+      <geom class="visual" name="chassis__crew_bag" mesh="chassis__crew_bag" material="crew_bag" />
+      <geom class="visual" name="chassis__crew_belt" mesh="chassis__crew_belt" material="crew_belt" />
+      <geom class="visual" name="chassis__crew_bezel" mesh="chassis__crew_bezel" material="crew_bezel" />
+      <geom class="visual" name="chassis__crew_blue" mesh="chassis__crew_blue" material="crew_blue" />
+      <geom class="visual" name="chassis__crew_cb_knob" mesh="chassis__crew_cb_knob" material="crew_cb_knob" />
+      <geom class="visual" name="chassis__crew_clamp" mesh="chassis__crew_clamp" material="crew_clamp" />
+      <geom class="visual" name="chassis__crew_console_panel" mesh="chassis__crew_console_panel" material="crew_console_panel" />
+      <geom class="visual" name="chassis__crew_cw_flag" mesh="chassis__crew_cw_flag" material="crew_cw_flag" />
+      <geom class="visual" name="chassis__crew_decal_armrest" mesh="chassis__crew_decal_armrest" material="crew_decal_armrest" />
+      <geom class="visual" name="chassis__crew_decal_belt" mesh="chassis__crew_decal_belt" material="crew_decal_belt" />
+      <geom class="visual" name="chassis__crew_decal_hc" mesh="chassis__crew_decal_hc" material="crew_decal_hc" />
+      <geom class="visual" name="chassis__crew_edge_tape" mesh="chassis__crew_edge_tape" material="crew_edge_tape" />
+      <geom class="visual" name="chassis__crew_foam" mesh="chassis__crew_foam" material="crew_foam" />
+      <geom class="visual" name="chassis__crew_frame_white" mesh="chassis__crew_frame_white" material="crew_frame_white" />
+      <geom class="visual" name="chassis__crew_gold" mesh="chassis__crew_gold" material="crew_gold" />
+      <geom class="visual" name="chassis__crew_grip" mesh="chassis__crew_grip" material="crew_grip" />
+      <geom class="visual" name="chassis__crew_handhold" mesh="chassis__crew_handhold" material="crew_handhold" />
+      <geom class="visual" name="chassis__crew_harness" mesh="chassis__crew_harness" material="crew_harness" />
+      <geom class="visual" name="chassis__crew_honeycomb" mesh="chassis__crew_honeycomb" material="crew_honeycomb" />
+      <geom class="visual" name="chassis__crew_housing" mesh="chassis__crew_housing" material="crew_housing" />
+      <geom class="visual" name="chassis__crew_knob_white" mesh="chassis__crew_knob_white" material="crew_knob_white" />
+      <geom class="visual" name="chassis__crew_lacing" mesh="chassis__crew_lacing" material="crew_lacing" />
+      <geom class="visual" name="chassis__crew_meter_frame" mesh="chassis__crew_meter_frame" material="crew_meter_frame" />
+      <geom class="visual" name="chassis__crew_pan_strap" mesh="chassis__crew_pan_strap" material="crew_pan_strap" />
+      <geom class="visual" name="chassis__crew_seam" mesh="chassis__crew_seam" material="crew_seam" />
+      <geom class="visual" name="chassis__crew_seat_cover" mesh="chassis__crew_seat_cover" material="crew_seat_cover" />
+      <geom class="visual" name="chassis__crew_switch_collar" mesh="chassis__crew_switch_collar" material="crew_switch_collar" />
+      <geom class="visual" name="chassis__crew_tape" mesh="chassis__crew_tape" material="crew_tape" />
+      <geom class="visual" name="chassis__crew_toggle" mesh="chassis__crew_toggle" material="crew_toggle" />
+      <geom class="visual" name="chassis__crew_velcro_dark" mesh="chassis__crew_velcro_dark" material="crew_velcro_dark" />
+      <geom class="visual" name="chassis__crew_webbing_white" mesh="chassis__crew_webbing_white" material="crew_webbing_white" />
+      <geom class="visual" name="chassis__floor_panel" mesh="chassis__floor_panel" material="floor_panel" />
+      <geom class="visual" name="chassis__harness_clamp" mesh="chassis__harness_clamp" material="harness_clamp" />
+      <geom class="visual" name="chassis__harness_jacket" mesh="chassis__harness_jacket" material="harness_jacket" />
+      <geom class="visual" name="chassis__steel" mesh="chassis__steel" material="steel" />
+      <geom class="collision" name="chassis_collision" type="box" pos="0.01778 0 0.433765" size="0.6731 0.704215 0.037465" />
+      <body name="chassis_aft" pos="-0.65532 0 0.47123">
+        <inertial pos="-0.34834 0 -0.032725" mass="12" diaginertia="1.19742232 0.70322661 1.82505921" />
+        <geom class="visual" name="chassis_aft__aluminium" mesh="chassis_aft__aluminium" material="aluminium" />
+        <geom class="visual" name="chassis_aft__black_paint" mesh="chassis_aft__black_paint" material="black_paint" />
+        <geom class="visual" name="chassis_aft__drive_housing" mesh="chassis_aft__drive_housing" material="drive_housing" />
+        <geom class="visual" name="chassis_aft__eq_decal_yellow" mesh="chassis_aft__eq_decal_yellow" material="eq_decal_yellow" />
+        <geom class="visual" name="chassis_aft__floor_panel" mesh="chassis_aft__floor_panel" material="floor_panel" />
+        <geom class="visual" name="chassis_aft__harness_jacket" mesh="chassis_aft__harness_jacket" material="harness_jacket" />
+        <geom class="visual" name="chassis_aft__steel" mesh="chassis_aft__steel" material="steel" />
+        <geom class="visual" name="chassis_aft__yellow_paint" mesh="chassis_aft__yellow_paint" material="yellow_paint" />
+        <geom class="collision" name="chassis_aft_collision" type="box" pos="-0.35179 0 -0.037465" size="0.35179 0.474345 0.037465" />
+        <body name="aft_steer_sector" pos="-0.48768 0 -0.09123">
+          <inertial pos="0.071 0 -0.01" mass="1.2" diaginertia="0.0025574 0.00405 0.0063482" />
+          <joint name="aft_steer_sector" type="hinge" axis="0 0 -1" range="-0.813764 0.813764" armature="0.02" />
+          <geom class="visual" name="aft_steer_sector__aluminium" mesh="aft_steer_sector__aluminium" material="aluminium" />
+          <geom class="visual" name="aft_steer_sector__steel" mesh="aft_steer_sector__steel" material="steel" />
+          <body name="lr_tie_rod" pos="0.13 0.065 0">
+            <inertial pos="0.01766 0.356286 -0.046" mass="0.35" diaginertia="0.01633657 0.00045714 0.01611331" />
+            <joint name="lr_tie_rod" type="ball" armature="0.005" damping="0.01" />
+            <geom class="visual" name="lr_tie_rod__steel" mesh="lr_tie_rod__steel" material="steel" />
+          </body>
+          <body name="rr_tie_rod" pos="0.13 -0.065 0">
+            <inertial pos="0.01766 -0.356286 -0.046" mass="0.35" diaginertia="0.01633657 0.00045714 0.01611331" />
+            <joint name="rr_tie_rod" type="ball" armature="0.005" damping="0.01" />
+            <geom class="visual" name="rr_tie_rod__steel" mesh="rr_tie_rod__steel" material="steel" />
+          </body>
+        </body>
+        <body name="lr_damper_cyl" pos="-0.51768 0.372252 -0.07223">
+          <inertial pos="0 0.089584 0.025308" mass="0.3" diaginertia="0.00115798 0.00029189 0.00098129" />
+          <joint name="lr_damper_cyl" type="hinge" axis="1 0 0" armature="0.005" />
+          <geom class="visual" name="lr_damper_cyl__damper" mesh="lr_damper_cyl__damper" material="damper" />
+          <body name="lr_damper_rod" pos="0 0.179168 0.050615">
+            <inertial pos="0 0.044426 0.01255" mass="0.2" diaginertia="0.00083213 0.00010541 0.00074006" />
+            <joint name="lr_damper_rod" type="slide" axis="0 0.962337 0.271859" range="-0.08 0.08" armature="0.01" damping="1300" />
+            <geom class="visual" name="lr_damper_rod__chrome" mesh="lr_damper_rod__chrome" material="chrome" />
+          </body>
+        </body>
+        <body name="lr_lower_arm" pos="-0.48768 0.492252 -0.09398">
+          <inertial pos="-0.000001 0.150751 -0.01583" mass="1.5" diaginertia="0.01521995 0.01786958 0.03180571" />
+          <joint name="lr_lower_arm" type="hinge" axis="1 0 0" range="-0.32818 0.504627" armature="0.01" stiffness="337.823544" springref="-0.206346" />
+          <geom class="visual" name="lr_lower_arm__aluminium" mesh="lr_lower_arm__aluminium" material="aluminium" />
+          <body name="lr_upright" pos="0 0.315214 -0.03937">
+            <inertial pos="0 0 0.07112" mass="1" diaginertia="0.00272196 0.00282996 0.000492" />
+            <joint name="lr_upright" type="hinge" axis="1 0 0" armature="0.005" />
+            <geom class="visual" name="lr_upright__aluminium" mesh="lr_upright__aluminium" material="aluminium" />
+            <body name="lr_steer" pos="0 0 0.07112">
+              <inertial pos="0.090801 0.055633 0.150375" mass="8" diaginertia="0.36121116 0.57305347 0.47209432" />
+              <joint name="lr_steer" type="hinge" axis="0 0 1" range="-0.959931 0.959931" armature="0.005" />
+              <geom class="visual" name="lr_steer__aluminium" mesh="lr_steer__aluminium" material="aluminium" />
+              <geom class="visual" name="lr_steer__brass" mesh="lr_steer__brass" material="brass" />
+              <geom class="visual" name="lr_steer__damper" mesh="lr_steer__damper" material="damper" />
+              <geom class="visual" name="lr_steer__drive_housing" mesh="lr_steer__drive_housing" material="drive_housing" />
+              <geom class="visual" name="lr_steer__fender" mesh="lr_steer__fender" material="fender" />
+              <geom class="visual" name="lr_steer__harness_jacket" mesh="lr_steer__harness_jacket" material="harness_jacket" />
+              <geom class="visual" name="lr_steer__rubber_boot" mesh="lr_steer__rubber_boot" material="rubber_boot" />
+              <geom class="visual" name="lr_steer__steel" mesh="lr_steer__steel" material="steel" />
+              <geom class="visual" name="lr_steer__white_paint" mesh="lr_steer__white_paint" material="white_paint" />
+              <body name="lr_fender_ext" pos="0 0.107034 0">
+                <inertial pos="-0.328639 -0.01 0.195768" mass="0.3" diaginertia="0.00670999 0.00525038 0.00479204" />
+                <geom class="visual" name="lr_fender_ext__brass" mesh="lr_fender_ext__brass" material="brass" />
+                <geom class="visual" name="lr_fender_ext__fender" mesh="lr_fender_ext__fender" material="fender" />
+                <geom class="visual" name="lr_fender_ext__flag_decal" mesh="lr_fender_ext__flag_decal" material="flag_decal" />
+              </body>
+              <body name="lr_wheel" pos="0 0.107034 0">
+                <inertial pos="0 0.008 0" mass="5.4" diaginertia="0.33507171 0.61567901 0.33507171" />
+                <joint name="lr_wheel" type="hinge" axis="0 1 0" armature="0.05" />
+                <geom class="visual" name="lr_wheel__aluminium" mesh="lr_wheel__aluminium" material="aluminium" />
+                <geom class="visual" name="lr_wheel__aluminium_disc" mesh="lr_wheel__aluminium_disc" material="aluminium_disc" />
+                <geom class="visual" name="lr_wheel__aluminium_spun" mesh="lr_wheel__aluminium_spun" material="aluminium_spun" />
+                <geom class="visual" name="lr_wheel__black_paint" mesh="lr_wheel__black_paint" material="black_paint" />
+                <geom class="visual" name="lr_wheel__cream_paint" mesh="lr_wheel__cream_paint" material="cream_paint" />
+                <geom class="visual" name="lr_wheel__drive_housing" mesh="lr_wheel__drive_housing" material="drive_housing" />
+                <geom class="visual" name="lr_wheel__steel" mesh="lr_wheel__steel" material="steel" />
+                <geom class="visual" name="lr_wheel__titanium" mesh="lr_wheel__titanium" material="titanium" />
+                <geom class="visual" name="lr_wheel__white_paint" mesh="lr_wheel__white_paint" material="white_paint" />
+                <geom class="visual" name="lr_wheel__wire_mesh" mesh="lr_wheel__wire_mesh" material="wire_mesh" />
+                <geom class="collision" name="lr_wheel_collision" type="cylinder" size="0.409 0.115" quat="0.707107 0.707107 0 0" />
+              </body>
+            </body>
+          </body>
+        </body>
+        <body name="lr_upper_arm" pos="-0.48768 0.51943 0.037592">
+          <inertial pos="0 0.136606 -0.005089" mass="1" diaginertia="0.0085401 0.01150356 0.01931376" />
+          <joint name="lr_upper_arm" type="hinge" axis="1 0 0" range="-0.32818 0.504627" armature="0.01" stiffness="59.615919" springref="-0.206346" />
+          <geom class="visual" name="lr_upper_arm__aluminium" mesh="lr_upper_arm__aluminium" material="aluminium" />
+          <geom class="visual" name="lr_upper_arm__harness_jacket" mesh="lr_upper_arm__harness_jacket" material="harness_jacket" />
+        </body>
+        <body name="pallet" pos="-0.36322 0 0.00254">
+          <inertial pos="-0.071602 0 0.518795" mass="11" diaginertia="1.8906434 1.59887441 1.26678596" />
+          <geom class="visual" name="pallet__aluminium" mesh="pallet__aluminium" material="aluminium" />
+          <geom class="visual" name="pallet__black_paint" mesh="pallet__black_paint" material="black_paint" />
+          <geom class="visual" name="pallet__eq_beta_cloth" mesh="pallet__eq_beta_cloth" material="eq_beta_cloth" />
+          <geom class="visual" name="pallet__eq_black_anodized" mesh="pallet__eq_black_anodized" material="eq_black_anodized" />
+          <geom class="visual" name="pallet__eq_gray_anodized" mesh="pallet__eq_gray_anodized" material="eq_gray_anodized" />
+          <geom class="visual" name="pallet__eq_green_anodized" mesh="pallet__eq_green_anodized" material="eq_green_anodized" />
+          <geom class="visual" name="pallet__eq_pallet_frame" mesh="pallet__eq_pallet_frame" material="eq_pallet_frame" />
+          <geom class="visual" name="pallet__eq_pallet_sheet" mesh="pallet__eq_pallet_sheet" material="eq_pallet_sheet" />
+          <geom class="visual" name="pallet__eq_partno_seb39105285" mesh="pallet__eq_partno_seb39105285" material="eq_partno_seb39105285" />
+          <geom class="visual" name="pallet__eq_placard_collection_bag" mesh="pallet__eq_placard_collection_bag" material="eq_placard_collection_bag" />
+          <geom class="visual" name="pallet__eq_placard_dust" mesh="pallet__eq_placard_dust" material="eq_placard_dust" />
+          <geom class="visual" name="pallet__eq_placard_extension_handle" mesh="pallet__eq_placard_extension_handle" material="eq_placard_extension_handle" />
+          <geom class="visual" name="pallet__eq_placard_gnomon" mesh="pallet__eq_placard_gnomon" material="eq_placard_gnomon" />
+          <geom class="visual" name="pallet__eq_placard_tongs" mesh="pallet__eq_placard_tongs" material="eq_placard_tongs" />
+          <geom class="visual" name="pallet__eq_teflon_white" mesh="pallet__eq_teflon_white" material="eq_teflon_white" />
+          <geom class="visual" name="pallet__eq_webbing" mesh="pallet__eq_webbing" material="eq_webbing" />
+          <geom class="visual" name="pallet__eq_yellow_tab_webbing" mesh="pallet__eq_yellow_tab_webbing" material="eq_yellow_tab_webbing" />
+          <geom class="visual" name="pallet__steel" mesh="pallet__steel" material="steel" />
+          <body name="extension_handle" pos="0.2286 -0.36576 0.68072">
+            <inertial pos="-0.05715 0.328295 0" mass="0.7" diaginertia="0.02716907 0.00117607 0.02826988" />
+            <geom class="visual" name="extension_handle__aluminium_spun" mesh="extension_handle__aluminium_spun" material="aluminium_spun" />
+            <geom class="visual" name="extension_handle__eq_black_anodized" mesh="extension_handle__eq_black_anodized" material="eq_black_anodized" />
+          </body>
+          <body name="gnomon" pos="0.3048 0.40386 0.1524">
+            <inertial pos="0.005061 0 0.2159" mass="0.35" diaginertia="0.00548767 0.00547532 0.00008668" />
+            <geom class="visual" name="gnomon__black_paint" mesh="gnomon__black_paint" material="black_paint" />
+            <geom class="visual" name="gnomon__white_paint" mesh="gnomon__white_paint" material="white_paint" />
+          </body>
+          <body name="hammer" pos="-0.31496 -0.1016 0.254">
+            <inertial pos="0.00254 0 0.20574" mass="0.65" diaginertia="0.01004493 0.00923977 0.00094215" />
+            <geom class="visual" name="hammer__aluminium_spun" mesh="hammer__aluminium_spun" material="aluminium_spun" />
+            <geom class="visual" name="hammer__eq_beta_cloth" mesh="hammer__eq_beta_cloth" material="eq_beta_cloth" />
+            <geom class="visual" name="hammer__steel" mesh="hammer__steel" material="steel" />
+          </body>
+          <body name="rake" pos="-0.33528 -0.46228 0.0508">
+            <inertial pos="-0.033923 -0.011747 0.684911" mass="0.9" diaginertia="0.14581489 0.1428371 0.00719015" />
+            <geom class="visual" name="rake__aluminium" mesh="rake__aluminium" material="aluminium" />
+            <geom class="visual" name="rake__aluminium_spun" mesh="rake__aluminium_spun" material="aluminium_spun" />
+            <geom class="visual" name="rake__steel" mesh="rake__steel" material="steel" />
+          </body>
+          <body name="scoop" pos="-0.31496 0.1143 0.2032">
+            <inertial pos="0 0 0.23876" mass="0.6" diaginertia="0.01169159 0.01146449 0.00035355" />
+            <geom class="visual" name="scoop__aluminium_spun" mesh="scoop__aluminium_spun" material="aluminium_spun" />
+            <geom class="visual" name="scoop__steel" mesh="scoop__steel" material="steel" />
+          </body>
+          <body name="sep_antenna" pos="-0.3175 0.0508 0.65786">
+            <inertial pos="0 0 0.635621" mass="0.9" diaginertia="0.14072384 0.14072384 0.03903887" />
+            <geom class="visual" name="sep_antenna__aluminium_spun" mesh="sep_antenna__aluminium_spun" material="aluminium_spun" />
+            <geom class="visual" name="sep_antenna__eq_copper_strap" mesh="sep_antenna__eq_copper_strap" material="eq_copper_strap" />
+            <geom class="visual" name="sep_antenna__eq_gold_kapton" mesh="sep_antenna__eq_gold_kapton" material="eq_gold_kapton" />
+          </body>
+          <body name="sep_receiver" pos="0.02794 0.2286 0.6604">
+            <inertial pos="-0.000906 -0.00076 0.159029" mass="8" diaginertia="0.13617127 0.12582494 0.10906639" />
+            <geom class="visual" name="sep_receiver__aluminium" mesh="sep_receiver__aluminium" material="aluminium" />
+            <geom class="visual" name="sep_receiver__eq_copper_kapton" mesh="sep_receiver__eq_copper_kapton" material="eq_copper_kapton" />
+            <geom class="visual" name="sep_receiver__eq_teflon_white" mesh="sep_receiver__eq_teflon_white" material="eq_teflon_white" />
+          </body>
+          <body name="tongs_1" pos="0.09144 -0.36576 0.42926">
+            <inertial pos="0.018672 0 0.414274" mass="0.45" diaginertia="0.02902315 0.02909775 0.00012694" />
+            <geom class="visual" name="tongs_1__aluminium_spun" mesh="tongs_1__aluminium_spun" material="aluminium_spun" />
+            <geom class="visual" name="tongs_1__eq_red_anodized" mesh="tongs_1__eq_red_anodized" material="eq_red_anodized" />
+          </body>
+          <body name="tongs_2" pos="0.09144 -0.28956 0.42926">
+            <inertial pos="0.018672 0 0.414274" mass="0.45" diaginertia="0.02902315 0.02909775 0.00012694" />
+            <geom class="visual" name="tongs_2__aluminium_spun" mesh="tongs_2__aluminium_spun" material="aluminium_spun" />
+            <geom class="visual" name="tongs_2__eq_red_anodized" mesh="tongs_2__eq_red_anodized" material="eq_red_anodized" />
+          </body>
+          <body name="traverse_gravimeter" pos="-0.42291 -0.26035 0.0381">
+            <inertial pos="-0.001076 -0.005017 0.272145" mass="12.7" diaginertia="0.36527307 0.39255805 0.13076523" />
+            <geom class="visual" name="traverse_gravimeter__aluminium" mesh="traverse_gravimeter__aluminium" material="aluminium" />
+            <geom class="visual" name="traverse_gravimeter__eq_tge_cover" mesh="traverse_gravimeter__eq_tge_cover" material="eq_tge_cover" />
+            <geom class="visual" name="traverse_gravimeter__eq_tge_lid_cover" mesh="traverse_gravimeter__eq_tge_lid_cover" material="eq_tge_lid_cover" />
+          </body>
+        </body>
+        <body name="rr_damper_cyl" pos="-0.51768 -0.372252 -0.07223">
+          <inertial pos="0 -0.089584 0.025308" mass="0.3" diaginertia="0.00115798 0.00029189 0.00098129" />
+          <joint name="rr_damper_cyl" type="hinge" axis="1 0 0" armature="0.005" />
+          <geom class="visual" name="rr_damper_cyl__damper" mesh="rr_damper_cyl__damper" material="damper" />
+          <body name="rr_damper_rod" pos="0 -0.179168 0.050615">
+            <inertial pos="0 -0.044426 0.01255" mass="0.2" diaginertia="0.00083213 0.00010541 0.00074006" />
+            <joint name="rr_damper_rod" type="slide" axis="0 -0.962337 0.271859" range="-0.08 0.08" armature="0.01" damping="1300" />
+            <geom class="visual" name="rr_damper_rod__chrome" mesh="rr_damper_rod__chrome" material="chrome" />
+          </body>
+        </body>
+        <body name="rr_lower_arm" pos="-0.48768 -0.492252 -0.09398">
+          <inertial pos="-0.000001 -0.150751 -0.01583" mass="1.5" diaginertia="0.01521995 0.01786958 0.03180571" />
+          <joint name="rr_lower_arm" type="hinge" axis="1 0 0" range="-0.504627 0.32818" armature="0.01" stiffness="337.823544" springref="0.206346" />
+          <geom class="visual" name="rr_lower_arm__aluminium" mesh="rr_lower_arm__aluminium" material="aluminium" />
+          <body name="rr_upright" pos="0 -0.315214 -0.03937">
+            <inertial pos="0 0 0.07112" mass="1" diaginertia="0.00272196 0.00282996 0.000492" />
+            <joint name="rr_upright" type="hinge" axis="1 0 0" armature="0.005" />
+            <geom class="visual" name="rr_upright__aluminium" mesh="rr_upright__aluminium" material="aluminium" />
+            <body name="rr_steer" pos="0 0 0.07112">
+              <inertial pos="-0.007831 -0.083133 0.155738" mass="8" diaginertia="0.40412167 0.79586514 0.72082645" />
+              <joint name="rr_steer" type="hinge" axis="0 0 1" range="-0.959931 0.959931" armature="0.005" />
+              <geom class="visual" name="rr_steer__a17_repair_maps" mesh="rr_steer__a17_repair_maps" material="a17_repair_maps" />
+              <geom class="visual" name="rr_steer__aluminium" mesh="rr_steer__aluminium" material="aluminium" />
+              <geom class="visual" name="rr_steer__brass" mesh="rr_steer__brass" material="brass" />
+              <geom class="visual" name="rr_steer__damper" mesh="rr_steer__damper" material="damper" />
+              <geom class="visual" name="rr_steer__drive_housing" mesh="rr_steer__drive_housing" material="drive_housing" />
+              <geom class="visual" name="rr_steer__fender" mesh="rr_steer__fender" material="fender" />
+              <geom class="visual" name="rr_steer__harness_jacket" mesh="rr_steer__harness_jacket" material="harness_jacket" />
+              <geom class="visual" name="rr_steer__repair_tape" mesh="rr_steer__repair_tape" material="repair_tape" />
+              <geom class="visual" name="rr_steer__rubber_boot" mesh="rr_steer__rubber_boot" material="rubber_boot" />
+              <geom class="visual" name="rr_steer__steel" mesh="rr_steer__steel" material="steel" />
+              <geom class="visual" name="rr_steer__white_paint" mesh="rr_steer__white_paint" material="white_paint" />
+              <body name="rr_fender_ext" pos="0 -0.107034 0">
+                <inertial pos="-0.328639 0.01 0.195768" mass="0.3" diaginertia="0.00670999 0.00525038 0.00479204" />
+                <geom class="visual" name="rr_fender_ext__brass" mesh="rr_fender_ext__brass" material="brass" />
+                <geom class="visual" name="rr_fender_ext__fender" mesh="rr_fender_ext__fender" material="fender" />
+                <geom class="visual" name="rr_fender_ext__flag_decal" mesh="rr_fender_ext__flag_decal" material="flag_decal" />
+              </body>
+              <body name="rr_wheel" pos="0 -0.107034 0">
+                <inertial pos="0 -0.008 0" mass="5.4" diaginertia="0.33507171 0.61567901 0.33507171" />
+                <joint name="rr_wheel" type="hinge" axis="0 1 0" armature="0.05" />
+                <geom class="visual" name="rr_wheel__aluminium" mesh="rr_wheel__aluminium" material="aluminium" />
+                <geom class="visual" name="rr_wheel__aluminium_disc" mesh="rr_wheel__aluminium_disc" material="aluminium_disc" />
+                <geom class="visual" name="rr_wheel__aluminium_spun" mesh="rr_wheel__aluminium_spun" material="aluminium_spun" />
+                <geom class="visual" name="rr_wheel__black_paint" mesh="rr_wheel__black_paint" material="black_paint" />
+                <geom class="visual" name="rr_wheel__cream_paint" mesh="rr_wheel__cream_paint" material="cream_paint" />
+                <geom class="visual" name="rr_wheel__drive_housing" mesh="rr_wheel__drive_housing" material="drive_housing" />
+                <geom class="visual" name="rr_wheel__steel" mesh="rr_wheel__steel" material="steel" />
+                <geom class="visual" name="rr_wheel__titanium" mesh="rr_wheel__titanium" material="titanium" />
+                <geom class="visual" name="rr_wheel__white_paint" mesh="rr_wheel__white_paint" material="white_paint" />
+                <geom class="visual" name="rr_wheel__wire_mesh" mesh="rr_wheel__wire_mesh" material="wire_mesh" />
+                <geom class="collision" name="rr_wheel_collision" type="cylinder" size="0.409 0.115" quat="0.707107 0.707107 0 0" />
+              </body>
+            </body>
+          </body>
+        </body>
+        <body name="rr_upper_arm" pos="-0.48768 -0.51943 0.037592">
+          <inertial pos="0 -0.136606 -0.005089" mass="1" diaginertia="0.0085401 0.01150356 0.01931376" />
+          <joint name="rr_upper_arm" type="hinge" axis="1 0 0" range="-0.504627 0.32818" armature="0.01" stiffness="59.615919" springref="0.206346" />
+          <geom class="visual" name="rr_upper_arm__aluminium" mesh="rr_upper_arm__aluminium" material="aluminium" />
+          <geom class="visual" name="rr_upper_arm__harness_jacket" mesh="rr_upper_arm__harness_jacket" material="harness_jacket" />
+        </body>
+      </body>
+      <body name="chassis_fwd" pos="0.69088 0 0.47123">
+        <inertial pos="0.367999 0 0.03854" mass="75" diaginertia="7.95722514 5.27907967 11.81719777" />
+        <geom class="visual" name="chassis_fwd__aluminium" mesh="chassis_fwd__aluminium" material="aluminium" />
+        <geom class="visual" name="chassis_fwd__crew_webbing_white" mesh="chassis_fwd__crew_webbing_white" material="crew_webbing_white" />
+        <geom class="visual" name="chassis_fwd__drive_housing" mesh="chassis_fwd__drive_housing" material="drive_housing" />
+        <geom class="visual" name="chassis_fwd__eq_battery_case" mesh="chassis_fwd__eq_battery_case" material="eq_battery_case" />
+        <geom class="visual" name="chassis_fwd__eq_beta_cloth" mesh="chassis_fwd__eq_beta_cloth" material="eq_beta_cloth" />
+        <geom class="visual" name="chassis_fwd__eq_binding_tape" mesh="chassis_fwd__eq_binding_tape" material="eq_binding_tape" />
+        <geom class="visual" name="chassis_fwd__eq_copper_strap" mesh="chassis_fwd__eq_copper_strap" material="eq_copper_strap" />
+        <geom class="visual" name="chassis_fwd__eq_fiberglass" mesh="chassis_fwd__eq_fiberglass" material="eq_fiberglass" />
+        <geom class="visual" name="chassis_fwd__eq_gray_anodized" mesh="chassis_fwd__eq_gray_anodized" material="eq_gray_anodized" />
+        <geom class="visual" name="chassis_fwd__eq_osr_mirror" mesh="chassis_fwd__eq_osr_mirror" material="eq_osr_mirror" />
+        <geom class="visual" name="chassis_fwd__floor_panel" mesh="chassis_fwd__floor_panel" material="floor_panel" />
+        <geom class="visual" name="chassis_fwd__harness_jacket" mesh="chassis_fwd__harness_jacket" material="harness_jacket" />
+        <geom class="visual" name="chassis_fwd__steel" mesh="chassis_fwd__steel" material="steel" />
+        <geom class="visual" name="chassis_fwd__white_paint" mesh="chassis_fwd__white_paint" material="white_paint" />
+        <geom class="visual" name="chassis_fwd__yellow_paint" mesh="chassis_fwd__yellow_paint" material="yellow_paint" />
+        <geom class="collision" name="chassis_fwd_collision" type="box" pos="0.36576 0 -0.037465" size="0.36576 0.474345 0.037465" />
+        <body name="bat1_cover" pos="0.30226 0.4572 0.221488">
+          <inertial pos="-0.00234 -0.263352 -0.023865" mass="0.9" diaginertia="0.02279638 0.02746555 0.0489221" />
+          <geom class="visual" name="bat1_cover__aluminium" mesh="bat1_cover__aluminium" material="aluminium" />
+          <geom class="visual" name="bat1_cover__eq_beta_cloth" mesh="bat1_cover__eq_beta_cloth" material="eq_beta_cloth" />
+          <geom class="visual" name="bat1_cover__eq_binding_tape" mesh="bat1_cover__eq_binding_tape" material="eq_binding_tape" />
+          <geom class="visual" name="bat1_cover__eq_gold_kapton" mesh="bat1_cover__eq_gold_kapton" material="eq_gold_kapton" />
+          <geom class="visual" name="bat1_cover__eq_white_tape" mesh="bat1_cover__eq_white_tape" material="eq_white_tape" />
+        </body>
+        <body name="bat2_cover" pos="0.44704 -0.4572 0.221488">
+          <inertial pos="-0.00125 0.147601 -0.024765" mass="0.45" diaginertia="0.00405903 0.00394686 0.00736125" />
+          <geom class="visual" name="bat2_cover__aluminium" mesh="bat2_cover__aluminium" material="aluminium" />
+          <geom class="visual" name="bat2_cover__eq_beta_cloth" mesh="bat2_cover__eq_beta_cloth" material="eq_beta_cloth" />
+          <geom class="visual" name="bat2_cover__eq_binding_tape" mesh="bat2_cover__eq_binding_tape" material="eq_binding_tape" />
+          <geom class="visual" name="bat2_cover__eq_gold_kapton" mesh="bat2_cover__eq_gold_kapton" material="eq_gold_kapton" />
+          <geom class="visual" name="bat2_cover__eq_white_tape" mesh="bat2_cover__eq_white_tape" material="eq_white_tape" />
+        </body>
+        <body name="fwd_steer_sector" pos="0.45212 0 -0.09123">
+          <inertial pos="-0.071 0 -0.01" mass="1.2" diaginertia="0.0025574 0.00405 0.0063482" />
+          <joint name="fwd_steer_sector" type="hinge" axis="0 0 1" range="-0.813764 0.813764" armature="0.02" />
+          <geom class="visual" name="fwd_steer_sector__aluminium" mesh="fwd_steer_sector__aluminium" material="aluminium" />
+          <geom class="visual" name="fwd_steer_sector__steel" mesh="fwd_steer_sector__steel" material="steel" />
+          <body name="lf_tie_rod" pos="-0.13 0.065 0">
+            <inertial pos="-0.01766 0.356286 -0.046" mass="0.35" diaginertia="0.01633657 0.00045714 0.01611331" />
+            <joint name="lf_tie_rod" type="ball" armature="0.005" damping="0.01" />
+            <geom class="visual" name="lf_tie_rod__steel" mesh="lf_tie_rod__steel" material="steel" />
+          </body>
+          <body name="rf_tie_rod" pos="-0.13 -0.065 0">
+            <inertial pos="-0.01766 -0.356286 -0.046" mass="0.35" diaginertia="0.01633657 0.00045714 0.01611331" />
+            <joint name="rf_tie_rod" type="ball" armature="0.005" damping="0.01" />
+            <geom class="visual" name="rf_tie_rod__steel" mesh="rf_tie_rod__steel" material="steel" />
+          </body>
+        </body>
+        <body name="hga_mast" pos="0.77978 0.36195 -0.03683">
+          <inertial pos="0.119238 -0.259753 0.312464" mass="1.2" diaginertia="0.08724204 0.06360061 0.03933913" />
+          <geom class="visual" name="hga_mast__aluminium" mesh="hga_mast__aluminium" material="aluminium" />
+          <geom class="visual" name="hga_mast__aluminium_spun" mesh="hga_mast__aluminium_spun" material="aluminium_spun" />
+          <geom class="visual" name="hga_mast__eq_cable_white" mesh="hga_mast__eq_cable_white" material="eq_cable_white" />
+          <geom class="visual" name="hga_mast__eq_red_anodized" mesh="hga_mast__eq_red_anodized" material="eq_red_anodized" />
+          <body name="hga_mast_ext" pos="0 0 0.68072">
+            <inertial pos="0.007359 0 0.01524" mass="0.6" diaginertia="0.02324157 0.02330848 0.00021207" />
+            <geom class="visual" name="hga_mast_ext__aluminium_spun" mesh="hga_mast_ext__aluminium_spun" material="aluminium_spun" />
+            <geom class="visual" name="hga_mast_ext__eq_red_anodized" mesh="hga_mast_ext__eq_red_anodized" material="eq_red_anodized" />
+            <geom class="visual" name="hga_mast_ext__steel" mesh="hga_mast_ext__steel" material="steel" />
+            <body name="hga_az" pos="0 0 0.37338">
+              <inertial pos="-0.031355 -0.022225 -0.007891" mass="0.35" diaginertia="0.00037494 0.00048611 0.00064041" />
+              <joint name="hga_az" type="hinge" axis="0 0 1" armature="0.002" />
+              <geom class="visual" name="hga_az__aluminium" mesh="hga_az__aluminium" material="aluminium" />
+              <body name="hga_el" pos="0 0 0">
+                <inertial pos="-0.105328 0.094565 -0.246739" mass="0.5" diaginertia="0.01944924 0.02151735 0.00749413" />
+                <joint name="hga_el" type="hinge" axis="0 -1 0" range="-0.872665 0.698132" armature="0.002" />
+                <geom class="visual" name="hga_el__aluminium" mesh="hga_el__aluminium" material="aluminium" />
+                <geom class="visual" name="hga_el__aluminium_spun" mesh="hga_el__aluminium_spun" material="aluminium_spun" />
+                <geom class="visual" name="hga_el__eq_red_anodized" mesh="hga_el__eq_red_anodized" material="eq_red_anodized" />
+                <body name="hga_dish" pos="0.04245 0 0.05059">
+                  <inertial pos="0.218185 0 0.260023" mass="1.9" diaginertia="0.19419524 0.13868193 0.21773241" />
+                  <geom class="visual" name="hga_dish__aluminium" mesh="hga_dish__aluminium" material="aluminium" />
+                  <geom class="visual" name="hga_dish__aluminium_spun" mesh="hga_dish__aluminium_spun" material="aluminium_spun" />
+                  <geom class="visual" name="hga_dish__eq_black_anodized" mesh="hga_dish__eq_black_anodized" material="eq_black_anodized" />
+                  <geom class="visual" name="hga_dish__eq_copper_kapton" mesh="hga_dish__eq_copper_kapton" material="eq_copper_kapton" />
+                  <geom class="visual" name="hga_dish__eq_hga_mesh" mesh="hga_dish__eq_hga_mesh" material="eq_hga_mesh" />
+                  <geom class="visual" name="hga_dish__eq_teflon_white" mesh="hga_dish__eq_teflon_white" material="eq_teflon_white" />
+                  <geom class="visual" name="hga_dish__eq_webbing" mesh="hga_dish__eq_webbing" material="eq_webbing" />
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+        <body name="lcru" pos="0.80518 0 0.01905">
+          <inertial pos="0.020899 -0.016782 0.18587" mass="24.948" diaginertia="1.60527935 1.26907164 1.32086257" />
+          <geom class="visual" name="lcru__aluminium" mesh="lcru__aluminium" material="aluminium" />
+          <geom class="visual" name="lcru__aluminium_spun" mesh="lcru__aluminium_spun" material="aluminium_spun" />
+          <geom class="visual" name="lcru__black_paint" mesh="lcru__black_paint" material="black_paint" />
+          <geom class="visual" name="lcru__chrome" mesh="lcru__chrome" material="chrome" />
+          <geom class="visual" name="lcru__eq_beta_cloth" mesh="lcru__eq_beta_cloth" material="eq_beta_cloth" />
+          <geom class="visual" name="lcru__eq_black_anodized" mesh="lcru__eq_black_anodized" material="eq_black_anodized" />
+          <geom class="visual" name="lcru__eq_blue_anodized" mesh="lcru__eq_blue_anodized" material="eq_blue_anodized" />
+          <geom class="visual" name="lcru__eq_gold_kapton" mesh="lcru__eq_gold_kapton" material="eq_gold_kapton" />
+          <geom class="visual" name="lcru__eq_knob_bronze" mesh="lcru__eq_knob_bronze" material="eq_knob_bronze" />
+          <geom class="visual" name="lcru__eq_label_hga" mesh="lcru__eq_label_hga" material="eq_label_hga" />
+          <geom class="visual" name="lcru__eq_label_lga" mesh="lcru__eq_label_lga" material="eq_label_lga" />
+          <geom class="visual" name="lcru__eq_lcru_panel_face" mesh="lcru__eq_lcru_panel_face" material="eq_lcru_panel_face" />
+          <geom class="visual" name="lcru__eq_lcru_panel_plate" mesh="lcru__eq_lcru_panel_plate" material="eq_lcru_panel_plate" />
+          <geom class="visual" name="lcru__eq_osr_mirror" mesh="lcru__eq_osr_mirror" material="eq_osr_mirror" />
+          <geom class="visual" name="lcru__eq_red_anodized" mesh="lcru__eq_red_anodized" material="eq_red_anodized" />
+          <geom class="visual" name="lcru__eq_teflon_white" mesh="lcru__eq_teflon_white" material="eq_teflon_white" />
+          <geom class="visual" name="lcru__eq_velcro" mesh="lcru__eq_velcro" material="eq_velcro" />
+          <geom class="visual" name="lcru__eq_white_tape" mesh="lcru__eq_white_tape" material="eq_white_tape" />
+          <geom class="visual" name="lcru__steel" mesh="lcru__steel" material="steel" />
+          <geom class="visual" name="lcru__white_paint" mesh="lcru__white_paint" material="white_paint" />
+        </body>
+        <body name="lf_damper_cyl" pos="0.48212 0.372252 -0.07223">
+          <inertial pos="0 0.089584 0.025308" mass="0.3" diaginertia="0.00115798 0.00029189 0.00098129" />
+          <joint name="lf_damper_cyl" type="hinge" axis="1 0 0" armature="0.005" />
+          <geom class="visual" name="lf_damper_cyl__damper" mesh="lf_damper_cyl__damper" material="damper" />
+          <body name="lf_damper_rod" pos="0 0.179168 0.050615">
+            <inertial pos="0 0.044426 0.01255" mass="0.2" diaginertia="0.00083213 0.00010541 0.00074006" />
+            <joint name="lf_damper_rod" type="slide" axis="0 0.962337 0.271859" range="-0.08 0.08" armature="0.01" damping="1300" />
+            <geom class="visual" name="lf_damper_rod__chrome" mesh="lf_damper_rod__chrome" material="chrome" />
+          </body>
+        </body>
+        <body name="lf_lower_arm" pos="0.45212 0.492252 -0.09398">
+          <inertial pos="0.000001 0.150751 -0.01583" mass="1.5" diaginertia="0.01521995 0.01786958 0.03180571" />
+          <joint name="lf_lower_arm" type="hinge" axis="1 0 0" range="-0.32818 0.504627" armature="0.01" stiffness="337.823544" springref="-0.206346" />
+          <geom class="visual" name="lf_lower_arm__aluminium" mesh="lf_lower_arm__aluminium" material="aluminium" />
+          <body name="lf_upright" pos="0 0.315214 -0.03937">
+            <inertial pos="0 0 0.07112" mass="1" diaginertia="0.00272196 0.00282996 0.000492" />
+            <joint name="lf_upright" type="hinge" axis="1 0 0" armature="0.005" />
+            <geom class="visual" name="lf_upright__aluminium" mesh="lf_upright__aluminium" material="aluminium" />
+            <body name="lf_steer" pos="0 0 0.07112">
+              <inertial pos="-0.090801 0.055633 0.144589" mass="8" diaginertia="0.37038608 0.58222838 0.47209432" />
+              <joint name="lf_steer" type="hinge" axis="0 0 1" range="-0.959931 0.959931" armature="0.005" />
+              <geom class="visual" name="lf_steer__aluminium" mesh="lf_steer__aluminium" material="aluminium" />
+              <geom class="visual" name="lf_steer__brass" mesh="lf_steer__brass" material="brass" />
+              <geom class="visual" name="lf_steer__damper" mesh="lf_steer__damper" material="damper" />
+              <geom class="visual" name="lf_steer__drive_housing" mesh="lf_steer__drive_housing" material="drive_housing" />
+              <geom class="visual" name="lf_steer__fender" mesh="lf_steer__fender" material="fender" />
+              <geom class="visual" name="lf_steer__flap_grey" mesh="lf_steer__flap_grey" material="flap_grey" />
+              <geom class="visual" name="lf_steer__harness_jacket" mesh="lf_steer__harness_jacket" material="harness_jacket" />
+              <geom class="visual" name="lf_steer__rubber_boot" mesh="lf_steer__rubber_boot" material="rubber_boot" />
+              <geom class="visual" name="lf_steer__steel" mesh="lf_steer__steel" material="steel" />
+              <geom class="visual" name="lf_steer__white_paint" mesh="lf_steer__white_paint" material="white_paint" />
+              <body name="lf_fender_ext" pos="0 0.107034 0">
+                <inertial pos="0.328639 -0.01 0.195768" mass="0.3" diaginertia="0.00670999 0.00525038 0.00479204" />
+                <geom class="visual" name="lf_fender_ext__brass" mesh="lf_fender_ext__brass" material="brass" />
+                <geom class="visual" name="lf_fender_ext__fender" mesh="lf_fender_ext__fender" material="fender" />
+                <geom class="visual" name="lf_fender_ext__fender_ext" mesh="lf_fender_ext__fender_ext" material="fender_ext" />
+                <geom class="visual" name="lf_fender_ext__flag_decal" mesh="lf_fender_ext__flag_decal" material="flag_decal" />
+              </body>
+              <body name="lf_wheel" pos="0 0.107034 0">
+                <inertial pos="0 0.008 0" mass="5.4" diaginertia="0.33507171 0.61567901 0.33507171" />
+                <joint name="lf_wheel" type="hinge" axis="0 1 0" armature="0.05" />
+                <geom class="visual" name="lf_wheel__aluminium" mesh="lf_wheel__aluminium" material="aluminium" />
+                <geom class="visual" name="lf_wheel__aluminium_disc" mesh="lf_wheel__aluminium_disc" material="aluminium_disc" />
+                <geom class="visual" name="lf_wheel__aluminium_spun" mesh="lf_wheel__aluminium_spun" material="aluminium_spun" />
+                <geom class="visual" name="lf_wheel__black_paint" mesh="lf_wheel__black_paint" material="black_paint" />
+                <geom class="visual" name="lf_wheel__cream_paint" mesh="lf_wheel__cream_paint" material="cream_paint" />
+                <geom class="visual" name="lf_wheel__drive_housing" mesh="lf_wheel__drive_housing" material="drive_housing" />
+                <geom class="visual" name="lf_wheel__steel" mesh="lf_wheel__steel" material="steel" />
+                <geom class="visual" name="lf_wheel__titanium" mesh="lf_wheel__titanium" material="titanium" />
+                <geom class="visual" name="lf_wheel__white_paint" mesh="lf_wheel__white_paint" material="white_paint" />
+                <geom class="visual" name="lf_wheel__wire_mesh" mesh="lf_wheel__wire_mesh" material="wire_mesh" />
+                <geom class="collision" name="lf_wheel_collision" type="cylinder" size="0.409 0.115" quat="0.707107 0.707107 0 0" />
+              </body>
+            </body>
+          </body>
+        </body>
+        <body name="lf_upper_arm" pos="0.45212 0.51943 0.037592">
+          <inertial pos="0 0.136606 -0.005089" mass="1" diaginertia="0.0085401 0.01150356 0.01931376" />
+          <joint name="lf_upper_arm" type="hinge" axis="1 0 0" range="-0.32818 0.504627" armature="0.01" stiffness="59.615919" springref="-0.206346" />
+          <geom class="visual" name="lf_upper_arm__aluminium" mesh="lf_upper_arm__aluminium" material="aluminium" />
+          <geom class="visual" name="lf_upper_arm__harness_jacket" mesh="lf_upper_arm__harness_jacket" material="harness_jacket" />
+        </body>
+        <body name="rf_damper_cyl" pos="0.48212 -0.372252 -0.07223">
+          <inertial pos="0 -0.089584 0.025308" mass="0.3" diaginertia="0.00115798 0.00029189 0.00098129" />
+          <joint name="rf_damper_cyl" type="hinge" axis="1 0 0" armature="0.005" />
+          <geom class="visual" name="rf_damper_cyl__damper" mesh="rf_damper_cyl__damper" material="damper" />
+          <body name="rf_damper_rod" pos="0 -0.179168 0.050615">
+            <inertial pos="0 -0.044426 0.01255" mass="0.2" diaginertia="0.00083213 0.00010541 0.00074006" />
+            <joint name="rf_damper_rod" type="slide" axis="0 -0.962337 0.271859" range="-0.08 0.08" armature="0.01" damping="1300" />
+            <geom class="visual" name="rf_damper_rod__chrome" mesh="rf_damper_rod__chrome" material="chrome" />
+          </body>
+        </body>
+        <body name="rf_lower_arm" pos="0.45212 -0.492252 -0.09398">
+          <inertial pos="0.000001 -0.150751 -0.01583" mass="1.5" diaginertia="0.01521995 0.01786958 0.03180571" />
+          <joint name="rf_lower_arm" type="hinge" axis="1 0 0" range="-0.504627 0.32818" armature="0.01" stiffness="337.823544" springref="0.206346" />
+          <geom class="visual" name="rf_lower_arm__aluminium" mesh="rf_lower_arm__aluminium" material="aluminium" />
+          <body name="rf_upright" pos="0 -0.315214 -0.03937">
+            <inertial pos="0 0 0.07112" mass="1" diaginertia="0.00272196 0.00282996 0.000492" />
+            <joint name="rf_upright" type="hinge" axis="1 0 0" armature="0.005" />
+            <geom class="visual" name="rf_upright__aluminium" mesh="rf_upright__aluminium" material="aluminium" />
+            <body name="rf_steer" pos="0 0 0.07112">
+              <inertial pos="-0.090801 -0.055633 0.144589" mass="8" diaginertia="0.37038608 0.58222838 0.47209432" />
+              <joint name="rf_steer" type="hinge" axis="0 0 1" range="-0.959931 0.959931" armature="0.005" />
+              <geom class="visual" name="rf_steer__aluminium" mesh="rf_steer__aluminium" material="aluminium" />
+              <geom class="visual" name="rf_steer__brass" mesh="rf_steer__brass" material="brass" />
+              <geom class="visual" name="rf_steer__damper" mesh="rf_steer__damper" material="damper" />
+              <geom class="visual" name="rf_steer__drive_housing" mesh="rf_steer__drive_housing" material="drive_housing" />
+              <geom class="visual" name="rf_steer__fender" mesh="rf_steer__fender" material="fender" />
+              <geom class="visual" name="rf_steer__flap_grey" mesh="rf_steer__flap_grey" material="flap_grey" />
+              <geom class="visual" name="rf_steer__harness_jacket" mesh="rf_steer__harness_jacket" material="harness_jacket" />
+              <geom class="visual" name="rf_steer__rubber_boot" mesh="rf_steer__rubber_boot" material="rubber_boot" />
+              <geom class="visual" name="rf_steer__steel" mesh="rf_steer__steel" material="steel" />
+              <geom class="visual" name="rf_steer__white_paint" mesh="rf_steer__white_paint" material="white_paint" />
+              <body name="rf_fender_ext" pos="0 -0.107034 0">
+                <inertial pos="0.328639 0.01 0.195768" mass="0.3" diaginertia="0.00670999 0.00525038 0.00479204" />
+                <geom class="visual" name="rf_fender_ext__brass" mesh="rf_fender_ext__brass" material="brass" />
+                <geom class="visual" name="rf_fender_ext__fender" mesh="rf_fender_ext__fender" material="fender" />
+                <geom class="visual" name="rf_fender_ext__flag_decal" mesh="rf_fender_ext__flag_decal" material="flag_decal" />
+              </body>
+              <body name="rf_wheel" pos="0 -0.107034 0">
+                <inertial pos="0 -0.008 0" mass="5.4" diaginertia="0.33535315 0.6162419 0.33535315" />
+                <joint name="rf_wheel" type="hinge" axis="0 1 0" armature="0.05" />
+                <geom class="visual" name="rf_wheel__aluminium" mesh="rf_wheel__aluminium" material="aluminium" />
+                <geom class="visual" name="rf_wheel__aluminium_disc" mesh="rf_wheel__aluminium_disc" material="aluminium_disc" />
+                <geom class="visual" name="rf_wheel__aluminium_spun" mesh="rf_wheel__aluminium_spun" material="aluminium_spun" />
+                <geom class="visual" name="rf_wheel__black_paint" mesh="rf_wheel__black_paint" material="black_paint" />
+                <geom class="visual" name="rf_wheel__cream_paint" mesh="rf_wheel__cream_paint" material="cream_paint" />
+                <geom class="visual" name="rf_wheel__drive_housing" mesh="rf_wheel__drive_housing" material="drive_housing" />
+                <geom class="visual" name="rf_wheel__steel" mesh="rf_wheel__steel" material="steel" />
+                <geom class="visual" name="rf_wheel__titanium" mesh="rf_wheel__titanium" material="titanium" />
+                <geom class="visual" name="rf_wheel__white_paint" mesh="rf_wheel__white_paint" material="white_paint" />
+                <geom class="visual" name="rf_wheel__wire_mesh" mesh="rf_wheel__wire_mesh" material="wire_mesh" />
+                <geom class="collision" name="rf_wheel_collision" type="cylinder" size="0.409 0.115" quat="0.707107 0.707107 0 0" />
+              </body>
+            </body>
+          </body>
+        </body>
+        <body name="rf_upper_arm" pos="0.45212 -0.51943 0.037592">
+          <inertial pos="0 -0.136606 -0.005089" mass="1" diaginertia="0.0085401 0.01150356 0.01931376" />
+          <joint name="rf_upper_arm" type="hinge" axis="1 0 0" range="-0.504627 0.32818" armature="0.01" stiffness="59.615919" springref="0.206346" />
+          <geom class="visual" name="rf_upper_arm__aluminium" mesh="rf_upper_arm__aluminium" material="aluminium" />
+          <geom class="visual" name="rf_upper_arm__harness_jacket" mesh="rf_upper_arm__harness_jacket" material="harness_jacket" />
+        </body>
+        <body name="spu_cover" pos="0.4572 0.17526 0.221488">
+          <inertial pos="-0.001066 -0.18771 -0.024765" mass="0.35" diaginertia="0.00475387 0.00245663 0.00670912" />
+          <geom class="visual" name="spu_cover__aluminium" mesh="spu_cover__aluminium" material="aluminium" />
+          <geom class="visual" name="spu_cover__eq_beta_cloth" mesh="spu_cover__eq_beta_cloth" material="eq_beta_cloth" />
+          <geom class="visual" name="spu_cover__eq_binding_tape" mesh="spu_cover__eq_binding_tape" material="eq_binding_tape" />
+          <geom class="visual" name="spu_cover__eq_gold_kapton" mesh="spu_cover__eq_gold_kapton" material="eq_gold_kapton" />
+          <geom class="visual" name="spu_cover__eq_white_tape" mesh="spu_cover__eq_white_tape" material="eq_white_tape" />
+        </body>
+        <body name="tcu" pos="0.77978 -0.36195 -0.03683">
+          <inertial pos="0.088187 0.233861 0.243228" mass="3.8" diaginertia="0.23440032 0.15092566 0.16631381" />
+          <geom class="visual" name="tcu__aluminium" mesh="tcu__aluminium" material="aluminium" />
+          <geom class="visual" name="tcu__aluminium_spun" mesh="tcu__aluminium_spun" material="aluminium_spun" />
+          <geom class="visual" name="tcu__chrome" mesh="tcu__chrome" material="chrome" />
+          <geom class="visual" name="tcu__eq_cable_white" mesh="tcu__eq_cable_white" material="eq_cable_white" />
+          <geom class="visual" name="tcu__eq_gold_kapton" mesh="tcu__eq_gold_kapton" material="eq_gold_kapton" />
+          <geom class="visual" name="tcu__steel" mesh="tcu__steel" material="steel" />
+          <body name="tv_pan" pos="0 0 0.5334">
+            <inertial pos="0 0.03175 0.135255" mass="0.9" diaginertia="0.00766027 0.00632443 0.00300835" />
+            <joint name="tv_pan" type="hinge" axis="0 0 -1" range="-2.338741 3.735005" armature="0.002" />
+            <geom class="visual" name="tv_pan__aluminium" mesh="tv_pan__aluminium" material="aluminium" />
+            <geom class="visual" name="tv_pan__eq_gold_kapton" mesh="tv_pan__eq_gold_kapton" material="eq_gold_kapton" />
+            <geom class="visual" name="tv_pan__eq_gray_anodized" mesh="tv_pan__eq_gray_anodized" material="eq_gray_anodized" />
+            <body name="tv_camera" pos="0 0 0.2413">
+              <inertial pos="0.095566 0 -0.012006" mass="3.6" diaginertia="0.06065975 0.16058304 0.11782262" />
+              <joint name="tv_camera" type="hinge" axis="0 -1 0" range="-0.785398 1.48353" armature="0.002" />
+              <geom class="visual" name="tv_camera__aluminium" mesh="tv_camera__aluminium" material="aluminium" />
+              <geom class="visual" name="tv_camera__chrome" mesh="tv_camera__chrome" material="chrome" />
+              <geom class="visual" name="tv_camera__eq_beta_cloth" mesh="tv_camera__eq_beta_cloth" material="eq_beta_cloth" />
+              <geom class="visual" name="tv_camera__eq_black_anodized" mesh="tv_camera__eq_black_anodized" material="eq_black_anodized" />
+              <geom class="visual" name="tv_camera__eq_cable_white" mesh="tv_camera__eq_cable_white" material="eq_cable_white" />
+              <geom class="visual" name="tv_camera__eq_gold_kapton" mesh="tv_camera__eq_gold_kapton" material="eq_gold_kapton" />
+              <geom class="visual" name="tv_camera__eq_sunshade_gray" mesh="tv_camera__eq_sunshade_gray" material="eq_sunshade_gray" />
+              <geom class="visual" name="tv_camera__steel" mesh="tv_camera__steel" material="steel" />
+              <camera name="tv_camera_optics" pos="0.28448 0 0.08382" xyaxes="0 -1 0 0 0 1" fovy="41.714" resolution="640 480" />
+            </body>
+          </body>
+        </body>
+      </body>
+      <body name="hc_steer" pos="0.0508 0 0.67316">
+        <inertial pos="0 0 0.07747" mass="0.25" diaginertia="0.00093132 0.00105228 0.00055107" />
+        <joint name="hc_steer" type="hinge" axis="1 0 0" range="-0.244346 0.244346" armature="0.002" />
+        <geom class="visual" name="hc_steer__aluminium" mesh="hc_steer__aluminium" material="aluminium" />
+        <geom class="visual" name="hc_steer__crew_boot" mesh="hc_steer__crew_boot" material="crew_boot" />
+        <geom class="visual" name="hc_steer__crew_webbing_white" mesh="hc_steer__crew_webbing_white" material="crew_webbing_white" />
+        <geom class="visual" name="hc_steer__steel" mesh="hc_steer__steel" material="steel" />
+        <body name="hc_brake" pos="0 0 0.0254">
+          <inertial pos="0 0 0.09398" mass="0.35" diaginertia="0.00133347 0.00133347 0.00025834" />
+          <joint name="hc_brake" type="hinge" axis="0 -1 0" range="0 0.523599" armature="0.002" />
+          <geom class="visual" name="hc_brake__aluminium" mesh="hc_brake__aluminium" material="aluminium" />
+          <geom class="visual" name="hc_brake__crew_grip" mesh="hc_brake__crew_grip" material="crew_grip" />
+          <geom class="visual" name="hc_brake__crew_grip_dark" mesh="hc_brake__crew_grip_dark" material="crew_grip_dark" />
+          <geom class="visual" name="hc_brake__steel" mesh="hc_brake__steel" material="steel" />
+          <body name="hc_throttle" pos="0 0 0.19558">
+            <inertial pos="-0.00019 0 0.037211" mass="0.3" diaginertia="0.0009153 0.00020724 0.00084561" />
+            <joint name="hc_throttle" type="hinge" axis="0 1 0" range="-0.244346 0.244346" armature="0.002" />
+            <geom class="visual" name="hc_throttle__crew_cb_knob" mesh="hc_throttle__crew_cb_knob" material="crew_cb_knob" />
+            <geom class="visual" name="hc_throttle__crew_grip" mesh="hc_throttle__crew_grip" material="crew_grip" />
+            <geom class="visual" name="hc_throttle__crew_grip_dark" mesh="hc_throttle__crew_grip_dark" material="crew_grip_dark" />
+            <body name="hc_reverse_switch" pos="-0.02159 0.00762 0.03048">
+              <inertial pos="0 0.001651 0" mass="0.01" diaginertia="0.00000091 0.00000116 0.00000091" />
+              <joint name="hc_reverse_switch" type="hinge" axis="0 1 0" range="0 0.436332" armature="0.002" />
+              <geom class="visual" name="hc_reverse_switch__aluminium_spun" mesh="hc_reverse_switch__aluminium_spun" material="aluminium_spun" />
+            </body>
+          </body>
+        </body>
+      </body>
+      <body name="lga_staff" pos="0.60706 0.21844 0.49663">
+        <inertial pos="0 0 0.47117" mass="0.6" diaginertia="0.04836869 0.04836869 0.00011241" />
+        <joint name="lga_staff" type="hinge" axis="0 0 1" armature="0.002" />
+        <geom class="visual" name="lga_staff__aluminium" mesh="lga_staff__aluminium" material="aluminium" />
+        <geom class="visual" name="lga_staff__aluminium_spun" mesh="lga_staff__aluminium_spun" material="aluminium_spun" />
+        <geom class="visual" name="lga_staff__eq_gray_anodized" mesh="lga_staff__eq_gray_anodized" material="eq_gray_anodized" />
+        <body name="lga_antenna" pos="0 0 0.96266">
+          <inertial pos="0.083088 0 0.010529" mass="0.5" diaginertia="0.00817996 0.00937621 0.00261114" />
+          <joint name="lga_antenna" type="hinge" axis="0 -1 0" range="-0.872665 0.698132" armature="0.002" />
+          <geom class="visual" name="lga_antenna__aluminium" mesh="lga_antenna__aluminium" material="aluminium" />
+          <geom class="visual" name="lga_antenna__eq_cable_white" mesh="lga_antenna__eq_cable_white" material="eq_cable_white" />
+          <geom class="visual" name="lga_antenna__eq_red_anodized" mesh="lga_antenna__eq_red_anodized" material="eq_red_anodized" />
+          <geom class="visual" name="lga_antenna__white_paint" mesh="lga_antenna__white_paint" material="white_paint" />
+        </body>
+      </body>
+      <body name="seat_back_l" pos="-0.47244 0.34925 0.66554">
+        <inertial pos="-0.069135 -0.000016 0.22303" mass="1.6" diaginertia="0.08090029 0.04179588 0.04944907" />
+        <geom class="visual" name="seat_back_l__aluminium" mesh="seat_back_l__aluminium" material="aluminium" />
+        <geom class="visual" name="seat_back_l__chrome" mesh="seat_back_l__chrome" material="chrome" />
+        <geom class="visual" name="seat_back_l__crew_decal_seat29" mesh="seat_back_l__crew_decal_seat29" material="crew_decal_seat29" />
+        <geom class="visual" name="seat_back_l__crew_decal_seat30" mesh="seat_back_l__crew_decal_seat30" material="crew_decal_seat30" />
+        <geom class="visual" name="seat_back_l__crew_edge_tape" mesh="seat_back_l__crew_edge_tape" material="crew_edge_tape" />
+        <geom class="visual" name="seat_back_l__crew_knob_white" mesh="seat_back_l__crew_knob_white" material="crew_knob_white" />
+        <geom class="visual" name="seat_back_l__crew_lacing" mesh="seat_back_l__crew_lacing" material="crew_lacing" />
+        <geom class="visual" name="seat_back_l__crew_strap_brown" mesh="seat_back_l__crew_strap_brown" material="crew_strap_brown" />
+        <geom class="visual" name="seat_back_l__crew_velcro_hook" mesh="seat_back_l__crew_velcro_hook" material="crew_velcro_hook" />
+        <geom class="visual" name="seat_back_l__crew_velcro_tan" mesh="seat_back_l__crew_velcro_tan" material="crew_velcro_tan" />
+        <geom class="visual" name="seat_back_l__crew_velcro_white" mesh="seat_back_l__crew_velcro_white" material="crew_velcro_white" />
+        <geom class="visual" name="seat_back_l__crew_webbing_olive" mesh="seat_back_l__crew_webbing_olive" material="crew_webbing_olive" />
+        <geom class="visual" name="seat_back_l__crew_webbing_white" mesh="seat_back_l__crew_webbing_white" material="crew_webbing_white" />
+      </body>
+      <body name="seat_back_r" pos="-0.47244 -0.34925 0.66554">
+        <inertial pos="-0.069135 -0.000016 0.22303" mass="1.6" diaginertia="0.08090029 0.04179588 0.04944907" />
+        <geom class="visual" name="seat_back_r__aluminium" mesh="seat_back_r__aluminium" material="aluminium" />
+        <geom class="visual" name="seat_back_r__chrome" mesh="seat_back_r__chrome" material="chrome" />
+        <geom class="visual" name="seat_back_r__crew_decal_seat29" mesh="seat_back_r__crew_decal_seat29" material="crew_decal_seat29" />
+        <geom class="visual" name="seat_back_r__crew_decal_seat30" mesh="seat_back_r__crew_decal_seat30" material="crew_decal_seat30" />
+        <geom class="visual" name="seat_back_r__crew_edge_tape" mesh="seat_back_r__crew_edge_tape" material="crew_edge_tape" />
+        <geom class="visual" name="seat_back_r__crew_knob_white" mesh="seat_back_r__crew_knob_white" material="crew_knob_white" />
+        <geom class="visual" name="seat_back_r__crew_lacing" mesh="seat_back_r__crew_lacing" material="crew_lacing" />
+        <geom class="visual" name="seat_back_r__crew_strap_brown" mesh="seat_back_r__crew_strap_brown" material="crew_strap_brown" />
+        <geom class="visual" name="seat_back_r__crew_velcro_hook" mesh="seat_back_r__crew_velcro_hook" material="crew_velcro_hook" />
+        <geom class="visual" name="seat_back_r__crew_velcro_tan" mesh="seat_back_r__crew_velcro_tan" material="crew_velcro_tan" />
+        <geom class="visual" name="seat_back_r__crew_velcro_white" mesh="seat_back_r__crew_velcro_white" material="crew_velcro_white" />
+        <geom class="visual" name="seat_back_r__crew_webbing_olive" mesh="seat_back_r__crew_webbing_olive" material="crew_webbing_olive" />
+        <geom class="visual" name="seat_back_r__crew_webbing_white" mesh="seat_back_r__crew_webbing_white" material="crew_webbing_white" />
+      </body>
+    </body>
+  </worldbody>
+  <equality>
+    <connect name="lf_upper_ball_0" body1="lf_upper_arm" body2="lf_upright" anchor="-0.05 0.288036 -0.028702" solref="0.004 1" />
+    <connect name="lf_upper_ball_1" body1="lf_upper_arm" body2="lf_upright" anchor="0.05 0.288036 -0.028702" solref="0.004 1" />
+    <connect name="lf_damper_clevis_0" body1="lf_upper_arm" body2="lf_damper_rod" anchor="-0.02 0.178582 -0.017795" solref="0.004 1" />
+    <connect name="lf_damper_clevis_1" body1="lf_upper_arm" body2="lf_damper_rod" anchor="0.08 0.178582 -0.017795" solref="0.004 1" />
+    <connect name="rf_upper_ball_0" body1="rf_upper_arm" body2="rf_upright" anchor="-0.05 -0.288036 -0.028702" solref="0.004 1" />
+    <connect name="rf_upper_ball_1" body1="rf_upper_arm" body2="rf_upright" anchor="0.05 -0.288036 -0.028702" solref="0.004 1" />
+    <connect name="rf_damper_clevis_0" body1="rf_upper_arm" body2="rf_damper_rod" anchor="-0.02 -0.178582 -0.017795" solref="0.004 1" />
+    <connect name="rf_damper_clevis_1" body1="rf_upper_arm" body2="rf_damper_rod" anchor="0.08 -0.178582 -0.017795" solref="0.004 1" />
+    <connect name="lr_upper_ball_0" body1="lr_upper_arm" body2="lr_upright" anchor="-0.05 0.288036 -0.028702" solref="0.004 1" />
+    <connect name="lr_upper_ball_1" body1="lr_upper_arm" body2="lr_upright" anchor="0.05 0.288036 -0.028702" solref="0.004 1" />
+    <connect name="lr_damper_clevis_0" body1="lr_upper_arm" body2="lr_damper_rod" anchor="-0.08 0.178582 -0.017795" solref="0.004 1" />
+    <connect name="lr_damper_clevis_1" body1="lr_upper_arm" body2="lr_damper_rod" anchor="0.02 0.178582 -0.017795" solref="0.004 1" />
+    <connect name="rr_upper_ball_0" body1="rr_upper_arm" body2="rr_upright" anchor="-0.05 -0.288036 -0.028702" solref="0.004 1" />
+    <connect name="rr_upper_ball_1" body1="rr_upper_arm" body2="rr_upright" anchor="0.05 -0.288036 -0.028702" solref="0.004 1" />
+    <connect name="rr_damper_clevis_0" body1="rr_upper_arm" body2="rr_damper_rod" anchor="-0.08 -0.178582 -0.017795" solref="0.004 1" />
+    <connect name="rr_damper_clevis_1" body1="rr_upper_arm" body2="rr_damper_rod" anchor="0.02 -0.178582 -0.017795" solref="0.004 1" />
+    <connect name="lf_tie_rod_ball_0" body1="lf_steer" body2="lf_tie_rod" anchor="-0.165319 -0.029894 -0.119" solref="0.004 1" />
+    <connect name="rf_tie_rod_ball_0" body1="rf_steer" body2="rf_tie_rod" anchor="-0.165319 0.029894 -0.119" solref="0.004 1" />
+    <connect name="lr_tie_rod_ball_0" body1="lr_steer" body2="lr_tie_rod" anchor="0.165319 -0.029894 -0.119" solref="0.004 1" />
+    <connect name="rr_tie_rod_ball_0" body1="rr_steer" body2="rr_tie_rod" anchor="0.165319 0.029894 -0.119" solref="0.004 1" />
+  </equality>
+  <actuator>
+    <position name="aft_steer_sector" joint="aft_steer_sector" kp="408.163265" kv="40.816327" ctrlrange="-0.813764 0.813764" forcerange="-142.857143 142.857143" />
+    <velocity name="lr_wheel" joint="lr_wheel" kv="200" ctrlrange="-14.262429 14.262429" forcerange="-60 60" />
+    <velocity name="rr_wheel" joint="rr_wheel" kv="200" ctrlrange="-14.262429 14.262429" forcerange="-60 60" />
+    <position name="fwd_steer_sector" joint="fwd_steer_sector" kp="408.163265" kv="40.816327" ctrlrange="-0.813764 0.813764" forcerange="-142.857143 142.857143" />
+    <position name="hga_az" joint="hga_az" kp="300" kv="30" ctrlrange="-3.141593 3.141593" forcerange="-30 30" />
+    <position name="hga_el" joint="hga_el" kp="300" kv="30" ctrlrange="-0.872665 0.698132" forcerange="-30 30" />
+    <velocity name="lf_wheel" joint="lf_wheel" kv="200" ctrlrange="-14.262429 14.262429" forcerange="-60 60" />
+    <velocity name="rf_wheel" joint="rf_wheel" kv="200" ctrlrange="-14.262429 14.262429" forcerange="-60 60" />
+    <position name="tv_pan" joint="tv_pan" kp="50" kv="5" ctrlrange="-2.338741 3.735005" forcerange="-2 2" />
+    <position name="tv_camera" joint="tv_camera" kp="50" kv="5" ctrlrange="-0.785398 1.48353" forcerange="-2 2" />
+    <position name="hc_steer" joint="hc_steer" kp="11" kv="0.3" ctrlrange="-0.244346 0.244346" forcerange="-5 5" />
+    <position name="hc_brake" joint="hc_brake" kp="90" kv="2" ctrlrange="0 0.523599" forcerange="-60 60" />
+    <position name="hc_throttle" joint="hc_throttle" kp="3" kv="0.5" ctrlrange="-0.244346 0.244346" forcerange="-2 2" />
+    <position name="hc_reverse_switch" joint="hc_reverse_switch" kp="0.05" kv="0.001" ctrlrange="0 0.436332" forcerange="-0.2 0.2" />
+    <position name="lga_staff" joint="lga_staff" kp="60" kv="6" ctrlrange="-3.141593 3.141593" forcerange="-8 8" />
+    <position name="lga_antenna" joint="lga_antenna" kp="60" kv="6" ctrlrange="-0.872665 0.698132" forcerange="-8 8" />
+  </actuator>
+  <contact>
+    <exclude body1="lf_upper_arm" body2="lf_upright" />
+    <exclude body1="lf_upper_arm" body2="lf_damper_rod" />
+    <exclude body1="rf_upper_arm" body2="rf_upright" />
+    <exclude body1="rf_upper_arm" body2="rf_damper_rod" />
+    <exclude body1="lr_upper_arm" body2="lr_upright" />
+    <exclude body1="lr_upper_arm" body2="lr_damper_rod" />
+    <exclude body1="rr_upper_arm" body2="rr_upright" />
+    <exclude body1="rr_upper_arm" body2="rr_damper_rod" />
+    <exclude body1="lf_steer" body2="lf_tie_rod" />
+    <exclude body1="rf_steer" body2="rf_tie_rod" />
+    <exclude body1="lr_steer" body2="lr_tie_rod" />
+    <exclude body1="rr_steer" body2="rr_tie_rod" />
+  </contact>
+</mujoco>
