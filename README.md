@@ -1,3 +1,4 @@
+[![Latest release](https://img.shields.io/github/v/release/alexmaietta/apollo-lrv-asset?label=release)](https://github.com/alexmaietta/apollo-lrv-asset/releases/latest)
 [![Code: Apache-2.0](https://img.shields.io/badge/code-Apache--2.0-blue.svg)](LICENSE)
 [![Assets: CC BY 4.0](https://img.shields.io/badge/assets-CC%20BY%204.0-lightgrey.svg)](assets/LICENSE)
 ![USD](https://img.shields.io/badge/format-OpenUSD-6a5acd.svg)
