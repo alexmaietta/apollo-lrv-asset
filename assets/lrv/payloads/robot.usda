@@ -175,7 +175,7 @@ over "lrv" (
     ]
     token isaac:robotType = "Wheeled"
     string isaac:source = "lrv repo (scripted Blender build: scripts/build.py)"
-    string isaac:version = "1.0.0"
+    string isaac:version = "1.0.1"
 
     over "Geometry"
     {

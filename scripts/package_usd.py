@@ -943,7 +943,7 @@ def write_interface(path, links, masses, extents):
         vs.SetVariantSelection(default)
     today = datetime.date.today().isoformat()
     meta = {
-        "author": "Alex Maietta", "asset_name": "lrv", "asset_type": "robot", "asset_license": "CC-BY-4.0",
+        "author": "Alex Maietta", "asset_name": "lrv", "asset_type": "robot", "asset_license": "CC0-1.0",
         "category": "vehicle", "source_file": "build/lrv.blend (scripts/build.py)", "usd_date_generated": today,
         "qcode": "Q275816", "rigid_body_count": len(links), "asset_extents": Gf.Vec3f(*extents),
         "mass": float(sum(m for m, _c, _i in masses.values())),

@@ -67,7 +67,7 @@ def main():
                 "| `lrv-urdf.zip` | URDF (`urdf/lrv.urdf`) with OBJ meshes and textures |\n"
                 "| `lrv-mjcf.zip` | MJCF (`mjcf/lrv.xml`, `mjcf/lrv_scene.xml`) with meshes and textures |\n"
                 "| `lrv-blend.zip` | Blender source model (`blender/lrv.blend`), textures packed |\n\n"
-                "Assets are licensed CC BY 4.0 (LICENSE and NOTICE in each zip). Checksums: `SHA256SUMS`.\n")
+                "Assets are dedicated to the public domain under CC0 1.0 (LICENSE and NOTICE in each zip). Checksums: `SHA256SUMS`.\n")
     print(f"release files in {out}")
 
 

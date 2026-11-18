@@ -3,10 +3,10 @@
     customLayerData = {
         dictionary SimReady_Metadata = {
             float3 asset_extents = (3.689882, 2.168, 2.4076092)
-            string asset_license = "CC-BY-4.0"
+            string asset_license = "CC0-1.0"
             string asset_name = "lrv"
             string asset_type = "robot"
-            string asset_version = "1.0.0"
+            string asset_version = "1.0.1"
             string author = "Alex Maietta"
             string category = "vehicle"
             double mass = 285.598
@@ -17,7 +17,7 @@
         }
         string asset_name = "lrv"
         string asset_type = "robot"
-        string asset_version = "1.0.0"
+        string asset_version = "1.0.1"
         string creator = "lrv pipeline (scripts/package_usd.py)"
         string source_file = "build/lrv.blend (scripts/build.py)"
         string usd_date_generated = "2026-10-10"

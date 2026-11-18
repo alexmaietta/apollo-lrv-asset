@@ -1,12 +1,11 @@
 [![Latest release](https://img.shields.io/github/v/release/alexmaietta/apollo-lrv-asset?label=release)](https://github.com/alexmaietta/apollo-lrv-asset/releases/latest)
-[![Code: Apache-2.0](https://img.shields.io/badge/code-Apache--2.0-blue.svg)](LICENSE)
-[![Assets: CC BY 4.0](https://img.shields.io/badge/assets-CC%20BY%204.0-lightgrey.svg)](assets/LICENSE)
+[![Code: BSD-3-Clause](https://img.shields.io/badge/code-BSD--3--Clause-blue.svg)](LICENSE)
+[![Assets: CC0 1.0](https://img.shields.io/badge/assets-CC0%201.0-lightgrey.svg)](assets/LICENSE)
 ![USD](https://img.shields.io/badge/format-OpenUSD-6a5acd.svg)
 ![URDF](https://img.shields.io/badge/format-URDF-22314e.svg)
 ![MJCF](https://img.shields.io/badge/format-MJCF-ff6f00.svg)
 ![Blender](https://img.shields.io/badge/format-Blender-e87d0d.svg?logo=blender&logoColor=white)
 ![SimReady](https://img.shields.io/badge/SimReady-Robot--Body%203.0.0-76b900.svg?logo=nvidia&logoColor=white)
-![Newton](https://img.shields.io/badge/Newton-1.6-76b900.svg)
 
 # Apollo Lunar Roving Vehicle (LRV-3, Apollo 17)
 
@@ -26,7 +25,7 @@ We also include decals for the US flag on the front fenders, the Control and Dis
 
 ## Quick Start
 
-Download the format you need (`lrv-usd`, `lrv-urdf`, `lrv-mjcf` or `lrv-blend`) from the [latest release](https://github.com/alexmaietta/apollo-lrv-asset/releases/latest). To pin a version, use `download/v1.0.0` instead of `latest/download`; each release includes `SHA256SUMS`.
+Download the format you need (`lrv-usd`, `lrv-urdf`, `lrv-mjcf` or `lrv-blend`) from the [latest release](https://github.com/alexmaietta/apollo-lrv-asset/releases/latest). To pin a version, use `download/v1.0.1` instead of `latest/download`; each release includes `SHA256SUMS`.
 
 ```sh
 curl -LO https://github.com/alexmaietta/apollo-lrv-asset/releases/latest/download/lrv-usd.zip
@@ -223,12 +222,12 @@ Reference photos are Smithsonian NASM Open Access images (CC0) and NASA Apollo 1
 
 Copyright 2026 Alex Maietta (see [`NOTICE`](NOTICE)).
 
-- **Code** (`scripts/`, `pipeline.sh`, `examples/`): [Apache License 2.0](LICENSE).
-- **Model assets** (`assets/`, `textures/gen/`) and **renders** (`docs/images/`): [Creative Commons Attribution 4.0 International (CC BY 4.0)](assets/LICENSE). Credit: "Apollo LRV model by Alex Maietta".
+- **Code** (`scripts/`, `pipeline.sh`, `examples/`): [BSD 3-Clause License](LICENSE).
+- **Model assets** (`assets/`, `textures/gen/`) and **renders** (`docs/images/`): dedicated to the public domain under [CC0 1.0 Universal](assets/LICENSE). Attribution is not required, but a credit like "Apollo LRV model by Alex Maietta" is appreciated.
 
 Third-party material:
 
-- `examples/newton/newton_viewer_materials.patch` modifies [Newton](https://github.com/newton-physics/newton) and, like the example script based on Newton's examples, is Apache-2.0, © The Newton Developers.
+- `examples/newton/newton_viewer_materials.patch` modifies [Newton](https://github.com/newton-physics/newton) and, like the example script based on Newton's examples, is Apache-2.0, © The Newton Developers (see [`examples/newton/LICENSE`](examples/newton/LICENSE)).
 - The reference photographs in [`docs/references/`](docs/references/) and in the comparison panels keep their own licences: Smithsonian National Air and Space Museum Open Access images are CC0, and NASA Apollo frames are public domain.
 
 This project is not affiliated with or endorsed by NASA or the Smithsonian Institution.

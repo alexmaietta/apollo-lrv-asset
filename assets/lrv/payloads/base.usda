@@ -16,7 +16,7 @@ def Xform "lrv" (
     prepend apiSchemas = ["IsaacRobotAPI", "GeomModelAPI", "SemanticsLabelsAPI:class", "SemanticsLabelsAPI:wikidata_qcode"]
     assetInfo = {
         string name = "lrv"
-        string version = "1.0.0"
+        string version = "1.0.1"
     }
     doc = "Apollo Lunar Roving Vehicle LRV-3 (Apollo 17), Boeing/GM 1971-72. Four-wheel drive with wire-mesh tires, double-Ackermann steering (motor-driven sector per axle, ball-jointed tie rods closed by loop joints), double-wishbone torsion-bar suspension (closed four-bar loops), T-handle hand controller, high-gain antenna, LCRU, GCTA TV camera and aft payload pallet. Geometry and materials from the A17 Systems Handbook, LRV Operations Handbook and Smithsonian NASM LRV qualification-unit photographs."
     kind = "component"
